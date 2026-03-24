@@ -1,5 +1,5 @@
 /* NordicWebFlow v2 — Premium Agency */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
   --orange:#E84400;
@@ -20,8 +20,8 @@
   --green:#16A34A;
   --blue:#2563EB;
   --purple:#7C3AED;
-  --font-display:'Syne',sans-serif;
-  --font-body:'DM Sans',system-ui,sans-serif;
+  --font-display:'Inter',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
   --radius:10px;
   --radius-lg:18px;
   --radius-xl:28px;
@@ -33,6 +33,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+em,i{font-style:normal}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{
   font-family:var(--font-body);background:var(--bg);color:var(--text);
