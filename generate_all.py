@@ -21,7 +21,7 @@ def TESTIMONIAL(extra_class=""):
       <div class="t-stars">★★★★★</div>
       <p class="t-text">Jeg kan klart anbefale Nordicwebflow. De har lavet min hjemmeside, og resultatet er virkelig imponerende. Designet er flot, stilrent og professionelt — og vigtigst af alt, så spiller det hele bare.<br><br>Siden er 100% SEO-optimeret, så jeg står stærkt på Google, og der er virkelig tænkt over detaljerne hele vejen igennem. Derudover har de også hjulpet mig med optimering af mine sociale medier, så min virksomhed fremstår professionel og skarp på alle platforme.<br><br>Hele processen har været professionel fra start til slut med god dialog, hurtig respons og styr på tingene. Jeg kan varmt anbefale dem til alle, der vil tage deres online tilstedeværelse til næste niveau.</p>
       <div class="t-author">
-        <img src="/images/wenneke.jpg" alt="Benjamin Wenneke — Ejer, Wenneke Tømrer &amp; Snedker ApS" class="t-avatar" width="52" height="52" loading="lazy">
+        <img src="/images/Colorful_Graffiti_Circle_Framed_Instagram_Profile_Picture__1_.png" alt="Benjamin Wenneke — Ejer, Wenneke Tømrer &amp; Snedker ApS" class="t-avatar" width="52" height="52" loading="lazy">
         <div>
           <div class="t-name">Benjamin Wenneke</div>
           <div class="t-role">Ejer, Wenneke Tømrer &amp; Snedker ApS</div>
@@ -67,7 +67,7 @@ def PARTNER_SECTION():
         <h2 style="margin-bottom:14px">Din faste digitale partner i <span style="color:var(--orange)">København</span></h2>
         <p style="margin-bottom:20px">Vi gemmer os ikke bag forvirrende bureau-sprog eller lange ventetider. Hos NordicWebFlow får du direkte kontakt til specialisterne, der bygger din nye hjemmeside og skalerer din forretning.</p>
         <div style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;">
-          <img src="/images/diego.jpg" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
+          <img src="/images/1771542850470.jpg" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
           <div>
             <div style="font-family:var(--font-display);font-weight:700;color:var(--white);font-size:1rem">Diego Maldonado</div>
             <div style="font-size:.82rem;color:var(--muted)">Stifter &amp; Digital Strateg</div>
@@ -211,7 +211,7 @@ def page_index():
         </div>
       </div>
       <div class="hero-visual fade-up d2">
-        <img src="/images/hero-laptop.jpg" alt="Professionelt webdesign og SEO optimering til danske virksomheder vist på en bærbar computer" class="hero-img" width="600" height="450" loading="eager">
+        <img src="/images/azwedo-l-lc-6uR0dkm3ya0-unsplash.jpg" alt="Professionelt webdesign og SEO optimering til danske virksomheder vist på en bærbar computer" class="hero-img" width="600" height="450" loading="eager">
         <div class="hero-float hero-float-br">
           <div class="float-score">97</div>
           <div class="float-lbl">PageSpeed Score</div>
@@ -514,7 +514,7 @@ def page_cases():
           <div style="font-size:.8rem;color:var(--muted)">Ejer, Wenneke Tømrer &amp; Snedker ApS</div>
         </div>
         <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;padding:32px">
-          <img src="/images/case-wenneke.jpg" alt="Wenneke Tømrer hjemmeside bygget af NordicWebFlow — professionelt webdesign til tømrere" style="border-radius:var(--radius-lg);border:1px solid var(--border);max-width:100%" width="500" height="350" loading="lazy">
+          <img src="/images/Image.png" alt="Wenneke Tømrer hjemmeside bygget af NordicWebFlow — professionelt webdesign til tømrere" style="border-radius:var(--radius-lg);border:1px solid var(--border);max-width:100%" width="500" height="350" loading="lazy">
         </div>
       </div>
     </div>
@@ -1253,7 +1253,7 @@ def build():
           ("Hvad koster en hjemmeside til tømrere?","Fra 14.999 kr. inkl. lokal SEO og 1 år hosting. Du ejer siden 100% — betalt én gang."),
           ("Kan jeg vise mine projekter på hjemmesiden?","Ja, vi bygger altid et projekt-galleri ind der viser dine bedste arbejder frem."),
           ("Vil en hjemmeside hjælpe mig med at få flere kunder?","Ja. En professionel hjemmeside med lokal SEO er den mest effektive investering du kan gøre for at tiltrække nye kunder i lokalområdet.")],
-         "carpenter.jpg","carpenter2.jpg",
+         "gabriel-alenius-cPDTVCsbxcg-unsplash.jpg","austin-ramsey-rbi4q0-b-8g-unsplash.jpg",
          [("Webdesign til murere","/murer"),("Webdesign til elektrikere","/elektriker")]),
 
         ("Tandlæge","tandlaege","🦷",
@@ -1263,7 +1263,7 @@ def build():
           ("Kan hjemmesiden integreres med mit bookingsystem?","Vi kan integrere med de fleste online bookingsystemer eller sætte en simpel kontaktformular op."),
           ("Rangerer tandlæge-hjemmesider godt på Google?","Med korrekt lokal SEO — ja. Vi optimerer for søgetermer som 'tandlæge København' og dit specifikke postnummer."),
           ("Hvad koster en hjemmeside til tandlæger?","Fra 14.999 kr. inkl. lokal SEO og 1 år hosting.")],
-         "dental.jpg","dental2.jpg",
+         "katarzyna-zygnerska-44jaETSVX2I-unsplash.jpg","jonathan-borba-v_2FRXEba94-unsplash.jpg",
          [("Webdesign til fysioterapeuter","/fysioterapeut"),("Lokal SEO","/ydelser/lokal-seo-koebenhavn")]),
 
         ("Advokat","advokat","⚖️",
@@ -1273,7 +1273,7 @@ def build():
           ("Kan hjemmesiden hjælpe med at tiltrække erhvervsklienter?","Ja. Med korrekt lokal SEO og B2B-fokuseret indhold kan vi tiltrække erhvervsklienter der søger specifik juridisk assistance."),
           ("Overholder hjemmesiden advokatrådets regler?","Vi er bekendt med reglerne for advokatmarkedsføring og bygger inden for disse rammer."),
           ("Hvad koster en advokat-hjemmeside?","Fra 14.999 kr. — vi anbefaler Professionel-pakken til 19.999 kr. for advokatkontorer.")],
-         "lawyer.jpg","lawyer2.jpg",
+         "patrick-fore-H5Lf0nGyetk-unsplash.jpg","ruthson-zimmerman-Ws4wd-vJ9M0-unsplash.jpg",
          [("Webdesign til revisorer","/revisor"),("Lokal SEO","/ydelser/lokal-seo-koebenhavn")]),
 
         ("Murer","murer","🧱",
@@ -1283,7 +1283,7 @@ def build():
           ("Kan I vise mine murerprojekter?","Ja — et professionelt projekt-galleri er centralt i alle vores branche-sider."),
           ("Hvad koster en hjemmeside til murere?","Fra 14.999 kr. inkl. lokal SEO og 1 år hosting."),
           ("Hvor hurtigt kan I lave min hjemmeside?","Typisk under 14 dage fra bestilling til lancering.")],
-         "carpenter.jpg","carpenter2.jpg",
+         "gabriel-alenius-cPDTVCsbxcg-unsplash.jpg","austin-ramsey-rbi4q0-b-8g-unsplash.jpg",
          [("Webdesign til tømrere","/toemrer"),("Webdesign til elektrikere","/elektriker")]),
 
         ("Elektriker","elektriker","⚡",
@@ -1293,7 +1293,7 @@ def build():
           ("Kan hjemmesiden tage imod akutte henvendelser?","Ja, vi bygger en prominent kontaktformular og evt. telefonnummer øverst på siden for akutte opgaver."),
           ("Hvad koster en elektriker-hjemmeside?","Fra 14.999 kr. inkl. lokal SEO og 1 år hosting."),
           ("Ejer jeg min hjemmeside?","Ja, 100%. Ingen bindende abonnementer.")],
-         "carpenter.jpg","carpenter2.jpg",
+         "gabriel-alenius-cPDTVCsbxcg-unsplash.jpg","austin-ramsey-rbi4q0-b-8g-unsplash.jpg",
          [("Webdesign til VVS","/vvs"),("Webdesign til malere","/maler")]),
 
         ("Maler","maler","🎨",
@@ -1303,7 +1303,7 @@ def build():
           ("Hvad er lokal SEO for malere?","Lokal SEO sikrer at din hjemmeside dukker op øverst når kunder søger 'maler København' eller 'maler [dit postnummer]'."),
           ("Hvad koster en maler-hjemmeside?","Fra 14.999 kr. inkl. lokal SEO og 1 år hosting."),
           ("Kan I hjælpe med Google Anmeldelser?","Ja, vi opsætter altid Google Business Profile og hjælper med at indhente anmeldelser.")],
-         "carpenter.jpg","office.jpg",
+         "gabriel-alenius-cPDTVCsbxcg-unsplash.jpg","unnamed__19_.jpg",
          [("Webdesign til tømrere","/toemrer"),("Webdesign til murere","/murer")]),
 
         ("VVS","vvs","🔧",
@@ -1313,7 +1313,7 @@ def build():
           ("Kan hjemmesiden vise mine VVS-ydelser?","Ja — vi strukturerer hjemmesiden med klare undersider for vandinstallation, fjernvarme, badeværelse og akutte opgaver."),
           ("Hvad koster en VVS-hjemmeside?","Fra 14.999 kr. inkl. lokal SEO og 1 år hosting."),
           ("Hvad er fordelen ved Framer frem for WordPress?","Framer leverer sub-1-sekunds loadtid og 97+ PageSpeed — afgørende for Google-placeringer.")],
-         "carpenter.jpg","carpenter2.jpg",
+         "gabriel-alenius-cPDTVCsbxcg-unsplash.jpg","austin-ramsey-rbi4q0-b-8g-unsplash.jpg",
          [("Webdesign til elektrikere","/elektriker"),("Webdesign til murere","/murer")]),
 
         ("Fysioterapeut","fysioterapeut","💪",
@@ -1323,7 +1323,7 @@ def build():
           ("Kan hjemmesiden integreres med MitID/online booking?","Vi kan integrere med de fleste bookingsystemer via embed eller link til dit bookingsystem."),
           ("Rangerer klinikker godt på Google?","Med lokal SEO — ja. Vi optimerer for 'fysioterapeut København' og dit specifikke område."),
           ("Hvad koster det?","Fra 14.999 kr. inkl. lokal SEO og 1 år hosting.")],
-         "doctor.jpg","office.jpg",
+         "gruescu-ovidiu-fWjqkOnfkgE-unsplash.jpg","unnamed__19_.jpg",
          [("Webdesign til tandlæger","/tandlaege"),("Webdesign til revisorer","/revisor")]),
 
         ("Revisor","revisor","📊",
@@ -1333,7 +1333,7 @@ def build():
           ("Kan I hjælpe med SEO til revisor-søgninger?","Ja — vi optimerer for 'revisor København', 'regnskab København' og andre relevante søgetermer."),
           ("Hvad koster en revisor-hjemmeside?","Fra 14.999 kr. — vi anbefaler Professionel-pakken til 19.999 kr. for revisionskontorer."),
           ("Ejer jeg min hjemmeside?","Ja, 100%. Ingen bindende abonnementer eller lock-in.")],
-         "analytics.jpg","office.jpg",
+         "1981-digital-oMe_FjZnHGU-unsplash.jpg","unnamed__19_.jpg",
          [("Webdesign til advokater","/advokat"),("Webdesign til fysioterapeuter","/fysioterapeut")]),
 
         ("Ejendomsmægler","ejendomsmaegler","🏠",
@@ -1343,7 +1343,7 @@ def build():
           ("Virker lokal SEO for ejendomsmæglere?","Absolut. 'Ejendomsmægler København' og lokale boligsøgninger er enormt konkurrenceudsatte — lokal SEO er afgørende."),
           ("Hvad koster en ejendomsmægler-hjemmeside?","Fra 14.999 kr. — vi anbefaler Professionel eller Premium+ til mæglere."),
           ("Ejer jeg hjemmesiden?","Ja, 100%. Du er ikke afhængig af dyre kæde-systemer.")],
-         "office.jpg","analytics.jpg",
+         "unnamed__19_.jpg","1981-digital-oMe_FjZnHGU-unsplash.jpg",
          [("Webdesign til revisorer","/revisor"),("Webdesign til advokater","/advokat")]),
 
         ("Arkitekt","arkitekt","📐",
@@ -1353,7 +1353,7 @@ def build():
           ("Kan I lave en portfolio-hjemmeside?","Ja — vi er specialister i at bygge visuelt overbevisende portfolios i Framer med lynhurtige billeder."),
           ("Hvad koster en arkitekt-hjemmeside?","Fra 14.999 kr. Vi anbefaler Premium+-pakken til arkitektkontorer."),
           ("Kan I hjælpe med SEO til arkitekt-søgninger?","Ja — vi optimerer for 'arkitekt København' og specifikke byggetypesøgninger.")],
-         "office.jpg","carpenter.jpg",
+         "unnamed__19_.jpg","gabriel-alenius-cPDTVCsbxcg-unsplash.jpg",
          [("Webdesign til advokater","/advokat"),("Webdesign til ejendomsmæglere","/ejendomsmaegler")]),
     ]
 
