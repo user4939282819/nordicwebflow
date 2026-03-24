@@ -14,9 +14,9 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
 
-# CSS — long cache with content hash
+# CSS — no cache so updates always show immediately
 /style.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 # Images — long cache
 /images/*
