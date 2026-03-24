@@ -1,40 +1,12 @@
 # NordicWebFlow — Cloudflare Pages URL routing
+# NOTE: Cloudflare Pages serves .html files at clean URLs automatically.
+# We only need special redirects here — NOT rules for existing pages.
 
-# Clean URLs (remove .html extension)
-/index          /               301
-/priser         /priser.html    200
-/cases          /cases.html     200
-/kontakt        /kontakt.html   200
-/faa-et-tilbud  /faa-et-tilbud.html 200
-/tak            /tak.html       200
-/legal          /legal.html     200
-/performancechecker /performancechecker.html 200
-/ydelser        /ydelser.html   200
-
-# Ydelser subpages
-/ydelser/lynhurtige-hjemmesider-framer  /ydelser/lynhurtige-hjemmesider-framer.html  200
-/ydelser/lokal-seo-koebenhavn           /ydelser/lokal-seo-koebenhavn.html           200
-/ydelser/google-meta-ads-koebenhavn     /ydelser/google-meta-ads-koebenhavn.html     200
-/ydelser/drift-og-sikkerhed             /ydelser/drift-og-sikkerhed.html             200
-
-# Trade pages
-/toemrer        /toemrer.html       200
-/tandlaege      /tandlaege.html     200
-/advokat        /advokat.html       200
-/murer          /murer.html         200
-/elektriker     /elektriker.html    200
-/maler          /maler.html         200
-/vvs            /vvs.html           200
-/fysioterapeut  /fysioterapeut.html 200
-/revisor        /revisor.html       200
-/ejendomsmaegler /ejendomsmaegler.html 200
-/arkitekt       /arkitekt.html      200
-
-# 301 redirect for Danish character URL → ASCII slug
+# Danish character URL → ASCII slug
 /ejendomsm%C3%A6gler  /ejendomsmaegler  301
 /ejendomsmægler        /ejendomsmaegler  301
 
-# Legacy redirects (in case old Framer URLs existed)
+# Legacy redirects
 /home           /               301
 /pricing        /priser         301
 /contact        /kontakt        301
