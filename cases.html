@@ -16,6 +16,7 @@
 <meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/style.css">
@@ -60,11 +61,11 @@
       <a href="/performancechecker">Gratis SEO-tjek</a>
       <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
     </div>
-    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
     <a href="/">Forside</a>
     <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
     <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
@@ -112,7 +113,7 @@
           </div>
           <div class="t-stars">★★★★★</div>
           <p style="color:var(--text);font-size:.93rem;line-height:1.8;margin-bottom:16px">"Jeg kan klart anbefale Nordicwebflow. De har lavet min hjemmeside, og resultatet er virkelig imponerende. Designet er flot, stilrent og professionelt — og vigtigst af alt, så spiller det hele bare."</p>
-          <div style="font-family:var(--font-display);font-weight:700;color:var(--white);font-size:.9rem">Benjamin Wenneke</div>
+          <div style="font-family:var(--font-display);font-weight:700;color:var(--heading);font-size:.9rem">Benjamin Wenneke</div>
           <div style="font-size:.8rem;color:var(--muted)">Ejer, Wenneke Tømrer &amp; Snedker ApS</div>
         </div>
         <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;padding:32px">
@@ -235,7 +236,13 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 // Hamburger
-const ham=document.querySelector('.hamburger');
-const mob=document.querySelector('.mobile-menu');
-if(ham)ham.addEventListener('click',()=>mob.classList.toggle('open'));
+const btn=document.getElementById('hamburger-btn');
+const mob=document.getElementById('mobile-menu');
+if(btn&&mob){
+  btn.addEventListener('click',()=>{
+    const open=mob.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');
+  });
+}
 </script></body></html>

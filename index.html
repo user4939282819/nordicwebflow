@@ -16,6 +16,7 @@
 <meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/style.css">
@@ -88,11 +89,11 @@
       <a href="/performancechecker">Gratis SEO-tjek</a>
       <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
     </div>
-    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
     <a href="/">Forside</a>
     <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
     <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
@@ -301,7 +302,7 @@
         <div style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;">
           <img src="/images/1771542850470.jpg" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
           <div>
-            <div style="font-family:var(--font-display);font-weight:700;color:var(--white);font-size:1rem">Diego Maldonado</div>
+            <div style="font-family:var(--font-display);font-weight:700;color:var(--heading);font-size:1rem">Diego Maldonado</div>
             <div style="font-size:.82rem;color:var(--muted)">Stifter &amp; Digital Strateg</div>
             <a href="mailto:hej@nordicwebflow.com" style="font-size:.8rem;color:var(--orange)">hej@nordicwebflow.com</a>
           </div>
@@ -326,8 +327,8 @@
       <h2>Vi kender din branche — <span>og dine kunder</span></h2>
       <p>Vi har dybdegående erfaring med at bygge hjemmesider og SEO til specifikke håndværks- og servicebrancher i København.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
-      <a href="/toemrer" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">🔨 Tømrer</a><a href="/tandlaege" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">🦷 Tandlæge</a><a href="/advokat" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">⚖️ Advokat</a><a href="/murer" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">🧱 Murer</a><a href="/elektriker" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">⚡ Elektriker</a><a href="/maler" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">🎨 Maler</a><a href="/vvs" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">🔧 VVS</a><a href="/fysioterapeut" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">💪 Fysioterapeut</a><a href="/revisor" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">📊 Revisor</a><a href="/ejendomsmaegler" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">🏠 Ejendomsmægler</a><a href="/arkitekt" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">📐 Arkitekt</a><a href="/ydelser" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor='var(--border-orange)'" onmouseout="this.style.borderColor='var(--border)'">→ Se alle</a>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px" class="industry-grid">
+      <a href="/toemrer" class="industry-link">🔨 Tømrer</a><a href="/tandlaege" class="industry-link">🦷 Tandlæge</a><a href="/advokat" class="industry-link">⚖️ Advokat</a><a href="/murer" class="industry-link">🧱 Murer</a><a href="/elektriker" class="industry-link">⚡ Elektriker</a><a href="/maler" class="industry-link">🎨 Maler</a><a href="/vvs" class="industry-link">🔧 VVS</a><a href="/fysioterapeut" class="industry-link">💪 Fysioterapeut</a><a href="/revisor" class="industry-link">📊 Revisor</a><a href="/ejendomsmaegler" class="industry-link">🏠 Ejendomsmægler</a><a href="/arkitekt" class="industry-link">📐 Arkitekt</a><a href="/ydelser" class="industry-link">→ Se alle</a>
     </div>
   </div>
 </section>
@@ -421,9 +422,15 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 // Hamburger
-const ham=document.querySelector('.hamburger');
-const mob=document.querySelector('.mobile-menu');
-if(ham)ham.addEventListener('click',()=>mob.classList.toggle('open'));
+const btn=document.getElementById('hamburger-btn');
+const mob=document.getElementById('mobile-menu');
+if(btn&&mob){
+  btn.addEventListener('click',()=>{
+    const open=mob.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');
+  });
+}
 </script>
 </body>
 </html>

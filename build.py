@@ -45,6 +45,7 @@ def head(title, desc, canonical, og_img="/images/og-default.jpg", extra=""):
 <meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/style.css">
@@ -90,11 +91,11 @@ def nav():
       <a href="/performancechecker">Gratis SEO-tjek</a>
       <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
     </div>
-    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
     <a href="/">Forside</a>
     <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
     <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
@@ -193,9 +194,15 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 // Hamburger
-const ham=document.querySelector('.hamburger');
-const mob=document.querySelector('.mobile-menu');
-if(ham)ham.addEventListener('click',()=>mob.classList.toggle('open'));
+const btn=document.getElementById('hamburger-btn');
+const mob=document.getElementById('mobile-menu');
+if(btn&&mob){
+  btn.addEventListener('click',()=>{
+    const open=mob.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');
+  });
+}
 </script>"""
 
 def schema_localbusiness():

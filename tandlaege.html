@@ -16,6 +16,7 @@
 <meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/style.css">
@@ -60,11 +61,11 @@
       <a href="/performancechecker">Gratis SEO-tjek</a>
       <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
     </div>
-    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
     <a href="/">Forside</a>
     <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
     <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
@@ -169,7 +170,7 @@
         <div style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;">
           <img src="/images/1771542850470.jpg" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
           <div>
-            <div style="font-family:var(--font-display);font-weight:700;color:var(--white);font-size:1rem">Diego Maldonado</div>
+            <div style="font-family:var(--font-display);font-weight:700;color:var(--heading);font-size:1rem">Diego Maldonado</div>
             <div style="font-size:.82rem;color:var(--muted)">Stifter &amp; Digital Strateg</div>
             <a href="mailto:hej@nordicwebflow.com" style="font-size:.8rem;color:var(--orange)">hej@nordicwebflow.com</a>
           </div>
@@ -273,7 +274,13 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 // Hamburger
-const ham=document.querySelector('.hamburger');
-const mob=document.querySelector('.mobile-menu');
-if(ham)ham.addEventListener('click',()=>mob.classList.toggle('open'));
+const btn=document.getElementById('hamburger-btn');
+const mob=document.getElementById('mobile-menu');
+if(btn&&mob){
+  btn.addEventListener('click',()=>{
+    const open=mob.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');
+  });
+}
 </script></body></html>

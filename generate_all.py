@@ -69,7 +69,7 @@ def PARTNER_SECTION():
         <div style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;">
           <img src="/images/1771542850470.jpg" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
           <div>
-            <div style="font-family:var(--font-display);font-weight:700;color:var(--white);font-size:1rem">Diego Maldonado</div>
+            <div style="font-family:var(--font-display);font-weight:700;color:var(--heading);font-size:1rem">Diego Maldonado</div>
             <div style="font-size:.82rem;color:var(--muted)">Stifter &amp; Digital Strateg</div>
             <a href="mailto:hej@nordicwebflow.com" style="font-size:.8rem;color:var(--orange)">hej@nordicwebflow.com</a>
           </div>
@@ -354,8 +354,8 @@ def page_index():
       <h2>Vi kender din branche — <span>og dine kunder</span></h2>
       <p>Vi har dybdegående erfaring med at bygge hjemmesider og SEO til specifikke håndværks- og servicebrancher i København.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
-      {"".join([f'<a href="/{slug}" style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--t)" onmouseover="this.style.borderColor=\'var(--border-orange)\'" onmouseout="this.style.borderColor=\'var(--border)\'">{icon} {name}</a>' for name,slug,icon in [
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px" class="industry-grid">
+      {"".join([f'<a href="/{slug}" class="industry-link">{icon} {name}</a>' for name,slug,icon in [
         ("Tømrer","toemrer","🔨"),("Tandlæge","tandlaege","🦷"),("Advokat","advokat","⚖️"),
         ("Murer","murer","🧱"),("Elektriker","elektriker","⚡"),("Maler","maler","🎨"),
         ("VVS","vvs","🔧"),("Fysioterapeut","fysioterapeut","💪"),("Revisor","revisor","📊"),
@@ -430,7 +430,7 @@ def page_priser():
       <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;padding:4px 16px;border-radius:999px;font-size:.73rem;font-weight:700;white-space:nowrap;font-family:var(--font-display)">Mest Efterspurgte</div>
       <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px">
         <span style="font-size:.95rem;color:var(--muted2);text-decoration:line-through">4.000 kr./md.</span>
-        <span style="font-family:var(--font-display);font-weight:800;font-size:2.4rem;color:var(--white)">1.999</span>
+        <span style="font-family:var(--font-display);font-weight:800;font-size:2.4rem;color:var(--heading)">1.999</span>
         <span style="color:var(--muted)">kr./md.</span>
       </div>
       <p style="font-size:.85rem;color:var(--muted);margin-bottom:24px">Månedligt abonnement — ingen bindingsperiode. Opsig med 30 dages varsel.</p>
@@ -510,7 +510,7 @@ def page_cases():
           </div>
           <div class="t-stars">★★★★★</div>
           <p style="color:var(--text);font-size:.93rem;line-height:1.8;margin-bottom:16px">"Jeg kan klart anbefale Nordicwebflow. De har lavet min hjemmeside, og resultatet er virkelig imponerende. Designet er flot, stilrent og professionelt — og vigtigst af alt, så spiller det hele bare."</p>
-          <div style="font-family:var(--font-display);font-weight:700;color:var(--white);font-size:.9rem">Benjamin Wenneke</div>
+          <div style="font-family:var(--font-display);font-weight:700;color:var(--heading);font-size:.9rem">Benjamin Wenneke</div>
           <div style="font-size:.8rem;color:var(--muted)">Ejer, Wenneke Tømrer &amp; Snedker ApS</div>
         </div>
         <div style="background:var(--bg3);display:flex;align-items:center;justify-content:center;padding:32px">
@@ -723,7 +723,7 @@ def page_kontakt():
         <div style="background:var(--card2);border:1px solid var(--border-orange);border-radius:var(--radius-lg);padding:24px">
           <div class="t-stars" style="margin-bottom:10px">★★★★★</div>
           <p style="font-size:.87rem;color:var(--text);line-height:1.7;margin-bottom:14px">"Hele processen har været professionel fra start til slut med god dialog, hurtig respons og styr på tingene."</p>
-          <div style="font-size:.82rem;font-weight:700;color:var(--white)">Benjamin Wenneke</div>
+          <div style="font-size:.82rem;font-weight:700;color:var(--heading)">Benjamin Wenneke</div>
           <div style="font-size:.75rem;color:var(--muted)">Ejer, Wenneke Tømrer &amp; Snedker ApS</div>
         </div>
         <div class="card" style="margin-top:20px">
@@ -908,7 +908,7 @@ def page_ydelser_hub():
         ("📊","Google &amp; Meta Ads København","/ydelser/google-meta-ads-koebenhavn","Få kunder i morgen. Vi opsætter og styrer dine annoncekampagner."),
         ("🛡️","Drift &amp; Sikkerhed","/ydelser/drift-og-sikkerhed","Vi holder din hjemmeside hurtig, sikker og opdateret."),
     ]
-    cards = ''.join([f'<div class="card"><div class="card-icon">{icon}</div><h3><a href="{url}" style="color:var(--white)">{name}</a></h3><p style="margin:8px 0 14px;font-size:.9rem">{desc}</p><a href="{url}" style="color:var(--orange);font-size:.87rem">Læs mere →</a></div>' for icon,name,url,desc in ydelser])
+    cards = ''.join([f'<div class="card"><div class="card-icon">{icon}</div><h3><a href="{url}" style="color:var(--heading)">{name}</a></h3><p style="margin:8px 0 14px;font-size:.9rem">{desc}</p><a href="{url}" style="color:var(--orange);font-size:.87rem">Læs mere →</a></div>' for icon,name,url,desc in ydelser])
     return head("Ydelser — Webdesign, Lokal SEO & Google Ads | NordicWebFlow","Se alle NordicWebFlows ydelser: premium hjemmesider i Framer, lokal SEO i København, Google & Meta Ads og drift. Fra 2.999 kr.","/ydelser") + f"""
 <body>
 {NAV()}
