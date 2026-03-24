@@ -15,6 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="/images/hero-mockup.webp" type="image/webp">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#FAFAF8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,6 +50,8 @@
           <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
           <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
           <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
+          <a href="/app-udvikling">App Udvikling</a>
+          <a href="/app-udvikling">App Udvikling</a>
           </div>
         </div>
       </div>
@@ -84,6 +87,7 @@
     <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
     <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
     <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
+    <a href="/app-udvikling">App Udvikling</a>
     <a href="/toemrer">Tømrer</a><a href="/tandlaege">Tandlæge</a>
     <a href="/advokat">Advokat</a><a href="/murer">Murer</a>
     <a href="/elektriker">Elektriker</a><a href="/maler">Maler</a>
@@ -141,14 +145,30 @@
           </div>
         </div>
         <div class="hero-visual-col reveal-right d2">
-          <div class="hero-mockup" id="hero-mockup">
+          <!-- Morphing blob background -->
+          <svg class="hero-blob" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;inset:-15%;width:130%;height:130%;z-index:0;opacity:.12;pointer-events:none">
+            <defs>
+              <linearGradient id="blob-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#E84400"/>
+                <stop offset="50%" style="stop-color:#2563EB"/>
+                <stop offset="100%" style="stop-color:#7C3AED"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#blob-grad)">
+              <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450Q159,406,99.5,356Q40,306,40.5,235Q41,164,89,107Q137,50,210.5,34Q284,18,345,62.5Q406,107,435,178.5Q464,250,440.5,320.5Z;M453.78,319.01Q414,388,348.5,434Q283,480,216,437.5Q149,395,98.5,347.5Q48,300,40,225Q32,150,92.5,99.5Q153,49,222.5,42Q292,35,348,82Q404,129,445.78,189.5Q487.56,250,453.78,319.01Z;M411,314Q400,378,342.5,427Q285,476,219.5,445.5Q154,415,104,363.5Q54,312,46.5,237.5Q39,163,96.5,109Q154,55,224,47.5Q294,40,348.5,84.5Q403,129,412,189.5Q421,250,411,314Z;M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450Q159,406,99.5,356Q40,306,40.5,235Q41,164,89,107Q137,50,210.5,34Q284,18,345,62.5Q406,107,435,178.5Q464,250,440.5,320.5Z"/>
+            </path>
+          </svg>
+          <div class="hero-mockup" id="hero-mockup" style="position:relative;z-index:1">
             <div class="mockup-bar">
               <div class="mockup-dots"><span></span><span></span><span></span></div>
               <div class="mockup-url">nordicwebflow.com</div>
             </div>
-            <img src="/images/azwedo-l-lc-6uR0dkm3ya0-unsplash.jpg"
-              alt="Professionelt webdesign til danske virksomheder"
-              class="mockup-img" width="600" height="375" loading="eager" fetchpriority="high">
+            <picture>
+              <source srcset="/images/hero-mockup.webp" type="image/webp">
+              <img src="/images/hero-mockup.jpg"
+                alt="Professionelt webdesign til danske virksomheder"
+                class="mockup-img" width="655" height="409" loading="eager" fetchpriority="high" decoding="async">
+            </picture>
           </div>
           <div class="hero-float hero-float-1">
             <div class="float-score">97</div>
@@ -335,7 +355,7 @@
       <div class="t-stars">★★★★★</div>
       <p class="t-text">Jeg kan klart anbefale Nordicwebflow. De har lavet min hjemmeside, og resultatet er virkelig imponerende. Designet er flot, stilrent og professionelt — og vigtigst af alt, så spiller det hele bare.<br><br>Siden er 100% SEO-optimeret, så jeg står stærkt på Google, og der er virkelig tænkt over detaljerne hele vejen igennem. Hele processen har været professionel fra start til slut med god dialog, hurtig respons og styr på tingene.</p>
       <div class="t-author">
-        <img src="/images/Colorful_Graffiti_Circle_Framed_Instagram_Profile_Picture__1_.png" alt="Benjamin Wenneke — Ejer, Wenneke Tømrer &amp; Snedker ApS" class="t-avatar" width="52" height="52" loading="lazy">
+        <img src="/images/Colorful_Graffiti_Circle_Framed_Instagram_Profile_Picture__1_.png" alt="WTS Byg logo — Wenneke Tømrer &amp; Snedker ApS" class="t-avatar" style="border-radius:12px;background:#fff;padding:4px" width="52" height="52" loading="lazy">
         <div>
           <div class="t-name">Benjamin Wenneke</div>
           <div class="t-role">Ejer, Wenneke Tømrer &amp; Snedker ApS</div>
@@ -377,7 +397,7 @@
           <img src="/images/1771542850470.jpg" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);flex-shrink:0" width="64" height="64" loading="lazy">
           <div>
             <div style="font-family:var(--font-display);font-weight:700;color:#fff;font-size:1rem">Diego Maldonado</div>
-            <div style="font-size:.82rem;color:rgba(255,255,255,.5);margin-top:2px">Stifter &amp; Digital Strateg</div>
+            <div style="font-size:.82rem;color:rgba(255,255,255,.7);margin-top:2px">Stifter &amp; Digital Strateg</div>
             <a href="mailto:hej@nordicwebflow.com" style="font-size:.8rem;color:var(--orange)">hej@nordicwebflow.com</a>
           </div>
         </div>
@@ -439,6 +459,7 @@
     <div class="internal-links">
       <a href="/toemrer">Webdesign til tømrere</a>
       <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO København</a>
+      <a href="/app-udvikling">App Udvikling Danmark</a>
       <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO-tjek</a>
       <a href="/priser">Priser &amp; pakker</a>
       <a href="/cases">Cases &amp; resultater</a>
@@ -479,7 +500,9 @@
         <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
         <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
         <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
-        <h4 style="margin-top:20px">Sider</h4>
+          <a href="/app-udvikling">App Udvikling</a>
+        <a href="/app-udvikling">App Udvikling</a>
+        <h4 style="margin-top:20px;color:rgba(255,255,255,.6)">Sider</h4>
         <a href="/performancechecker">Gratis SEO Tjek</a>
         <a href="/priser">Priser</a>
         <a href="/cases">Cases</a>
@@ -490,26 +513,26 @@
         <a href="/kontakt">Kontaktformular</a>
         <a href="mailto:hej@nordicwebflow.com">hej@nordicwebflow.com</a>
         <a href="/faa-et-tilbud">Få et tilbud</a>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.3);margin-top:14px">København, Danmark<br>CVR: 46305639</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.6);margin-top:14px">København, Danmark<br>CVR: 46305639</p>
         <div style="display:flex;gap:8px;margin-top:16px">
           <a href="https://www.trustpilot.com/review/nordicwebflow.com" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:var(--orange);border:1px solid rgba(232,68,0,.3);padding:5px 12px;border-radius:999px">★ Trustpilot</a>
-          <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.1);padding:5px 12px;border-radius:999px">LinkedIn</a>
+          <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2);padding:5px 12px;border-radius:999px">LinkedIn</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 NordicWebFlow. Alle rettigheder forbeholdes.</span>
       <div style="display:flex;gap:16px">
-        <a href="/legal" style="color:rgba(255,255,255,.25)">Privatlivspolitik</a>
-        <a href="/legal" style="color:rgba(255,255,255,.25)">Cookiepolitik</a>
-        <a href="https://seotjek.dk" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.25)">Gratis SEO-analyseværktøj</a>
+        <a href="/legal" style="color:rgba(255,255,255,.6)">Privatlivspolitik</a>
+        <a href="/legal" style="color:rgba(255,255,255,.6)">Cookiepolitik</a>
+        <a href="https://seotjek.dk" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.6)">Gratis SEO-analyseværktøj</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-// --- CUSTOM CURSOR ---
+// --- CUSTOM CURSOR with smooth trail ---
 (function(){
   var c=document.getElementById('cursor');
   var r=document.getElementById('cursor-ring');
@@ -520,7 +543,7 @@
     c.style.left=mx+'px';c.style.top=my+'px';
   });
   function animRing(){
-    rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+    rx+=(mx-rx)*.08;ry+=(my-ry)*.08;
     r.style.left=rx+'px';r.style.top=ry+'px';
     requestAnimationFrame(animRing);
   }
@@ -530,8 +553,11 @@
 // --- NAV SCROLL ---
 (function(){
   var nav=document.getElementById('main-nav');
+  var last=0;
   window.addEventListener('scroll',function(){
-    nav.classList.toggle('scrolled',window.scrollY>40);
+    var y=window.scrollY;
+    nav.classList.toggle('scrolled',y>40);
+    last=y;
   },{passive:true});
 })();
 
@@ -555,9 +581,9 @@
       var r=card.getBoundingClientRect();
       var x=(e.clientX-r.left)/r.width;
       var y=(e.clientY-r.top)/r.height;
-      var tiltX=(y-.5)*10;
-      var tiltY=(x-.5)*-10;
-      card.style.transform='perspective(600px) rotateX('+tiltX+'deg) rotateY('+tiltY+'deg) translateY(-4px)';
+      var tiltX=(y-.5)*12;
+      var tiltY=(x-.5)*-12;
+      card.style.transform='perspective(600px) rotateX('+tiltX+'deg) rotateY('+tiltY+'deg) translateY(-6px)';
       card.style.setProperty('--mx',(x*100)+'%');
       card.style.setProperty('--my',(y*100)+'%');
     });
@@ -565,6 +591,82 @@
       card.style.transform='';
     });
   });
+})();
+
+// --- MAGNETIC BUTTONS ---
+(function(){
+  if(window.matchMedia('(max-width:860px)').matches)return;
+  document.querySelectorAll('.btn-primary,.btn-ghost,.nav-cta').forEach(function(btn){
+    btn.addEventListener('mousemove',function(e){
+      var r=btn.getBoundingClientRect();
+      var x=e.clientX-r.left-r.width/2;
+      var y=e.clientY-r.top-r.height/2;
+      btn.style.transform='translate('+x*.15+'px,'+y*.15+'px) translateY(-2px)';
+    });
+    btn.addEventListener('mouseleave',function(){
+      btn.style.transform='';
+    });
+  });
+})();
+
+// --- ANIMATED COUNTERS ---
+(function(){
+  var counted=false;
+  var proofNums=document.querySelectorAll('.proof-num');
+  if(!proofNums.length)return;
+  function animateNum(el){
+    var text=el.textContent.trim();
+    var num=parseInt(text);
+    if(isNaN(num))return;
+    var suffix=text.replace(String(num),'');
+    var start=0;var dur=1200;var startT=null;
+    function step(t){
+      if(!startT)startT=t;
+      var p=Math.min((t-startT)/dur,1);
+      var ease=1-Math.pow(1-p,3);
+      el.textContent=Math.round(start+(num-start)*ease)+suffix;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting&&!counted){
+        counted=true;
+        proofNums.forEach(animateNum);
+        obs.disconnect();
+      }
+    });
+  },{threshold:.5});
+  proofNums.forEach(function(el){obs.observe(el);});
+})();
+
+// --- PARALLAX FLOATS on scroll ---
+(function(){
+  if(window.matchMedia('(max-width:860px)').matches)return;
+  var f1=document.querySelector('.hero-float-1');
+  var f2=document.querySelector('.hero-float-2');
+  if(!f1||!f2)return;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y>800)return;
+    f1.style.transform='translateY('+(y*-.15)+'px)';
+    f2.style.transform='translateY('+(y*-.08)+'px)';
+  },{passive:true});
+})();
+
+// --- SMOOTH TEXT REVEAL on H1 words ---
+(function(){
+  var h1=document.querySelector('.hero h1');
+  if(!h1)return;
+  h1.style.opacity='1';
+  var lines=h1.innerHTML.split('<br>');
+  h1.innerHTML=lines.map(function(line,i){
+    return '<span style="display:inline-block;animation:word-up .7s '+(i*.15+.2)+'s ease both">'+line+'</span>';
+  }).join('<br>');
+  var style=document.createElement('style');
+  style.textContent='@keyframes word-up{from{opacity:0;transform:translateY(24px) scale(.96);filter:blur(6px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}';
+  document.head.appendChild(style);
 })();
 
 // --- FAQ ---
@@ -595,11 +697,11 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
   <div style="max-width:1160px;margin:0 auto;display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap">
     <div style="flex:1;min-width:260px">
       <p style="font-size:.88rem;color:#3A3530;line-height:1.6;margin:0 0 6px"><strong style="color:#111008">Vi bruger cookies 🍪</strong></p>
-      <p style="font-size:.82rem;color:#6A6360;line-height:1.55;margin:0">Vi bruger nødvendige cookies for at siden virker, og analytiske cookies (Google Analytics) for at forstå, hvordan besøgende bruger sitet — kun med dit samtykke. Læs mere i vores <a href="/legal" style="color:#E84400;text-decoration:underline">cookiepolitik</a>.</p>
+      <p style="font-size:.82rem;color:#504B47;line-height:1.55;margin:0">Vi bruger nødvendige cookies for at siden virker, og analytiske cookies (Google Analytics) for at forstå, hvordan besøgende bruger sitet — kun med dit samtykke. Læs mere i vores <a href="/legal" style="color:#C23A00;text-decoration:underline">cookiepolitik</a>.</p>
     </div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0">
       <button id="cookie-reject" style="padding:10px 20px;border-radius:8px;font-size:.84rem;font-weight:600;border:1.5px solid #D0C8BE;background:#fff;color:#3A3530;cursor:pointer;font-family:inherit;min-height:44px">Kun nødvendige</button>
-      <button id="cookie-accept" style="padding:10px 20px;border-radius:8px;font-size:.84rem;font-weight:600;border:none;background:#E84400;color:#fff;cursor:pointer;font-family:inherit;min-height:44px">Accepter alle</button>
+      <button id="cookie-accept" style="padding:10px 20px;border-radius:8px;font-size:.84rem;font-weight:700;border:none;background:#E84400;color:#fff;cursor:pointer;font-family:inherit;min-height:44px">Accepter alle</button>
     </div>
   </div>
 </div>
