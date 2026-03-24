@@ -1,9 +1,6 @@
 User-agent: *
 Allow: /
-
-# Disallow utility/thank-you pages from indexing
 Disallow: /tak
 Disallow: /404
 
-# Sitemap location
 Sitemap: https://nordicwebflow.com/sitemap.xml

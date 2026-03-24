@@ -88,7 +88,7 @@ def nav():
       </div>
       <a href="/priser">Priser</a>
       <a href="/cases">Cases</a>
-      <a href="/performancechecker">Gratis SEO-tjek</a>
+      <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO-tjek</a>
       <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
     </div>
     <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -108,6 +108,7 @@ def nav():
     <a href="/arkitekt">Arkitekt</a>
     <a href="/priser">Priser</a><a href="/cases">Cases</a>
     <a href="/kontakt">Kontakt</a>
+    <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO-tjek ↗</a>
     <a href="/faa-et-tilbud">Få et tilbud →</a>
   </div>
 </nav>"""
@@ -153,7 +154,7 @@ def footer():
         <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
         <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
         <h5 style="margin-top:20px">Sider</h5>
-        <a href="/performancechecker">Gratis SEO Tjek</a>
+        <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO Tjek</a>
         <a href="/">Forside</a>
         <a href="/priser">Priser</a>
         <a href="/cases">Cases</a>
@@ -167,16 +168,16 @@ def footer():
         <p style="font-size:.8rem;color:var(--muted2);margin-top:12px">København, Danmark<br>CVR: 46305639</p>
         <div style="display:flex;gap:8px;margin-top:16px">
           <a href="https://www.trustpilot.com/review/nordicwebflow.com" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:var(--orange);border:1px solid var(--border-orange);padding:4px 10px;border-radius:999px">★ Trustpilot</a>
-          <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:var(--muted);border:1px solid var(--border);padding:4px 10px;border-radius:999px">LinkedIn</a>
+          <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15);padding:4px 10px;border-radius:999px">LinkedIn</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 NordicWebFlow. Alle rettigheder forbeholdes.</span>
       <div style="display:flex;gap:16px">
-        <a href="/legal" style="color:var(--muted2)">Privatlivspolitik</a>
-        <a href="/legal" style="color:var(--muted2)">Cookiepolitik</a>
-        <a href="https://seotjek.dk" target="_blank" rel="noopener noreferrer" style="color:var(--muted2)">Gratis SEO-analyseværktøj</a>
+        <a href="/legal" style="color:rgba(255,255,255,.3)">Privatlivspolitik</a>
+        <a href="/legal" style="color:rgba(255,255,255,.3)">Cookiepolitik</a>
+        <a href="https://seotjek.dk" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.3)">Gratis SEO-analyseværktøj</a>
       </div>
     </div>
   </div>
