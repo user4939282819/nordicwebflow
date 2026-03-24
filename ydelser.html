@@ -19,6 +19,8 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
 <link rel="stylesheet" href="/style.css">
 
 </head>
@@ -58,7 +60,7 @@
       </div>
       <a href="/priser">Priser</a>
       <a href="/cases">Cases</a>
-      <a href="/performancechecker">Gratis SEO-tjek</a>
+      <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO-tjek</a>
       <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
     </div>
     <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -78,9 +80,11 @@
     <a href="/arkitekt">Arkitekt</a>
     <a href="/priser">Priser</a><a href="/cases">Cases</a>
     <a href="/kontakt">Kontakt</a>
+    <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO-tjek ↗</a>
     <a href="/faa-et-tilbud">Få et tilbud →</a>
   </div>
 </nav>
+<main id="main-content">
 <div class="page-hero">
   <div class="container">
     <span class="badge badge-orange">Vores Ydelser</span>
@@ -100,7 +104,7 @@
       <p>Et gratis SEO-tjek fortæller dig, hvad der er galt. Vi bygger løsningen. Har du brug for en professionel hjemmeside, der indlæses på under ét sekund og rangerer lokalt på Google?</p>
       <div class="cta-actions">
         <a href="/faa-et-tilbud" class="btn btn-primary btn-lg">Få et gratis tilbud →</a>
-        <a href="/performancechecker" class="btn btn-ghost btn-lg">Gratis SEO-tjek</a>
+        <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Gratis SEO-tjek</a>
       </div>
     </div>
   </div>
@@ -110,6 +114,7 @@
   <p>NordicWebFlow tilbyder professionelt webdesign i Framer, lokal SEO i København og Google & Meta Ads til lokale virksomheder. Brug vores gratis SEO-analyseværktøj på seotjek.dk.</p>
   <div class="internal-links"><a href="/priser">Priser</a> · <a href="/cases">Cases</a> · <a href="https://seotjek.dk">Gratis SEO-tjek</a> · <a href="/kontakt">Kontakt</a></div>
 </div>
+</main>
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -141,7 +146,7 @@
         <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
         <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
         <h5 style="margin-top:20px">Sider</h5>
-        <a href="/performancechecker">Gratis SEO Tjek</a>
+        <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO Tjek</a>
         <a href="/">Forside</a>
         <a href="/priser">Priser</a>
         <a href="/cases">Cases</a>
@@ -188,4 +193,48 @@ if(btn&&mob){
     btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');
   });
 }
-</script></body></html>
+</script><!-- GDPR Cookie Banner -->
+<div id="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie-samtykke" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;border-top:2px solid #E84400;box-shadow:0 -4px 24px rgba(0,0,0,.12);padding:20px 24px;font-family:'Inter',system-ui,sans-serif">
+  <div style="max-width:1160px;margin:0 auto;display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+      <p style="font-size:.88rem;color:#3A3530;line-height:1.6;margin:0 0 6px"><strong style="color:#111008">Vi bruger cookies 🍪</strong></p>
+      <p style="font-size:.82rem;color:#6A6360;line-height:1.55;margin:0">Vi bruger nødvendige cookies for at siden virker, og analytiske cookies (Google Analytics) for at forstå, hvordan besøgende bruger sitet — kun med dit samtykke. Læs mere i vores <a href="/legal" style="color:#E84400;text-decoration:underline">cookiepolitik</a>.</p>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0">
+      <button id="cookie-reject" style="padding:10px 20px;border-radius:8px;font-size:.84rem;font-weight:600;border:1.5px solid #D0C8BE;background:#fff;color:#3A3530;cursor:pointer;font-family:inherit;min-height:44px">Kun nødvendige</button>
+      <button id="cookie-accept" style="padding:10px 20px;border-radius:8px;font-size:.84rem;font-weight:600;border:none;background:#E84400;color:#fff;cursor:pointer;font-family:inherit;min-height:44px">Accepter alle</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var CONSENT_KEY='nwf_cookie_consent';
+  var consent=localStorage.getItem(CONSENT_KEY);
+  var banner=document.getElementById('cookie-banner');
+  function loadGA(){
+    if(document.getElementById('ga-script'))return;
+    var s=document.createElement('script');
+    s.id='ga-script';s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());gtag('config','G-XXXXXXXX',{anonymize_ip:true});
+  }
+  if(consent==='accepted'){loadGA();return;}
+  if(consent==='rejected'){return;}
+  if(banner){
+    banner.style.display='block';
+    document.getElementById('cookie-accept').addEventListener('click',function(){
+      localStorage.setItem(CONSENT_KEY,'accepted');
+      banner.style.display='none';
+      loadGA();
+    });
+    document.getElementById('cookie-reject').addEventListener('click',function(){
+      localStorage.setItem(CONSENT_KEY,'rejected');
+      banner.style.display='none';
+    });
+  }
+})();
+</script>
+</body></html>
