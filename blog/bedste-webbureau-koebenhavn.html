@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
+<script>!function(){var t=localStorage.getItem("nwf-theme");t&&document.documentElement.setAttribute("data-theme",t)}();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sådan Vælger du det Bedste Webbureau i København — 10 Spørgsmål | NordicWebFlow Blog</title>
@@ -90,5 +91,6 @@
 document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});if(!isOpen)item.classList.add('open');});});
 (function(){var btn=document.getElementById('hamburger-btn');var mob=document.getElementById('mobile-menu');if(!btn||!mob)return;btn.addEventListener('click',function(){var open=mob.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');});})();
 </script>
+<script src="/dark-mode.js" defer></script>
 </body>
 </html>

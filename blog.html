@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
+<script>!function(){var t=localStorage.getItem("nwf-theme");t&&document.documentElement.setAttribute("data-theme",t)}();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Blog — Webdesign, SEO & App Udvikling Guides | NordicWebFlow</title>
@@ -121,5 +122,6 @@
 (function(){var nav=document.getElementById('main-nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});})();
 (function(){var btn=document.getElementById('hamburger-btn');var mob=document.getElementById('mobile-menu');if(!btn||!mob)return;btn.addEventListener('click',function(){var open=mob.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');});})();
 </script>
+<script src="/dark-mode.js" defer></script>
 </body>
 </html>

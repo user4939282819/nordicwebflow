@@ -666,6 +666,127 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 #cookie-accept{background:#C23A00!important}
 a[href*="linkedin.com"] span{color:#fff!important}
 
+/* ============================================================
+   DARK / LIGHT MODE TOGGLE
+   ============================================================ */
+
+/* Toggle button */
+.theme-toggle-btn{
+  width:38px;height:38px;border-radius:10px;
+  border:1.5px solid var(--border);background:var(--bg2);
+  color:var(--muted);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all var(--t);flex-shrink:0;padding:0;
+}
+.theme-toggle-btn:hover{
+  border-color:var(--orange);color:var(--orange);
+  background:var(--orange-light);transform:scale(1.06);
+}
+/* Light mode → show moon (click to go dark) */
+.theme-toggle-btn .icon-sun{display:none}
+.theme-toggle-btn .icon-moon{display:block}
+/* Dark mode → show sun (click to go light) */
+[data-theme="dark"] .theme-toggle-btn .icon-sun{display:block}
+[data-theme="dark"] .theme-toggle-btn .icon-moon{display:none}
+
+/* ── CSS custom property overrides ── */
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F0E0C;
+  --bg2:#191714;
+  --card:#1D1B17;
+  --border:#2C2922;
+  --border-strong:#3D3A30;
+  --border-orange:rgba(232,68,0,.35);
+  --heading:#F2EDE7;
+  --text:#C0BAB2;
+  --muted:#7A756E;
+  --muted2:#5E5A54;
+  --orange-light:rgba(232,68,0,.13);
+  --orange-mid:rgba(232,68,0,.28);
+  --orange-glow:rgba(232,68,0,.22);
+  --shadow:0 1px 4px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.3);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.5);
+  --shadow-orange:0 8px 32px rgba(232,68,0,.4);
+}
+
+/* ── Nav ── */
+[data-theme="dark"] nav.scrolled,
+[data-theme="dark"] .page-inner nav{background:rgba(12,11,9,.9)}
+[data-theme="dark"] .nav-links a:not(.nav-cta){background:rgba(12,11,9,.6)}
+[data-theme="dark"] nav.scrolled .nav-links a:not(.nav-cta),
+[data-theme="dark"] .page-inner nav .nav-links a:not(.nav-cta){background:transparent}
+[data-theme="dark"] .nav-links a:not(.nav-cta):hover{background:var(--bg2)}
+[data-theme="dark"] .dropdown-menu-inner{background:var(--card);border-color:var(--border)}
+[data-theme="dark"] .dropdown-menu a{color:var(--text)}
+[data-theme="dark"] .mobile-menu{background:var(--bg);border-color:var(--border)}
+[data-theme="dark"] .mobile-menu a{border-color:var(--border)}
+[data-theme="dark"] .nav-logo-text{color:var(--heading)}
+[data-theme="dark"] .hamburger span{background:var(--heading)}
+
+/* ── Hero ── */
+[data-theme="dark"] .hero-tag{background:var(--card);border-color:var(--border)}
+[data-theme="dark"] .hero-float{
+  background:rgba(25,23,18,.92);
+  border-color:rgba(255,255,255,.08);
+}
+[data-theme="dark"] .hero-grid-lines{
+  background-image:
+    linear-gradient(to right,rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(255,255,255,.028) 1px,transparent 1px);
+}
+
+/* ── Cards ── */
+[data-theme="dark"] .card{background:var(--card);border-color:var(--border)}
+
+/* ── Process ── */
+[data-theme="dark"] .process-num-wrap{background:var(--card)}
+
+/* ── Page hero (inner pages) ── */
+[data-theme="dark"] .page-hero{
+  background:linear-gradient(150deg,var(--bg) 55%,rgba(232,68,0,.07) 100%);
+}
+
+/* ── Pricing ── */
+[data-theme="dark"] .pricing-card{background:var(--card);border-color:var(--border)}
+[data-theme="dark"] .pricing-card.featured{border-color:var(--orange)}
+
+/* ── SEO CTA widget (inline background:#fff) ── */
+[data-theme="dark"] .seo-cta-grid>div:last-child{
+  background:var(--card)!important;border-color:var(--border)!important;
+}
+
+/* ── SEO block ── */
+[data-theme="dark"] .seo-block p{color:var(--muted)!important}
+
+/* ── Always-dark sections stay near-black in dark mode
+      (footer/partner/ticker use var(--heading) which flips to off-white) ── */
+[data-theme="dark"] footer,
+[data-theme="dark"] .partner-section-bg{background:#080705}
+[data-theme="dark"] .ticker-wrap{background:#070604}
+[data-theme="dark"] .ticker-wrap::before{background:linear-gradient(to right,#070604,transparent)}
+[data-theme="dark"] .ticker-wrap::after{background:linear-gradient(to left,#070604,transparent)}
+
+/* ── Cookie banner ── */
+[data-theme="dark"] #cookie-banner{
+  background:var(--card)!important;border-top-color:var(--orange)!important;
+}
+[data-theme="dark"] #cookie-banner,
+[data-theme="dark"] #cookie-banner p,
+[data-theme="dark"] #cookie-banner label,
+[data-theme="dark"] #cookie-banner span{color:var(--text)!important}
+[data-theme="dark"] #cookie-banner a{color:var(--orange)!important}
+[data-theme="dark"] #cookie-reject,
+[data-theme="dark"] #cookie-selected{
+  background:var(--bg2)!important;color:var(--text)!important;
+  border-color:var(--border)!important;
+}
+
+/* ── Smooth switching transition (added/removed by JS) ── */
+html.switching,html.switching *{
+  transition:background-color .22s ease,color .22s ease,border-color .22s ease!important;
+}
+
 /* REDUCED MOTION */
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
