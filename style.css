@@ -639,6 +639,10 @@ footer{background:var(--heading);padding:72px 0 32px}
 /* ACCESSIBILITY */
 a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-radius:4px}
 
+/* ACCESSIBILITY FIXES */
+#cookie-accept{background:#C23A00!important}
+a[href*="linkedin.com"] span{color:#fff!important}
+
 /* REDUCED MOTION */
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
