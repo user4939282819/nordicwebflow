@@ -26,6 +26,10 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad koster det at få udviklet en app?","acceptedAnswer":{"@type":"Answer","text":"Prisen afhænger af appens kompleksitet. Prisen afhænger af funktioner, platforme og kompleksitet. En simpel app kræver ca. 200 udviklingstimer, en avanceret app 300+ timer. Vi giver altid en fast projektpris efter en gratis og uforpligtende afklaring."}},{"@type":"Question","name":"Hvor lang tid tager det at udvikle en app?","acceptedAnswer":{"@type":"Answer","text":"En simpel app tager typisk 8-12 uger fra godkendt design til lancering. Mere komplekse apps med mange integrationer tager 12-20 uger. Vi arbejder i sprints, så du ser fremskridt hver 2. uge."}},{"@type":"Question","name":"Bygger I native eller hybrid apps?","acceptedAnswer":{"@type":"Answer","text":"Vi bygger primært native apps — Kotlin til Android og Swift til iOS. Native giver den bedste performance, brugeroplevelse og adgang til enhedens funktioner. For projekter med stramme budgetter tilbyder vi også Kotlin Multiplatform."}},{"@type":"Question","name":"Kan I også lave en hjemmeside til min app?","acceptedAnswer":{"@type":"Answer","text":"Ja. Vi bygger også lynhurtige landing pages og hjemmesider i Framer med 97+ PageSpeed. Mange af vores app-kunder får en hjemmeside + app som samlet pakke."}},{"@type":"Question","name":"Hvem ejer koden til min app?","acceptedAnswer":{"@type":"Answer","text":"Du ejer 100% af koden, designet og rettighederne. Vi overdrager alt via GitHub når projektet er afsluttet. Ingen lock-in, ingen skjulte klausuler."}}]}</script>
 </head>
 <body>
+<!-- CUSTOM CURSOR (desktop only) -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
 <nav id="main-nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="NordicWebFlow — Webbureau København">
@@ -300,7 +304,7 @@
         <h2 style="margin-bottom:14px">Direkte kontakt til <span style="color:var(--orange)">udvikleren</span></h2>
         <p style="margin-bottom:20px">Hos NordicWebFlow taler du direkte med udvikleren der bygger din app. Ingen mellemled, ingen misforståelser. Jeg har erfaring med native Android (Kotlin/Jetpack Compose), iOS og Firebase — og bygger aktuelt en B2B SaaS-app med investor-backing.</p>
         <div style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px">
-          <img src="/images/1771542850470.jpg" alt="Diego Maldonado — App Udvikler & Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
+          <img src="/images/Colorful%20Graffiti%20Circle%20Framed%20Instagram%20Profile%20Picture%20(1).png" alt="Diego Maldonado — App Udvikler & Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
           <div>
             <div style="font-family:var(--font-display);font-weight:700;color:var(--heading);font-size:1rem">Diego Maldonado</div>
             <div style="font-size:.82rem;color:var(--muted)">Stifter, App Udvikler &amp; Digital Strateg</div>
@@ -406,9 +410,9 @@
         <a href="/faa-et-tilbud">Få et tilbud</a>
         <p style="font-size:.8rem;color:rgba(255,255,255,.6);margin-top:14px">København, Danmark<br>CVR: 46305639</p>
         <div style="display:flex;gap:8px;margin-top:16px">
-          <a href="https://g.page/r/nordicwebflow/review" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:var(--green);border:1px solid rgba(22,163,74,.3);padding:5px 12px;border-radius:999px">★ Google</a>
-          <a href="https://www.trustpilot.com/review/nordicwebflow.com" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:var(--orange);border:1px solid rgba(232,68,0,.3);padding:5px 12px;border-radius:999px">★ Trustpilot</a>
-          <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.78rem;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.1);padding:5px 12px;border-radius:999px">LinkedIn</a>
+          <a href="https://g.page/r/nordicwebflow/review" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(66,133,244,.15);border:1px solid rgba(66,133,244,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#FBBC04">★</span> Google</a>
+          <a href="https://www.trustpilot.com/review/nordicwebflow.com" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(0,182,122,.12);border:1px solid rgba(0,182,122,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#00b67a">★</span> Trustpilot</a>
+          <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(10,102,194,.12);border:1px solid rgba(10,102,194,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#0A66C2">in</span> LinkedIn</a>
         </div>
       </div>
     </div>
@@ -424,6 +428,8 @@
 </footer>
 
 <script>
+// --- CUSTOM CURSOR ---
+(function(){var c=document.getElementById('cursor');var r=document.getElementById('cursor-ring');if(!c||!r||window.matchMedia('(max-width:860px)').matches)return;var mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});function animRing(){rx+=(mx-rx)*.08;ry+=(my-ry)*.08;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(animRing);}animRing();})();
 (function(){var nav=document.getElementById('main-nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});})();
 (function(){var els=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');if(!els.length)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){obs.observe(el);});})();
 (function(){if(window.matchMedia('(max-width:860px)').matches)return;document.querySelectorAll('[data-tilt]').forEach(function(card){card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();var x=(e.clientX-r.left)/r.width;var y=(e.clientY-r.top)/r.height;card.style.transform='perspective(600px) rotateX('+((y-.5)*10)+'deg) rotateY('+((x-.5)*-10)+'deg) translateY(-4px)';card.style.setProperty('--mx',(x*100)+'%');card.style.setProperty('--my',(y*100)+'%');});card.addEventListener('mouseleave',function(){card.style.transform='';});});})();

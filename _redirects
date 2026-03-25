@@ -2,6 +2,9 @@
 # NOTE: Cloudflare Pages serves .html files at clean URLs automatically.
 # We only need special redirects here — NOT rules for existing pages.
 
+# .dk → .com redirect is handled via Cloudflare Redirect Rules (not here)
+# See README for setup instructions.
+
 # Danish character URL → ASCII slug
 /ejendomsm%C3%A6gler  /ejendomsmaegler  301
 /ejendomsmægler        /ejendomsmaegler  301
