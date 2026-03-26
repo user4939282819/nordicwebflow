@@ -230,10 +230,10 @@ nav.scrolled .nav-links a:not(.nav-cta):hover,
   mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
 }
 .hero-inner{position:relative;z-index:1;width:100%;padding:56px 0 64px}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:6px 14px 6px 8px;margin-bottom:24px;box-shadow:var(--shadow)}
-.hero-tag-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:4px 10px 4px 6px;margin-bottom:20px;box-shadow:var(--shadow)}
+.hero-tag-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
-.hero-tag span{font-size:.78rem;font-weight:600;color:var(--heading);font-family:var(--font-body)}
+.hero-tag span{font-size:.72rem;font-weight:600;color:var(--heading);font-family:var(--font-body)}
 .hero h1{
   margin-bottom:24px;
   line-height:1.15;
@@ -685,24 +685,26 @@ a[href*="linkedin.com"] span{color:#fff!important}
    DARK / LIGHT MODE TOGGLE
    ============================================================ */
 
-/* Toggle button */
+/* Toggle button — iOS pill style */
 .theme-toggle-btn{
-  width:38px;height:38px;border-radius:10px;
-  border:1.5px solid var(--border);background:var(--bg2);
-  color:var(--muted);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all var(--t);flex-shrink:0;padding:0;
+  width:50px;height:28px;border-radius:14px;
+  border:none;background:var(--border-strong);
+  cursor:pointer;flex-shrink:0;padding:0;
+  position:relative;transition:background .3s ease;
 }
-.theme-toggle-btn:hover{
-  border-color:var(--orange);color:var(--orange);
-  background:var(--orange-light);transform:scale(1.06);
+.theme-toggle-btn::after{
+  content:'';position:absolute;
+  top:3px;left:3px;width:22px;height:22px;
+  border-radius:50%;background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.22);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
 }
-/* Light mode → show moon (click to go dark) */
-.theme-toggle-btn .icon-sun{display:none}
-.theme-toggle-btn .icon-moon{display:block}
-/* Dark mode → show sun (click to go light) */
-[data-theme="dark"] .theme-toggle-btn .icon-sun{display:block}
-[data-theme="dark"] .theme-toggle-btn .icon-moon{display:none}
+.theme-toggle-btn:hover{background:var(--muted)}
+/* hide SVG icons — visual handled by ::after */
+.theme-toggle-btn .icon-sun,.theme-toggle-btn .icon-moon{display:none!important}
+/* dark mode: orange bg + knob slides right */
+[data-theme="dark"] .theme-toggle-btn{background:var(--orange)}
+[data-theme="dark"] .theme-toggle-btn::after{transform:translateX(22px)}
 
 /* ── CSS custom property overrides ── */
 [data-theme="dark"]{
