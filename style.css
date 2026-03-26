@@ -84,11 +84,11 @@ section{padding:96px 0}
 
 /* SCROLL REVEAL — enhanced with scale + blur */
 .reveal{opacity:0;transform:translateY(32px) scale(.97);filter:blur(4px);transition:opacity .8s ease,transform .8s ease,filter .8s ease}
-.reveal.visible{opacity:1;transform:translateY(0) scale(1);filter:blur(0px)}
+.reveal.visible{opacity:1;transform:translateY(0) scale(1);filter:none}
 .reveal-left{opacity:0;transform:translateX(-32px) scale(.97);filter:blur(4px);transition:opacity .8s ease,transform .8s ease,filter .8s ease}
-.reveal-left.visible{opacity:1;transform:translateX(0) scale(1);filter:blur(0px)}
+.reveal-left.visible{opacity:1;transform:translateX(0) scale(1);filter:none}
 .reveal-right{opacity:0;transform:translateX(32px) scale(.97);filter:blur(4px);transition:opacity .8s ease,transform .8s ease,filter .8s ease}
-.reveal-right.visible{opacity:1;transform:translateX(0) scale(1);filter:blur(0px)}
+.reveal-right.visible{opacity:1;transform:translateX(0) scale(1);filter:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
 /* NAV — frosted glass */
@@ -439,7 +439,7 @@ nav.scrolled .nav-links a:not(.nav-cta):hover,
 }
 .card::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(232,68,0,.08) 0%,transparent 60%);
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(232,68,0,.08) 0%,transparent 60%);pointer-events:none;
   opacity:0;transition:opacity .4s;
 }
 /* Animated border gradient on hover */
