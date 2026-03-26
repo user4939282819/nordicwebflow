@@ -11,8 +11,9 @@
 
 # Legacy redirects
 /home           /               301
-/pricing        /priser         301
+/pricing        /#beregn-din-pris  301
 /contact        /kontakt        301
+/beregn-din-pris  /#beregn-din-pris  301
 
 # 404 fallback
 /*              /404.html       404

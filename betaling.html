@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<script>!function(){var t=localStorage.getItem("nwf-theme");t&&document.documentElement.setAttribute("data-theme",t)}();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Betaling | NordicWebFlow</title>
+<meta name="description" content="Fuldfør din bestilling hos NordicWebFlow. Udfyld dine oplysninger og bekræft din ordre — vi kontakter dig inden for 1 hverdag.">
+<link rel="canonical" href="https://nordicwebflow.com/betaling">
+<meta property="og:title" content="Betaling | NordicWebFlow">
+<meta property="og:description" content="Fuldfør din bestilling hos NordicWebFlow.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nordicwebflow.com/betaling">
+<meta property="og:image" content="https://nordicwebflow.com/images/og-default.jpg">
+<meta property="og:locale" content="da_DK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="page-inner">
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="NordicWebFlow — Webbureau København">
+      <div class="nav-logo-icon">N</div>
+      <span class="nav-logo-text">Nordic<span>WebFlow</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Forside</a>
+      <a href="/#beregn-din-pris">Priser</a>
+      <a href="/cases">Cases</a>
+      <a href="/blog">Blog</a>
+      <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
+    </div>
+    <div class="nav-right">
+      <a href="/kurv" class="nav-cart-link" aria-label="Kurv" title="Din kurv">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
+      </a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
+    <a href="/">Forside</a>
+    <a href="/#beregn-din-pris">Priser</a>
+    <a href="/cases">Cases</a>
+    <a href="/kontakt">Kontakt</a>
+    <a href="/faa-et-tilbud" class="mobile-menu-cta">Få et tilbud →</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="checkout-page">
+  <div class="container">
+
+    <!-- Empty cart redirect -->
+    <div id="checkout-empty" style="display:none;text-align:center;padding:80px 0">
+      <div style="font-size:3rem;margin-bottom:16px">🛒</div>
+      <h2 style="margin-bottom:8px">Din kurv er tom</h2>
+      <p style="color:var(--muted);margin-bottom:24px">Gå tilbage og tilføj produkter til din kurv.</p>
+      <a href="/#beregn-din-pris" class="btn btn-primary">Beregn din pris →</a>
+    </div>
+
+    <!-- Confirmation message (shown after submit) -->
+    <div id="checkout-confirmation" style="display:none;text-align:center;padding:80px 0">
+      <div style="font-size:3.5rem;margin-bottom:20px">✅</div>
+      <h1 style="margin-bottom:12px">Tak for din bestilling!</h1>
+      <p class="lead" style="max-width:500px;margin:0 auto 28px">Vi har modtaget din ordre og sender dig en bekræftelse på e-mail. Vores team kontakter dig inden for <strong>1 hverdag</strong>.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="/" class="btn btn-primary">Tilbage til forsiden →</a>
+        <a href="/faa-et-tilbud" class="btn btn-ghost">Skriv til os</a>
+      </div>
+    </div>
+
+    <!-- Checkout form -->
+    <div id="checkout-form-wrap">
+      <a href="/kurv" style="font-size:.85rem;color:var(--muted);display:inline-flex;align-items:center;gap:6px;margin-bottom:20px">← Tilbage til kurven</a>
+      <h1 style="margin-bottom:6px">Bekræft ordre</h1>
+      <p style="color:var(--muted);margin-bottom:36px">Udfyld dine oplysninger — vi kontakter dig inden for 1 hverdag med en bekræftelse.</p>
+
+      <div class="checkout-grid">
+        <!-- Form -->
+        <div class="checkout-form-col">
+          <form id="checkout-form" name="bestilling" method="POST" action="/tak">
+            <input type="hidden" name="form-name" value="bestilling">
+            <input type="hidden" name="ordre-detaljer" id="hidden-order-details">
+
+            <div style="margin-bottom:28px">
+              <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Kontaktoplysninger</div>
+              <div class="form-group">
+                <label class="form-label" for="navn">Navn *</label>
+                <input class="form-input" type="text" id="navn" name="navn" placeholder="Dit fulde navn" required autocomplete="name">
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="form-group">
+                  <label class="form-label" for="email">E-mail *</label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="din@email.dk" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="telefon">Telefon</label>
+                  <input class="form-input" type="tel" id="telefon" name="telefon" placeholder="+45 00 00 00 00" autocomplete="tel">
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-bottom:28px">
+              <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Virksomhedsoplysninger</div>
+              <div class="form-group">
+                <label class="form-label" for="virksomhed">Virksomhedsnavn</label>
+                <input class="form-input" type="text" id="virksomhed" name="virksomhed" placeholder="Din Virksomhed ApS" autocomplete="organization">
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="form-group">
+                  <label class="form-label" for="cvr">CVR-nummer</label>
+                  <input class="form-input" type="text" id="cvr" name="cvr" placeholder="12345678" maxlength="8">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="branche">Branche</label>
+                  <input class="form-input" type="text" id="branche" name="branche" placeholder="Tømrer, tandlæge...">
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-bottom:28px">
+              <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Din besked</div>
+              <div class="form-group">
+                <label class="form-label" for="besked">Besked eller særlige ønsker</label>
+                <textarea class="form-textarea" id="besked" name="besked" placeholder="Fortæl os om din virksomhed, nuværende hjemmeside, særlige ønsker..." style="min-height:100px"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="checkout-submit">Bekræft ordre →</button>
+            <p class="checkout-note">Vi behandler din ordre manuelt og sender en e-mail med faktura og næste skridt inden for 1 hverdag. Ingen kortoplysninger kræves endnu.</p>
+          </form>
+        </div>
+
+        <!-- Order summary -->
+        <div class="checkout-summary-col">
+          <div class="checkout-summary-title">Ordreoversigt</div>
+          <div id="checkout-items">
+            <!-- Filled by JS -->
+          </div>
+          <div class="checkout-total-row">
+            <span class="checkout-total-label">Total (ekskl. moms)</span>
+            <span class="checkout-total-val" id="checkout-total">0 kr.</span>
+          </div>
+          <p style="font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.5">Moms (25%) tillægges ved fakturering. Du modtager faktura og betalingslink pr. e-mail.</p>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <span style="color:var(--green);font-size:.9rem">✓</span>
+              <span style="font-size:.8rem;color:var(--muted)">Svar inden for 1 hverdag</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <span style="color:var(--green);font-size:.9rem">✓</span>
+              <span style="font-size:.8rem;color:var(--muted)">Ingen skjulte gebyrer</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <span style="color:var(--green);font-size:.9rem">✓</span>
+              <span style="font-size:.8rem;color:var(--muted)">100% ejerskab fra dag ét</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="color:var(--green);font-size:.9rem">✓</span>
+              <span style="font-size:.8rem;color:var(--muted)">Personlig kontakt med Diego</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">N</div>
+          <span class="footer-logo-text">Nordic<span>WebFlow</span></span>
+        </div>
+        <p>Vi bygger lynhurtige digitale salgsmaskiner for ambitiøse lokale virksomheder.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Brancher</h5>
+        <a href="/toemrer">Tømrer</a><a href="/tandlaege">Tandlæge</a>
+        <a href="/advokat">Advokat</a><a href="/murer">Murer</a>
+        <a href="/elektriker">Elektriker</a><a href="/maler">Maler</a>
+        <a href="/vvs">VVS</a><a href="/fysioterapeut">Fysioterapeut</a>
+        <a href="/revisor">Revisor</a><a href="/ejendomsmaegler">Ejendomsmægler</a>
+        <a href="/arkitekt">Arkitekt</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ydelser</h5>
+        <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
+        <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
+        <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
+        <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
+        <a href="/app-udvikling">App Udvikling (Android + iOS)</a>
+        <h5 style="margin-top:20px">Sider</h5>
+        <a href="/">Forside</a><a href="/#beregn-din-pris">Priser</a>
+        <a href="/cases">Cases</a><a href="/blog">Blog</a>
+        <a href="/legal">Privatlivspolitik</a><a href="/kurv">Kurv</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kontakt os</h5>
+        <a href="/kontakt">Kontaktformular</a>
+        <a href="mailto:hej@nordicwebflow.com">hej@nordicwebflow.com</a>
+        <a href="/faa-et-tilbud">Få et tilbud</a>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.55);margin-top:14px;line-height:1.7">København, Danmark<br>CVR: 46305639</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NordicWebFlow. Alle rettigheder forbeholdes.</span>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/legal" style="color:rgba(255,255,255,.6)">Privatlivspolitik</a>
+        <a href="/legal" style="color:rgba(255,255,255,.6)">Cookiepolitik</a>
+        <a href="#" data-cookie-settings style="color:rgba(255,255,255,.65)">Cookie-indstillinger</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+var NWF_CART_KEY='nwf_cart';
+function getCart(){try{return JSON.parse(localStorage.getItem(NWF_CART_KEY)||'[]');}catch(e){return[];}}
+function saveCart(cart){localStorage.setItem(NWF_CART_KEY,JSON.stringify(cart));}
+function formatPrice(n){return n.toLocaleString('da-DK')+' kr.';}
+
+function renderSummary(){
+  var cart=getCart();
+  var badge=document.getElementById('nav-cart-badge');
+  if(badge){badge.textContent=cart.length;cart.length>0?badge.classList.remove('hidden'):badge.classList.add('hidden');}
+
+  var emptyEl=document.getElementById('checkout-empty');
+  var formWrap=document.getElementById('checkout-form-wrap');
+
+  if(cart.length===0){
+    if(emptyEl)emptyEl.style.display='block';
+    if(formWrap)formWrap.style.display='none';
+    return;
+  }
+  if(emptyEl)emptyEl.style.display='none';
+  if(formWrap)formWrap.style.display='block';
+
+  var total=0;
+  var itemsEl=document.getElementById('checkout-items');
+  if(itemsEl){
+    itemsEl.innerHTML=cart.map(function(item){
+      total+=item.price||0;
+      var metaStr=item.meta&&item.meta.length?'<div class="checkout-item-meta">'+item.meta.join(' · ')+'</div>':'';
+      return '<div class="checkout-item"><div><div class="checkout-item-name">'+item.label+'</div>'+metaStr+'</div><div class="checkout-item-price">'+formatPrice(item.price)+'</div></div>';
+    }).join('');
+  }
+  var totalEl=document.getElementById('checkout-total');
+  if(totalEl)totalEl.textContent=formatPrice(total);
+
+  // Populate hidden order details field
+  var hiddenField=document.getElementById('hidden-order-details');
+  if(hiddenField){
+    var details=cart.map(function(item){
+      return item.label+(item.meta&&item.meta.length?' ('+item.meta.join(', ')+')':'')+': '+formatPrice(item.price);
+    }).join('\n');
+    details+='\n\nTotal: '+formatPrice(total);
+    hiddenField.value=details;
+  }
+}
+
+renderSummary();
+
+// Form submission
+var form=document.getElementById('checkout-form');
+if(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var cart=getCart();
+    // Build mailto or submit via form POST
+    // Since the site uses HTML form POST, we submit and show confirmation
+    var formData=new FormData(form);
+    // Try fetch for form submission
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(formData).toString()})
+      .then(function(){showConfirmation();})
+      .catch(function(){showConfirmation();});
+  });
+}
+
+function showConfirmation(){
+  // Clear cart
+  saveCart([]);
+  // Show confirmation
+  var formWrap=document.getElementById('checkout-form-wrap');
+  var confEl=document.getElementById('checkout-confirmation');
+  if(formWrap)formWrap.style.display='none';
+  if(confEl)confEl.style.display='block';
+  // Scroll to top
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+(function(){var c=document.getElementById('cursor');var r=document.getElementById('cursor-ring');if(!c||!r||window.matchMedia('(max-width:860px)').matches)return;var mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});function animRing(){rx+=(mx-rx)*.08;ry+=(my-ry)*.08;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(animRing);}animRing();})();
+(function(){var nav=document.getElementById('main-nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});})();
+(function(){var btn=document.getElementById('hamburger-btn');var mob=document.getElementById('mobile-menu');if(!btn||!mob)return;btn.addEventListener('click',function(){var open=mob.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');});})();
+</script>
+<script src="/dark-mode.js" defer></script>
+</body>
+</html>
