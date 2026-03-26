@@ -127,7 +127,46 @@
           </h1>
           <p class="hero-sub reveal d2 visible">Glem langsomme skabeloner. Vi bygger lynhurtige hjemmesider i Framer med benhård lokal SEO — du ejer alt 100% fra dag ét.</p>
           <div class="hero-actions reveal d3">
-            <a href="/priser" class="btn btn-primary btn-lg">Se priser &amp; bestil →</a>
+            <div class="hero-cta-dropdown" id="hero-cta-wrap">
+              <button class="btn btn-primary btn-lg hero-cta-trigger" id="hero-cta-btn" aria-expanded="false" aria-haspopup="true" style="width:100%">
+                Se vores ydelser <span class="hero-cta-arrow">↓</span>
+              </button>
+              <div class="hero-cta-panel" id="hero-cta-panel" role="menu">
+                <a href="/ydelser/lynhurtige-hjemmesider-framer" class="hero-cta-option" role="menuitem">
+                  <span class="hero-cta-opt-icon">🖥️</span>
+                  <div class="hero-cta-opt-body">
+                    <div class="hero-cta-opt-title">Hjemmesider</div>
+                    <div class="hero-cta-opt-sub">Framer · fra 4.999 kr. · leveret på 5 dage</div>
+                  </div>
+                  <span class="hero-cta-opt-arr">→</span>
+                </a>
+                <a href="/ydelser/lokal-seo-koebenhavn" class="hero-cta-option" role="menuitem">
+                  <span class="hero-cta-opt-icon">📍</span>
+                  <div class="hero-cta-opt-body">
+                    <div class="hero-cta-opt-title">Lokal SEO</div>
+                    <div class="hero-cta-opt-sub">Rank #1 på Google i København</div>
+                  </div>
+                  <span class="hero-cta-opt-arr">→</span>
+                </a>
+                <a href="/ydelser/google-meta-ads-koebenhavn" class="hero-cta-option" role="menuitem">
+                  <span class="hero-cta-opt-icon">📢</span>
+                  <div class="hero-cta-opt-body">
+                    <div class="hero-cta-opt-title">Google &amp; Meta Ads</div>
+                    <div class="hero-cta-opt-sub">Betalte annoncer der konverterer</div>
+                  </div>
+                  <span class="hero-cta-opt-arr">→</span>
+                </a>
+                <div class="hero-cta-divider"></div>
+                <a href="/app-udvikling" class="hero-cta-option" role="menuitem">
+                  <span class="hero-cta-opt-icon">📱</span>
+                  <div class="hero-cta-opt-body">
+                    <div class="hero-cta-opt-title">App Udvikling</div>
+                    <div class="hero-cta-opt-sub">iOS &amp; Android · native apps</div>
+                  </div>
+                  <span class="hero-cta-opt-arr">→</span>
+                </a>
+              </div>
+            </div>
             <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Gratis hjemmeside test</a>
           </div>
           <div class="hero-proof reveal d4">
@@ -577,6 +616,24 @@
 </footer>
 
 <script>
+// --- HERO CTA DROPDOWN ---
+(function(){
+  var wrap=document.getElementById('hero-cta-wrap');
+  var btn=document.getElementById('hero-cta-btn');
+  var panel=document.getElementById('hero-cta-panel');
+  if(!wrap||!btn||!panel)return;
+  function open(){wrap.classList.add('open');btn.setAttribute('aria-expanded','true')}
+  function close(){wrap.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    wrap.classList.contains('open')?close():open();
+  });
+  document.addEventListener('click',function(e){
+    if(!wrap.contains(e.target))close();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
+
 // --- CUSTOM CURSOR with smooth trail ---
 (function(){
   var c=document.getElementById('cursor');
