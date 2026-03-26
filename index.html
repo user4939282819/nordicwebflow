@@ -76,8 +76,7 @@
       <a href="/#beregn-din-pris">Priser</a>
       <a href="/cases">Cases</a>
       <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO-tjek</a>
-      <a href="/blog">Blog</a>
-      <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
+      <a href="/#beregn-din-pris" class="nav-cta">Beregn priser</a>
     </div>
     <div class="nav-right">
     <a href="/kurv" class="nav-cart-link" aria-label="Kurv" title="Din kurv">
@@ -110,7 +109,7 @@
     <a href="/cases">Cases</a>
     <a href="/kurv">Kurv <span id="mobile-cart-badge" style="display:none;background:var(--orange);color:#fff;border-radius:999px;padding:1px 7px;font-size:.65rem;font-weight:700;margin-left:4px">0</span></a>
     <a href="/kontakt">Kontakt</a>
-    <a href="/faa-et-tilbud" class="mobile-menu-cta">Få et tilbud →</a>
+    <a href="/#beregn-din-pris" class="mobile-menu-cta">Beregn priser →</a>
   </div>
 </nav>
 
@@ -136,46 +135,6 @@
           <p class="hero-sub reveal d2 visible">Glem langsomme skabeloner. Professionelt webdesign med benhård lokal SEO i København — lynhurtige hjemmesider fra 1.499 kr. Du ejer alt 100% fra dag ét.</p>
           <div class="hero-actions reveal d3 visible">
             <a href="/#beregn-din-pris" class="btn btn-primary btn-lg">Beregn din pris →</a>
-            <div class="hero-cta-dropdown" id="hero-cta-wrap">
-              <button class="btn btn-ghost btn-lg hero-cta-trigger" id="hero-cta-btn" aria-expanded="false" aria-haspopup="true">
-                Se vores ydelser <span class="hero-cta-arrow">↓</span>
-              </button>
-              <div class="hero-cta-panel" id="hero-cta-panel" role="menu">
-                <a href="/ydelser/lynhurtige-hjemmesider-framer" class="hero-cta-option" role="menuitem">
-                  <span class="hero-cta-opt-icon">🖥️</span>
-                  <div class="hero-cta-opt-body">
-                    <div class="hero-cta-opt-title">Hjemmesider</div>
-                    <div class="hero-cta-opt-sub">Custom kode · fra 1.499 kr. · leveret på 14 dage</div>
-                  </div>
-                  <span class="hero-cta-opt-arr">→</span>
-                </a>
-                <a href="/ydelser/lokal-seo-koebenhavn" class="hero-cta-option" role="menuitem">
-                  <span class="hero-cta-opt-icon">📍</span>
-                  <div class="hero-cta-opt-body">
-                    <div class="hero-cta-opt-title">Lokal SEO</div>
-                    <div class="hero-cta-opt-sub">Rank #1 på Google i København</div>
-                  </div>
-                  <span class="hero-cta-opt-arr">→</span>
-                </a>
-                <a href="/ydelser/google-meta-ads-koebenhavn" class="hero-cta-option" role="menuitem">
-                  <span class="hero-cta-opt-icon">📢</span>
-                  <div class="hero-cta-opt-body">
-                    <div class="hero-cta-opt-title">Google &amp; Meta Ads</div>
-                    <div class="hero-cta-opt-sub">Betalte annoncer der konverterer</div>
-                  </div>
-                  <span class="hero-cta-opt-arr">→</span>
-                </a>
-                <div class="hero-cta-divider"></div>
-                <a href="/app-udvikling" class="hero-cta-option" role="menuitem">
-                  <span class="hero-cta-opt-icon">📱</span>
-                  <div class="hero-cta-opt-body">
-                    <div class="hero-cta-opt-title">App Udvikling</div>
-                    <div class="hero-cta-opt-sub">iOS &amp; Android · native apps</div>
-                  </div>
-                  <span class="hero-cta-opt-arr">→</span>
-                </a>
-              </div>
-            </div>
             <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Gratis hjemmeside test</a>
           </div>
           <div class="hero-proof reveal d4">
@@ -564,7 +523,38 @@
 
         <!-- WEBSITE PANEL -->
         <div class="calc-product-panel active" id="panel-website">
-          <div class="calc-slider-wrap">
+
+          <!-- Website level -->
+          <div class="calc-section-label">Hjemmeside niveau</div>
+          <div class="calc-exclusive-group">
+            <label class="calc-exclusive-option selected">
+              <input type="radio" name="ws-level" value="1499" data-label="Basic" checked onchange="updateCalc()">
+              <div style="flex:1">
+                <div class="calc-exclusive-name">Basic</div>
+                <div style="font-size:.72rem;color:var(--muted)">1-3 sider · simpelt, hurtigt design</div>
+              </div>
+              <div class="calc-exclusive-price">1.499 kr.</div>
+            </label>
+            <label class="calc-exclusive-option">
+              <input type="radio" name="ws-level" value="3999" data-label="Professional" onchange="updateCalc()">
+              <div style="flex:1">
+                <div class="calc-exclusive-name">Professional <span style="background:var(--orange);color:#fff;font-size:.6rem;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700">Mest populær</span></div>
+                <div style="font-size:.72rem;color:var(--muted)">Op til 5 sider · konverteringsfokus · animationer</div>
+              </div>
+              <div class="calc-exclusive-price">3.999 kr.</div>
+            </label>
+            <label class="calc-exclusive-option">
+              <input type="radio" name="ws-level" value="7999" data-label="Premium" onchange="updateCalc()">
+              <div style="flex:1">
+                <div class="calc-exclusive-name">Premium</div>
+                <div style="font-size:.72rem;color:var(--muted)">Op til 10 sider · fuld branding + SEO-pakke</div>
+              </div>
+              <div class="calc-exclusive-price">7.999 kr.</div>
+            </label>
+          </div>
+
+          <!-- Antal sider -->
+          <div class="calc-slider-wrap" id="ws-slider-wrap">
             <div class="calc-slider-label">
               <span>Antal sider</span>
               <strong id="ws-pages-val">1 side</strong>
@@ -575,79 +565,62 @@
               <span>1 side</span><span>10 sider</span>
             </div>
           </div>
-          <div class="calc-section-label">Tilvalg</div>
+          <label class="calc-addon" onclick="this.classList.toggle('checked');document.getElementById('ws-slider-wrap').style.opacity=this.classList.contains('checked')?'0.4':'1'">
+            <input type="checkbox" id="ws-ten-plus" name="ws-extra" value="5999" data-label="10+ sider" onchange="updateCalc()">
+            <div class="calc-addon-info">
+              <div class="calc-addon-name">10+ sider</div>
+              <div class="calc-addon-desc">Større site med mange undersider — fast tillæg</div>
+            </div>
+            <div class="calc-addon-price">+5.999 kr.</div>
+          </label>
+
+          <!-- Tilvalg -->
+          <div class="calc-section-label" style="margin-top:20px">Tilvalg</div>
           <div class="calc-addons">
             <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="1999" data-label="SEO Starter" onchange="updateCalc()">
+              <input type="checkbox" name="ws-addon" value="2499" data-label="Copywriting" onchange="updateCalc()">
               <div class="calc-addon-info">
-                <div class="calc-addon-name">SEO Starter</div>
-                <div class="calc-addon-desc">Google Business Profile, keyword-tracking, on-page SEO</div>
+                <div class="calc-addon-name">Copywriting inkluderet</div>
+                <div class="calc-addon-desc">Professionelle salgstekster til alle sider</div>
+              </div>
+              <div class="calc-addon-price">+2.499 kr.</div>
+            </label>
+            <label class="calc-addon" onclick="this.classList.toggle('checked')">
+              <input type="checkbox" name="ws-addon" value="1999" data-label="Logo & Branding" onchange="updateCalc()">
+              <div class="calc-addon-info">
+                <div class="calc-addon-name">Logo &amp; Branding</div>
+                <div class="calc-addon-desc">Professionelt logo + brand identity (farver, typografi)</div>
               </div>
               <div class="calc-addon-price">+1.999 kr.</div>
             </label>
             <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="2999" data-label="SEO + Rapportering" onchange="updateCalc()">
+              <input type="checkbox" name="ws-addon" value="999" data-label="Domæne & Hosting" onchange="updateCalc()">
               <div class="calc-addon-info">
-                <div class="calc-addon-name">SEO + Løbende rapportering</div>
-                <div class="calc-addon-desc">Alt fra SEO Starter + månedlig performance-rapport</div>
-              </div>
-              <div class="calc-addon-price">+2.999 kr.</div>
-            </label>
-            <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="2499" data-label="Google Ads opsætning" onchange="updateCalc()">
-              <div class="calc-addon-info">
-                <div class="calc-addon-name">Google Ads opsætning</div>
-                <div class="calc-addon-desc">Professionel kampagneopsætning inkl. søgeordsstrategi</div>
-              </div>
-              <div class="calc-addon-price">+2.499 kr.</div>
-            </label>
-            <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="2499" data-label="Meta Ads opsætning" onchange="updateCalc()">
-              <div class="calc-addon-info">
-                <div class="calc-addon-name">Meta Ads opsætning</div>
-                <div class="calc-addon-desc">Facebook &amp; Instagram kampagner der konverterer</div>
-              </div>
-              <div class="calc-addon-price">+2.499 kr.</div>
-            </label>
-            <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="799" data-label="Google Analytics + Search Console" onchange="updateCalc()">
-              <div class="calc-addon-info">
-                <div class="calc-addon-name">Google Analytics + Search Console</div>
-                <div class="calc-addon-desc">Fuld tracking og indsigt i din trafik fra dag ét</div>
-              </div>
-              <div class="calc-addon-price">+799 kr.</div>
-            </label>
-            <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="999" data-label="Hosting 1 år" onchange="updateCalc()">
-              <div class="calc-addon-info">
-                <div class="calc-addon-name">Hosting (1 år inkl.)</div>
+                <div class="calc-addon-name">Domæne &amp; Hosting (1 år)</div>
                 <div class="calc-addon-desc">Lynhurtig dansk hosting med 99.9% uptime</div>
               </div>
               <div class="calc-addon-price">+999 kr.</div>
             </label>
-            <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="14999" data-label="Android App" onchange="updateCalc()">
-              <div class="calc-addon-info">
-                <div class="calc-addon-name">Android App udvikling</div>
-                <div class="calc-addon-desc">Native Android app tilpasset din forretning</div>
+          </div>
+
+          <!-- Leveringstid -->
+          <div class="calc-section-label" style="margin-top:20px">Leveringstid</div>
+          <div class="calc-exclusive-group">
+            <label class="calc-exclusive-option selected">
+              <input type="radio" name="ws-rush" value="standard" data-label="Standard levering" checked onchange="updateCalc()">
+              <div style="flex:1">
+                <div class="calc-exclusive-name">Standard</div>
+                <div style="font-size:.72rem;color:var(--muted)">10–14 hverdage</div>
               </div>
-              <div class="calc-addon-price">+1.499 kr.</div>
+              <div class="calc-exclusive-price" style="color:#2ecc71">Inkluderet</div>
             </label>
-            <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="14999" data-label="iOS App" onchange="updateCalc()">
-              <div class="calc-addon-info">
-                <div class="calc-addon-name">iOS App udvikling</div>
-                <div class="calc-addon-desc">Native iPhone &amp; iPad app til App Store</div>
+            <label class="calc-exclusive-option">
+              <input type="radio" name="ws-rush" value="rush" data-label="Rush levering (+50%)" onchange="updateCalc()">
+              <div style="flex:1">
+                <div class="calc-exclusive-name">Rush levering</div>
+                <div style="font-size:.72rem;color:var(--muted)">3–5 hverdage · prioriteret produktion</div>
               </div>
-              <div class="calc-addon-price">+1.499 kr.</div>
-            </label>
-            <label class="calc-addon" onclick="this.classList.toggle('checked')">
-              <input type="checkbox" name="ws-addon" value="4999" data-label="Wallet integration" onchange="updateCalc()">
-              <div class="calc-addon-info">
-                <div class="calc-addon-name">Google Wallet + Apple Wallet integration</div>
-                <div class="calc-addon-desc">Digitale loyalitetskort og billetter i kundens telefon</div>
-              </div>
-              <div class="calc-addon-price">+4.999 kr.</div>
+              <div class="calc-exclusive-price">+50%</div>
             </label>
           </div>
         </div>
@@ -1293,26 +1266,35 @@ updateCartBadge();
 // CALCULATOR LOGIC
 // ============================================================
 var currentProduct='website';
-var BASE_PRICES={website:1499,'google-ads':2499,'meta-ads':2499,app:0,seo:0};
 var PAGE_PRICE=500;
 
 function updateCalc(){
-  var total=0;var noteText='';var priceLabel='';
-  // Determine active panel
+  var total=0;var noteText='';
   if(currentProduct==='website'){
-    var pages=parseInt(document.getElementById('ws-pages').value)||1;
-    total=1499+(pages-1)*PAGE_PRICE;
-    // Slider display
-    document.getElementById('ws-pages-val').textContent=pages===1?'1 side':pages+' sider';
-    var slider=document.getElementById('ws-pages');
-    var pct=((pages-1)/(10-1)*100)+'%';
-    slider.style.setProperty('--val',pct);
-    // Add-ons
+    // Level base price
+    var level=document.querySelector('input[name="ws-level"]:checked');
+    var base=level?parseInt(level.value):1499;
+    // Pages
+    var tenPlus=document.getElementById('ws-ten-plus');
+    var pages=1;
+    if(tenPlus&&tenPlus.checked){
+      total=base+5999;
+    } else {
+      pages=parseInt(document.getElementById('ws-pages').value)||1;
+      total=base+(pages-1)*PAGE_PRICE;
+      document.getElementById('ws-pages-val').textContent=pages===1?'1 side':pages+' sider';
+      var slider=document.getElementById('ws-pages');
+      slider.style.setProperty('--val',((pages-1)/9*100)+'%');
+    }
+    // Add-ons (copywriting, branding, hosting)
     document.querySelectorAll('input[name="ws-addon"]').forEach(function(cb){
       if(cb.checked)total+=parseInt(cb.value)||0;
     });
+    // Rush
+    var rush=document.querySelector('input[name="ws-rush"]:checked');
+    if(rush&&rush.value==='rush')total=Math.round(total*1.5);
     noteText='Engangsbeløb · ekskl. moms';
-    updatePreview(pages);
+    updatePreview(tenPlus&&tenPlus.checked?10:pages);
   } else if(currentProduct==='seo'){
     var plan=document.querySelector('input[name="seo-plan"]:checked');
     total=plan?parseInt(plan.value):1999;
@@ -1404,32 +1386,35 @@ function updateAppPreview(){
   if(phone)phone.classList.add('visible');
 }
 
+function addUpsellToCart(label,price,product,meta){
+  var cart=getCart();
+  cart.push({id:Date.now(),label:label,price:price,meta:meta||[],product:product});
+  saveCart(cart);
+  updateCartBadge();
+  var toast=document.getElementById('cart-toast');
+  var msg=document.getElementById('cart-toast-msg');
+  if(msg)msg.textContent=label+' tilføjet til kurv!';
+  if(toast){toast.classList.add('visible');setTimeout(function(){toast.classList.remove('visible');},2800);}
+}
+
 function updateUpsells(){
   var container=document.getElementById('calc-upsells');
   if(!container)return;
-  var upsells=[];
   if(currentProduct==='website'){
-    var hasSeo=!!document.querySelector('input[name="ws-addon"][data-label*="SEO"]:checked');
-    var hasRap=!!document.querySelector('input[name="ws-addon"][data-label*="Rapportering"]:checked');
-    var hasAds=!!document.querySelector('input[name="ws-addon"][data-label*="Ads"]:checked');
-    var hasAndroid=!!document.querySelector('input[name="ws-addon"][data-label*="Android"]:checked');
-    var hasIOS=!!document.querySelector('input[name="ws-addon"][data-label*="iOS"]:checked');
-    if(!hasSeo&&!hasRap)upsells.push({icon:'📍',title:'Vil du ranke på Google?',sub:'Tilføj SEO Starter og kom foran dine konkurrenter',action:'Tilføj SEO →'});
-    else if(hasSeo&&!hasRap)upsells.push({icon:'📊',title:'Følg din SEO-fremgang',sub:'Tilføj månedlig rapportering og mål dine resultater',action:'Tilføj rapportering →'});
-    if(!hasAds)upsells.push({icon:'📢',title:'Få flere kunder med annoncer',sub:'Tilføj Google eller Meta Ads og start i morgen',action:'Tilføj Ads →'});
-    if(hasAndroid&&!hasIOS)upsells.push({icon:'📱',title:'Nå iOS-brugere også',sub:'Byg til begge platforme og nå +60% flere brugere',action:'Tilføj iOS →'});
-    if(!hasAndroid&&hasIOS)upsells.push({icon:'🤖',title:'Nå Android-brugere også',sub:'Android har 72% af det globale smartphone-marked',action:'Tilføj Android →'});
+    container.innerHTML='<div class="upsell-heading">Populære tilføjelser</div>'+
+      '<div class="upsell-card"><span class="upsell-icon">📍</span><div class="upsell-body"><div class="upsell-title">Lokal SEO Starter</div><div class="upsell-sub">Google Business Profile, keyword-tracking, on-page SEO — sæt din side øverst på Google</div></div><div class="upsell-right"><span class="upsell-price">1.999 kr./md.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'SEO Starter\',1999,\'seo\',[\'Månedlig ydelse\'])">+ Tilføj til kurv</button></div></div>'+
+      '<div class="upsell-card"><span class="upsell-icon">🔍</span><div class="upsell-body"><div class="upsell-title">Google Ads opsætning</div><div class="upsell-sub">Professionel kampagneopsætning inkl. søgeordsstrategi og konverteringssporing</div></div><div class="upsell-right"><span class="upsell-price">2.499 kr.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'Google Ads opsætning\',2499,\'google-ads\',[\'Opsætningspris\'])">+ Tilføj til kurv</button></div></div>'+
+      '<div class="upsell-card"><span class="upsell-icon">📢</span><div class="upsell-body"><div class="upsell-title">Meta Ads opsætning</div><div class="upsell-sub">Facebook &amp; Instagram kampagner målrettet din branche og lokalområde</div></div><div class="upsell-right"><span class="upsell-price">2.499 kr.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'Meta Ads opsætning\',2499,\'meta-ads\',[\'Opsætningspris\'])">+ Tilføj til kurv</button></div></div>';
   } else if(currentProduct==='seo'){
-    upsells.push({icon:'🖥️',title:'Mangler du en hjemmeside?',sub:'En NordicWebFlow hjemmeside er grundlaget for god SEO',action:'Se hjemmesider fra 1.499 kr. →'});
+    container.innerHTML='<div class="upsell-card"><span class="upsell-icon">🖥️</span><div class="upsell-body"><div class="upsell-title">Mangler du en hjemmeside?</div><div class="upsell-sub">En NordicWebFlow hjemmeside er grundlaget for god SEO — fra 1.499 kr.</div></div><div class="upsell-right"><a href="/#beregn-din-pris" class="upsell-add-btn" onclick="document.querySelector(\'[data-product=\\\'website\\\']\').click()">Se hjemmesider →</a></div></div>';
   } else if(currentProduct==='google-ads'||currentProduct==='meta-ads'){
-    upsells.push({icon:'🖥️',title:'Optimér din landingsside',sub:'Bedre hjemmeside = lavere pris pr. klik og flere konverteringer',action:'Se hjemmesider fra 1.499 kr. →'});
-    upsells.push({icon:'📍',title:'Kombinér ads med SEO',sub:'Annoncer giver hurtige resultater, SEO giver varige',action:'Se SEO-pakker →'});
+    container.innerHTML='<div class="upsell-card"><span class="upsell-icon">🖥️</span><div class="upsell-body"><div class="upsell-title">Optimér din landingsside</div><div class="upsell-sub">Bedre hjemmeside = lavere pris pr. klik og flere konverteringer</div></div><div class="upsell-right"><span class="upsell-price">fra 1.499 kr.</span><button class="upsell-add-btn" onclick="document.querySelector(\'[data-product=\\\'website\\\']\').click()">Se hjemmesider →</button></div></div>'+
+      '<div class="upsell-card"><span class="upsell-icon">📍</span><div class="upsell-body"><div class="upsell-title">Kombinér ads med SEO</div><div class="upsell-sub">Annoncer giver hurtige resultater — SEO giver varige resultater</div></div><div class="upsell-right"><span class="upsell-price">1.999 kr./md.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'SEO Starter\',1999,\'seo\',[\'Månedlig ydelse\'])">+ Tilføj til kurv</button></div></div>';
   } else if(currentProduct==='app'){
-    upsells.push({icon:'🖥️',title:'Har du en hjemmeside til din app?',sub:'En professionel hjemmeside styrker konverteringen fra søgning til download',action:'Se hjemmesider →'});
+    container.innerHTML='<div class="upsell-card"><span class="upsell-icon">🖥️</span><div class="upsell-body"><div class="upsell-title">Har du en hjemmeside til din app?</div><div class="upsell-sub">En professionel hjemmeside styrker konverteringen fra søgning til download</div></div><div class="upsell-right"><span class="upsell-price">fra 1.499 kr.</span><button class="upsell-add-btn" onclick="document.querySelector(\'[data-product=\\\'website\\\']\').click()">Se hjemmesider →</button></div></div>';
+  } else {
+    container.innerHTML='';
   }
-  container.innerHTML=upsells.map(function(u){
-    return '<div class="upsell-card"><span class="upsell-icon">'+u.icon+'</span><div class="upsell-body"><div class="upsell-title">'+u.title+'</div><div class="upsell-sub">'+u.sub+'</div></div><span class="upsell-action">'+u.action+'</span></div>';
-  }).join('');
 }
 
 // Tab switching
@@ -1468,14 +1453,20 @@ updateCalc();
 function addToCart(){
   var label='';var price=0;var meta=[];
   if(currentProduct==='website'){
+    var level=document.querySelector('input[name="ws-level"]:checked');
+    var levelLabel=level?level.getAttribute('data-label'):'Basic';
+    var base=level?parseInt(level.value):1499;
+    label='Hjemmeside — '+levelLabel;
+    var tenPlus=document.getElementById('ws-ten-plus');
     var pages=parseInt(document.getElementById('ws-pages').value)||1;
-    label='Hjemmeside';
-    price=1499+(pages-1)*500;
-    meta.push(pages===1?'1 side':pages+' sider');
+    if(tenPlus&&tenPlus.checked){price=base+5999;meta.push('10+ sider');}
+    else{price=base+(pages-1)*500;meta.push(pages===1?'1 side':pages+' sider');}
     document.querySelectorAll('input[name="ws-addon"]:checked').forEach(function(cb){
       price+=parseInt(cb.value)||0;
       meta.push(cb.getAttribute('data-label'));
     });
+    var rush=document.querySelector('input[name="ws-rush"]:checked');
+    if(rush&&rush.value==='rush'){price=Math.round(price*1.5);meta.push('Rush levering');}
   } else if(currentProduct==='seo'){
     var plan=document.querySelector('input[name="seo-plan"]:checked');
     label=plan?plan.getAttribute('data-label'):'SEO Starter';

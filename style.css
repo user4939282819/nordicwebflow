@@ -1164,17 +1164,22 @@ html.switching,html.switching *{
 
 /* Upsell cards below calculator */
 .calc-upsells{margin-top:32px;display:flex;flex-direction:column;gap:10px}
+.upsell-heading{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;padding-top:4px}
 .upsell-card{
   display:flex;align-items:center;gap:14px;padding:14px 18px;
   background:var(--card);border:1.5px solid var(--border);border-radius:14px;
-  cursor:pointer;transition:all var(--t);
+  transition:all var(--t);margin-bottom:8px;
 }
-.upsell-card:hover{border-color:var(--orange);background:var(--orange-light);transform:translateY(-2px)}
+.upsell-card:hover{border-color:var(--orange);background:var(--orange-light)}
 .upsell-icon{font-size:1.4rem;flex-shrink:0}
 .upsell-body{flex:1}
 .upsell-title{font-weight:700;font-size:.9rem;color:var(--heading);margin-bottom:2px}
 .upsell-sub{font-size:.78rem;color:var(--muted)}
 .upsell-action{font-size:.8rem;font-weight:600;color:var(--orange);white-space:nowrap;flex-shrink:0}
+.upsell-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.upsell-price{font-size:.8rem;font-weight:700;color:var(--heading);white-space:nowrap}
+.upsell-add-btn{background:var(--orange);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:.75rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:opacity var(--t);text-decoration:none;display:inline-block}
+.upsell-add-btn:hover{opacity:.85}
 
 /* Added-to-cart toast */
 .cart-toast{
