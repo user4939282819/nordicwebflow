@@ -622,20 +622,31 @@
 <script>
 // --- HERO CTA DROPDOWN ---
 (function(){
-  var wrap=document.getElementById('hero-cta-wrap');
   var btn=document.getElementById('hero-cta-btn');
   var panel=document.getElementById('hero-cta-panel');
-  if(!wrap||!btn||!panel)return;
-  function open(){wrap.classList.add('open');btn.setAttribute('aria-expanded','true')}
+  var wrap=document.getElementById('hero-cta-wrap');
+  if(!btn||!panel||!wrap)return;
+  function positionPanel(){
+    var r=btn.getBoundingClientRect();
+    var panelW=320;
+    var left=r.left;
+    if(left+panelW>window.innerWidth-12)left=window.innerWidth-panelW-12;
+    if(left<12)left=12;
+    panel.style.top=(r.bottom+8)+'px';
+    panel.style.left=left+'px';
+    panel.style.width=Math.min(panelW,window.innerWidth-24)+'px';
+  }
+  function open(){positionPanel();wrap.classList.add('open');btn.setAttribute('aria-expanded','true')}
   function close(){wrap.classList.remove('open');btn.setAttribute('aria-expanded','false')}
   btn.addEventListener('click',function(e){
     e.stopPropagation();
     wrap.classList.contains('open')?close():open();
   });
   document.addEventListener('click',function(e){
-    if(!wrap.contains(e.target))close();
+    if(!wrap.contains(e.target)&&!panel.contains(e.target))close();
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  window.addEventListener('scroll',function(){if(wrap.classList.contains('open'))positionPanel()},{passive:true});
 })();
 
 // --- CUSTOM CURSOR with smooth trail ---
