@@ -260,6 +260,7 @@ nav.scrolled .nav-links a:not(.nav-cta):hover,
 .badge-orange{background:var(--orange-light);color:var(--orange);border:1px solid var(--orange-mid)}
 .badge-white{background:var(--bg2);color:var(--muted);border:1px solid var(--border)}
 .badge-dark{background:var(--heading);color:#fff}
+[data-theme="dark"] .badge-dark{background:var(--bg2);color:var(--heading);border:1px solid var(--border)}
 
 /* HERO */
 .hero{
