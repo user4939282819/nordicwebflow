@@ -531,6 +531,11 @@ nav.scrolled .nav-links a:not(.nav-cta):hover,
   border:3px solid var(--orange);flex-shrink:0;
   box-shadow:0 0 0 6px rgba(232,68,0,.12);
 }
+.case-client-logo{
+  width:48px;height:48px;border-radius:10px;object-fit:contain;
+  background:#fff;padding:4px;flex-shrink:0;
+  border:1px solid var(--border);
+}
 .case-client-info .case-stars{color:#F59E0B;font-size:.9rem;margin-bottom:6px}
 .case-client-name{font-family:var(--font-display);font-weight:700;color:#fff;font-size:.95rem}
 .case-client-role{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px}
