@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
+<script>!function(){var t=localStorage.getItem("nwf-theme");t&&document.documentElement.setAttribute("data-theme",t)}();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>App Udvikling Danmark — Android & iOS App Udvikling | NordicWebFlow</title>
@@ -23,7 +24,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"App Udvikling Danmark","provider":{"@type":"LocalBusiness","name":"NordicWebFlow","url":"https://nordicwebflow.com","address":{"@type":"PostalAddress","addressLocality":"København","addressCountry":"DK"}},"description":"Professionel app udvikling til Android og iOS. Native apps i Kotlin og Swift med Firebase backend. Fra idé til lancering på 8-12 uger.","areaServed":{"@type":"Country","name":"Danmark"},"serviceType":"App Udvikling"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad koster det at få udviklet en app?","acceptedAnswer":{"@type":"Answer","text":"Prisen afhænger af appens kompleksitet. Prisen afhænger af funktioner, platforme og kompleksitet. En simpel app kræver ca. 200 udviklingstimer, en avanceret app 300+ timer. Vi giver altid en fast projektpris efter en gratis og uforpligtende afklaring."}},{"@type":"Question","name":"Hvor lang tid tager det at udvikle en app?","acceptedAnswer":{"@type":"Answer","text":"En simpel app tager typisk 8-12 uger fra godkendt design til lancering. Mere komplekse apps med mange integrationer tager 12-20 uger. Vi arbejder i sprints, så du ser fremskridt hver 2. uge."}},{"@type":"Question","name":"Bygger I native eller hybrid apps?","acceptedAnswer":{"@type":"Answer","text":"Vi bygger primært native apps — Kotlin til Android og Swift til iOS. Native giver den bedste performance, brugeroplevelse og adgang til enhedens funktioner. For projekter med stramme budgetter tilbyder vi også Kotlin Multiplatform."}},{"@type":"Question","name":"Kan I også lave en hjemmeside til min app?","acceptedAnswer":{"@type":"Answer","text":"Ja. Vi bygger også lynhurtige landing pages og hjemmesider i Framer med 97+ PageSpeed. Mange af vores app-kunder får en hjemmeside + app som samlet pakke."}},{"@type":"Question","name":"Hvem ejer koden til min app?","acceptedAnswer":{"@type":"Answer","text":"Du ejer 100% af koden, designet og rettighederne. Vi overdrager alt via GitHub når projektet er afsluttet. Ingen lock-in, ingen skjulte klausuler."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad koster det at få udviklet en app?","acceptedAnswer":{"@type":"Answer","text":"Prisen afhænger af appens kompleksitet. Prisen afhænger af funktioner, platforme og kompleksitet. En simpel app kræver ca. 200 udviklingstimer, en avanceret app 300+ timer. Vi giver altid en fast projektpris efter en gratis og uforpligtende afklaring."}},{"@type":"Question","name":"Hvor lang tid tager det at udvikle en app?","acceptedAnswer":{"@type":"Answer","text":"En simpel app tager typisk 8-12 uger fra godkendt design til lancering. Mere komplekse apps med mange integrationer tager 12-20 uger. Vi arbejder i sprints, så du ser fremskridt hver 2. uge."}},{"@type":"Question","name":"Bygger I native eller hybrid apps?","acceptedAnswer":{"@type":"Answer","text":"Vi bygger primært native apps — Kotlin til Android og Swift til iOS. Native giver den bedste performance, brugeroplevelse og adgang til enhedens funktioner. For projekter med stramme budgetter tilbyder vi også Kotlin Multiplatform."}},{"@type":"Question","name":"Kan I også lave en hjemmeside til min app?","acceptedAnswer":{"@type":"Answer","text":"Ja. Vi bygger også lynhurtige landing pages og skræddersyede hjemmesider med 97+ PageSpeed. Mange af vores app-kunder får en hjemmeside + app som samlet pakke."}},{"@type":"Question","name":"Hvem ejer koden til min app?","acceptedAnswer":{"@type":"Answer","text":"Du ejer 100% af koden, designet og rettighederne. Vi overdrager alt via GitHub når projektet er afsluttet. Ingen lock-in, ingen skjulte klausuler."}}]}</script>
 </head>
 <body class="page-inner">
 <!-- CUSTOM CURSOR (desktop only) -->
@@ -73,29 +74,33 @@
       <a href="/blog">Blog</a>
       <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
     </div>
+    <div class="nav-right">
     <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
+    </div>
   </div>
     <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
     <a href="/">Forside</a>
     <div class="mobile-menu-cat">Ydelser</div>
-    <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
-    <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO</a>
-    <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
-    <a href="/app-udvikling">App Udvikling</a>
+    <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
+    <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
+    <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
+    <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
     <div class="mobile-menu-cat">Brancher</div>
-    <div class="mobile-menu-row">
-      <a href="/toemrer">Tømrer</a><a href="/tandlaege">Tandlæge</a><a href="/advokat">Advokat</a>
-      <a href="/murer">Murer</a><a href="/elektriker">Elektriker</a><a href="/maler">Maler</a>
-      <a href="/vvs">VVS</a><a href="/fysioterapeut">Fysio</a><a href="/revisor">Revisor</a>
-      <a href="/ejendomsmaegler">Ejendom</a><a href="/arkitekt">Arkitekt</a>
+    <div class="mobile-menu-brancher">
+      <a href="/toemrer">Tømrer</a><a href="/tandlaege">Tandlæge</a>
+      <a href="/advokat">Advokat</a><a href="/murer">Murer</a>
+      <a href="/elektriker">Elektriker</a><a href="/maler">Maler</a>
+      <a href="/vvs">VVS</a><a href="/fysioterapeut">Fysioterapeut</a>
+      <a href="/revisor">Revisor</a><a href="/ejendomsmaegler">Ejendomsmægler</a>
+      <a href="/arkitekt">Arkitekt</a>
     </div>
-    <div class="mobile-menu-cat" style="margin-top:4px">Mere</div>
+    <div class="mobile-menu-cat">Mere</div>
     <a href="/priser">Priser</a>
     <a href="/cases">Cases</a>
     <a href="/kontakt">Kontakt</a>
-    <a href="/faa-et-tilbud" style="color:var(--orange);font-weight:700">Få et tilbud →</a>
+    <a href="/faa-et-tilbud" class="mobile-menu-cta">Få et tilbud →</a>
   </div>
 </nav>
 <main id="main-content">
@@ -304,7 +309,7 @@
         <h2 style="margin-bottom:14px">Direkte kontakt til <span style="color:var(--orange)">udvikleren</span></h2>
         <p style="margin-bottom:20px">Hos NordicWebFlow taler du direkte med udvikleren der bygger din app. Ingen mellemled, ingen misforståelser. Jeg har erfaring med native Android (Kotlin/Jetpack Compose), iOS og Firebase — og bygger aktuelt en B2B SaaS-app med investor-backing.</p>
         <div style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px">
-          <img src="/images/Colorful%20Graffiti%20Circle%20Framed%20Instagram%20Profile%20Picture%20(1).png" alt="Diego Maldonado — App Udvikler & Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
+          <img src="/images/diego-maldonado.png" alt="Diego Maldonado — App Udvikler & Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
           <div>
             <div style="font-family:var(--font-display);font-weight:700;color:var(--heading);font-size:1rem">Diego Maldonado</div>
             <div style="font-size:.82rem;color:var(--muted)">Stifter, App Udvikler &amp; Digital Strateg</div>
@@ -334,7 +339,7 @@
       <div class="faq-item"><button class="faq-q">Hvad koster det at få udviklet en app?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Prisen afhænger af appens kompleksitet. Prisen afhænger af funktioner, platforme og kompleksitet. En simpel app kræver ca. 200 udviklingstimer, en avanceret app 300+ timer. Vi giver altid en fast projektpris efter en gratis og uforpligtende afklaring.</div></div></div>
       <div class="faq-item"><button class="faq-q">Hvor lang tid tager det at udvikle en app?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">En simpel app tager typisk 8-12 uger fra godkendt design til lancering. Mere komplekse apps med mange integrationer tager 12-20 uger. Vi arbejder i sprints, så du ser fremskridt hver 2. uge.</div></div></div>
       <div class="faq-item"><button class="faq-q">Bygger I native eller hybrid apps?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Vi bygger primært native apps — Kotlin til Android og Swift til iOS. Native giver den bedste performance, brugeroplevelse og adgang til enhedens funktioner. For projekter med stramme budgetter tilbyder vi også Kotlin Multiplatform.</div></div></div>
-      <div class="faq-item"><button class="faq-q">Kan I også lave en hjemmeside til min app?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Ja. Vi bygger også lynhurtige landing pages og hjemmesider i Framer med 97+ PageSpeed. Mange af vores app-kunder får en hjemmeside + app som samlet pakke.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Kan I også lave en hjemmeside til min app?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Ja. Vi bygger også lynhurtige landing pages og skræddersyede hjemmesider med 97+ PageSpeed. Mange af vores app-kunder får en hjemmeside + app som samlet pakke.</div></div></div>
       <div class="faq-item"><button class="faq-q">Hvem ejer koden til min app?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Du ejer 100% af koden, designet og rettighederne. Vi overdrager alt via GitHub når projektet er afsluttet. Ingen lock-in, ingen skjulte klausuler.</div></div></div>
       <div class="faq-item"><button class="faq-q">Tilbyder I vedligeholdelse efter lancering?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Ja. Vi tilbyder løbende vedligeholdelsesaftaler der dækker bug fixes, OS-opdateringer, og mindre forbedringer. Prisen afhænger af appens kompleksitet — typisk fra 2.999 kr./md.</div></div></div>
       <div class="faq-item"><button class="faq-q">Kan I hjælpe med app-idéen og forretningsmodellen?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Ja. Vi starter altid med en gratis afklaring hvor vi diskuterer din idé, målgruppe og forretningsmodel. Vi rådgiver om features, monetisering og go-to-market strategi.</div></div></div>
@@ -365,7 +370,7 @@
       <a href="/app-udvikling/ios-app-udvikling">iOS App Udvikling</a>
       <a href="/app-udvikling/app-udvikling-pris">App Udvikling Pris</a>
       <a href="/app-udvikling/firma-app">Firma App Udvikling</a>
-      <a href="/ydelser/lynhurtige-hjemmesider-framer">Hjemmesider i Framer</a>
+      <a href="/ydelser/lynhurtige-hjemmesider-framer">Hjemmesider med professionelt webdesign</a>
       <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO København</a>
       <a href="/kontakt">Kontakt os</a>
     </div>
@@ -410,7 +415,7 @@
         <a href="/faa-et-tilbud">Få et tilbud</a>
         <p style="font-size:.8rem;color:rgba(255,255,255,.6);margin-top:14px">København, Danmark<br>CVR: 46305639</p>
         <div style="display:flex;gap:8px;margin-top:16px">
-          <a href="https://g.page/r/nordicwebflow/review" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(66,133,244,.15);border:1px solid rgba(66,133,244,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#FBBC04">★</span> Google</a>
+          <a href="https://g.page/r/CVCeBui8XFZJEAE/review" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(66,133,244,.15);border:1px solid rgba(66,133,244,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#FBBC04">★</span> Google</a>
           <a href="https://www.trustpilot.com/review/nordicwebflow.com" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(0,182,122,.12);border:1px solid rgba(0,182,122,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#00b67a">★</span> Trustpilot</a>
           <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(10,102,194,.12);border:1px solid rgba(10,102,194,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#0A66C2">in</span> LinkedIn</a>
         </div>
@@ -504,5 +509,6 @@ document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('
   });
 })();
 </script>
+<script src="/dark-mode.js" defer></script>
 </body>
 </html>
