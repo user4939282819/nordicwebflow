@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Betaling | NordicWebFlow</title>
-<meta name="description" content="Fuldfør din bestilling hos NordicWebFlow. Udfyld dine oplysninger og bekræft din ordre — vi kontakter dig inden for 1 hverdag.">
+<meta name="description" content="Fuldfør din bestilling hos NordicWebFlow. Udfyld dine oplysninger og betal sikkert online.">
 <link rel="canonical" href="https://nordicwebflow.com/betaling">
 <meta property="og:title" content="Betaling | NordicWebFlow">
 <meta property="og:description" content="Fuldfør din bestilling hos NordicWebFlow.">
@@ -35,9 +35,19 @@
       <span class="nav-logo-text">Nordic<span>WebFlow</span></span>
     </a>
     <div class="nav-links">
-      <a href="/">Forside</a>
+      <div class="dropdown">
+        <a href="/ydelser">Ydelser ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+          <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
+          <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
+          <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
+          <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
+          <a href="/app-udvikling">App Udvikling</a>
+          </div>
+        </div>
+      </div>
       <a href="/#beregn-din-pris">Priser</a>
-      <a href="/cases">Cases</a>
       <a href="/blog">Blog</a>
       <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
     </div>
@@ -52,9 +62,13 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
-    <a href="/">Forside</a>
+    <div class="mobile-menu-cat">Ydelser</div>
+    <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
+    <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
+    <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
+    <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
+    <div class="mobile-menu-cat">Mere</div>
     <a href="/#beregn-din-pris">Priser</a>
-    <a href="/cases">Cases</a>
     <a href="/kontakt">Kontakt</a>
     <a href="/faa-et-tilbud" class="mobile-menu-cta">Få et tilbud →</a>
   </div>
@@ -64,7 +78,7 @@
 <div class="checkout-page">
   <div class="container">
 
-    <!-- Empty cart redirect -->
+    <!-- Empty cart state -->
     <div id="checkout-empty" style="display:none;text-align:center;padding:80px 0">
       <div style="font-size:3rem;margin-bottom:16px">🛒</div>
       <h2 style="margin-bottom:8px">Din kurv er tom</h2>
@@ -72,30 +86,21 @@
       <a href="/#beregn-din-pris" class="btn btn-primary">Beregn din pris →</a>
     </div>
 
-    <!-- Confirmation message (shown after submit) -->
-    <div id="checkout-confirmation" style="display:none;text-align:center;padding:80px 0">
-      <div style="font-size:3.5rem;margin-bottom:20px">✅</div>
-      <h1 style="margin-bottom:12px">Tak for din bestilling!</h1>
-      <p class="lead" style="max-width:500px;margin:0 auto 28px">Vi har modtaget din ordre og sender dig en bekræftelse på e-mail. Vores team kontakter dig inden for <strong>1 hverdag</strong>.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="/" class="btn btn-primary">Tilbage til forsiden →</a>
-        <a href="/faa-et-tilbud" class="btn btn-ghost">Skriv til os</a>
-      </div>
-    </div>
-
     <!-- Checkout form -->
     <div id="checkout-form-wrap">
       <a href="/kurv" style="font-size:.85rem;color:var(--muted);display:inline-flex;align-items:center;gap:6px;margin-bottom:20px">← Tilbage til kurven</a>
-      <h1 style="margin-bottom:6px">Bekræft ordre</h1>
-      <p style="color:var(--muted);margin-bottom:36px">Udfyld dine oplysninger — vi kontakter dig inden for 1 hverdag med en bekræftelse.</p>
+      <h1 style="margin-bottom:6px">Bekræft &amp; Betal</h1>
+      <p style="color:var(--muted);margin-bottom:36px">Udfyld dine oplysninger og betal sikkert via Stripe.</p>
+
+      <!-- Inline error message -->
+      <div id="checkout-error" style="display:none;background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:14px 18px;margin-bottom:20px;color:#dc2626;font-size:.9rem"></div>
 
       <div class="checkout-grid">
         <!-- Form -->
         <div class="checkout-form-col">
-          <form id="checkout-form" name="bestilling" method="POST" action="/tak">
-            <input type="hidden" name="form-name" value="bestilling">
-            <input type="hidden" name="ordre-detaljer" id="hidden-order-details">
+          <form id="checkout-form" novalidate>
 
+            <!-- Kontaktoplysninger -->
             <div style="margin-bottom:28px">
               <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Kontaktoplysninger</div>
               <div class="form-group">
@@ -114,6 +119,7 @@
               </div>
             </div>
 
+            <!-- Virksomhedsoplysninger -->
             <div style="margin-bottom:28px">
               <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Virksomhedsoplysninger</div>
               <div class="form-group">
@@ -132,34 +138,72 @@
               </div>
             </div>
 
+            <!-- Website Brief -->
             <div style="margin-bottom:28px">
-              <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Din besked</div>
+              <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Website Brief</div>
               <div class="form-group">
-                <label class="form-label" for="besked">Besked eller særlige ønsker</label>
-                <textarea class="form-textarea" id="besked" name="besked" placeholder="Fortæl os om din virksomhed, nuværende hjemmeside, særlige ønsker..." style="min-height:100px"></textarea>
+                <label class="form-label" for="farver">Foretrukne farver</label>
+                <input class="form-input" type="text" id="farver" name="farver" placeholder="F.eks. blå, hvid, orange">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="logo-url">Logo URL</label>
+                <input class="form-input" type="text" id="logo-url" name="logo_url" placeholder="https://example.com/logo.png">
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="form-group">
+                  <label class="form-label" for="stil">Ønsket stil</label>
+                  <select class="form-input" id="stil" name="stil" style="cursor:pointer">
+                    <option value="">Vælg stil...</option>
+                    <option value="Minimalistisk">Minimalistisk</option>
+                    <option value="Modern">Modern</option>
+                    <option value="Klassisk">Klassisk</option>
+                    <option value="Bold/Farverig">Bold/Farverig</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="antal-sider">Antal sider</label>
+                  <input class="form-input" type="number" id="antal-sider" name="antal_sider" placeholder="5" min="1" max="100">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="virksomhedsbeskrivelse">Kort beskrivelse af virksomheden</label>
+                <textarea class="form-textarea" id="virksomhedsbeskrivelse" name="virksomhedsbeskrivelse" placeholder="Beskriv kort hvad din virksomhed laver..." style="min-height:80px"></textarea>
               </div>
             </div>
 
-            <button type="submit" class="checkout-submit">Bekræft ordre →</button>
-            <p class="checkout-note">Vi behandler din ordre manuelt og sender en e-mail med faktura og næste skridt inden for 1 hverdag. Ingen kortoplysninger kræves endnu.</p>
+            <!-- Besked -->
+            <div style="margin-bottom:28px">
+              <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Besked / særlige ønsker</div>
+              <div class="form-group">
+                <textarea class="form-textarea" id="besked" name="besked" placeholder="Særlige ønsker, eksisterende hjemmeside URL, andet..." style="min-height:100px"></textarea>
+              </div>
+            </div>
+
+            <!-- Legal notice -->
+            <p style="font-size:.78rem;color:var(--muted);margin-bottom:20px;line-height:1.6">Ved at afgive din bestilling bekræfter du, at du har læst og accepterer vores <a href="/returpolitik" style="color:var(--orange)">Returpolitik</a> og <a href="/legal" style="color:var(--orange)">Privatlivspolitik</a>.</p>
+
+            <button type="submit" class="checkout-submit" id="submit-btn">
+              <span id="submit-text">Fortsæt til betaling →</span>
+              <span id="submit-spinner" style="display:none"></span>
+            </button>
           </form>
         </div>
 
         <!-- Order summary -->
         <div class="checkout-summary-col">
           <div class="checkout-summary-title">Ordreoversigt</div>
-          <div id="checkout-items">
-            <!-- Filled by JS -->
-          </div>
-          <div class="checkout-total-row">
-            <span class="checkout-total-label">Total (ekskl. moms)</span>
+          <div id="checkout-items"></div>
+          <div class="checkout-total-row" style="margin-top:8px">
+            <span class="checkout-total-label">Total</span>
             <span class="checkout-total-val" id="checkout-total">0 kr.</span>
           </div>
-          <p style="font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.5">Moms (25%) tillægges ved fakturering. Du modtager faktura og betalingslink pr. e-mail.</p>
+          <div id="discount-notice" style="display:none;margin-top:6px">
+            <span style="font-size:.8rem;color:#22c55e;font-weight:600">✓ 10% rabat anvendt</span>
+          </div>
           <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
               <span style="color:var(--green);font-size:.9rem">✓</span>
-              <span style="font-size:.8rem;color:var(--muted)">Svar inden for 1 hverdag</span>
+              <span style="font-size:.8rem;color:var(--muted)">Sikker betaling via Stripe</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
               <span style="color:var(--green);font-size:.9rem">✓</span>
@@ -171,7 +215,7 @@
             </div>
             <div style="display:flex;align-items:center;gap:8px">
               <span style="color:var(--green);font-size:.9rem">✓</span>
-              <span style="font-size:.8rem;color:var(--muted)">Personlig kontakt med Diego</span>
+              <span style="font-size:.8rem;color:var(--muted)">Svar inden for 1 hverdag</span>
             </div>
           </div>
         </div>
@@ -209,8 +253,10 @@
         <a href="/app-udvikling">App Udvikling (Android + iOS)</a>
         <h5 style="margin-top:20px">Sider</h5>
         <a href="/">Forside</a><a href="/#beregn-din-pris">Priser</a>
-        <a href="/cases">Cases</a><a href="/blog">Blog</a>
-        <a href="/legal">Privatlivspolitik</a><a href="/kurv">Kurv</a>
+        <a href="/blog">Blog</a>
+        <a href="/legal">Privatlivspolitik</a>
+        <a href="/returpolitik">Returpolitik</a>
+        <a href="/kurv">Kurv</a>
       </div>
       <div class="footer-col">
         <h5>Kontakt os</h5>
@@ -225,16 +271,24 @@
       <div style="display:flex;gap:16px;flex-wrap:wrap">
         <a href="/legal" style="color:rgba(255,255,255,.6)">Privatlivspolitik</a>
         <a href="/legal" style="color:rgba(255,255,255,.6)">Cookiepolitik</a>
+        <a href="/returpolitik" style="color:rgba(255,255,255,.6)">Returpolitik</a>
         <a href="#" data-cookie-settings style="color:rgba(255,255,255,.65)">Cookie-indstillinger</a>
       </div>
     </div>
   </div>
 </footer>
 
+<style>
+@keyframes spin{to{transform:rotate(360deg)}}
+#submit-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle}
+</style>
+
 <script>
 var NWF_CART_KEY='nwf_cart';
+var WORKER_URL='https://nordicwebflow-worker.diegomaldonadonagore20.workers.dev';
+
 function getCart(){try{return JSON.parse(localStorage.getItem(NWF_CART_KEY)||'[]');}catch(e){return[];}}
-function saveCart(cart){localStorage.setItem(NWF_CART_KEY,JSON.stringify(cart));}
+function saveCart(c){localStorage.setItem(NWF_CART_KEY,JSON.stringify(c));}
 function formatPrice(n){return n.toLocaleString('da-DK')+' kr.';}
 
 function renderSummary(){
@@ -253,57 +307,122 @@ function renderSummary(){
   if(emptyEl)emptyEl.style.display='none';
   if(formWrap)formWrap.style.display='block';
 
-  var total=0;
+  var subtotal=0;
   var itemsEl=document.getElementById('checkout-items');
   if(itemsEl){
     itemsEl.innerHTML=cart.map(function(item){
-      total+=item.price||0;
+      subtotal+=item.price||0;
       var metaStr=item.meta&&item.meta.length?'<div class="checkout-item-meta">'+item.meta.join(' · ')+'</div>':'';
       return '<div class="checkout-item"><div><div class="checkout-item-name">'+item.label+'</div>'+metaStr+'</div><div class="checkout-item-price">'+formatPrice(item.price)+'</div></div>';
     }).join('');
   }
-  var totalEl=document.getElementById('checkout-total');
-  if(totalEl)totalEl.textContent=formatPrice(total);
 
-  // Populate hidden order details field
-  var hiddenField=document.getElementById('hidden-order-details');
-  if(hiddenField){
-    var details=cart.map(function(item){
-      return item.label+(item.meta&&item.meta.length?' ('+item.meta.join(', ')+')':'')+': '+formatPrice(item.price);
-    }).join('\n');
-    details+='\n\nTotal: '+formatPrice(total);
-    hiddenField.value=details;
+  var discountData=null;
+  try{discountData=JSON.parse(localStorage.getItem('nwf_discount')||'null');}catch(e){}
+  var finalTotal=discountData&&discountData.final?discountData.final:subtotal;
+  var discountNotice=document.getElementById('discount-notice');
+  if(discountData&&discountData.final){
+    if(discountNotice)discountNotice.style.display='block';
+  } else {
+    if(discountNotice)discountNotice.style.display='none';
   }
+
+  var totalEl=document.getElementById('checkout-total');
+  if(totalEl)totalEl.textContent=formatPrice(finalTotal);
 }
 
 renderSummary();
 
-// Form submission
 var form=document.getElementById('checkout-form');
-if(form){
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var cart=getCart();
-    // Build mailto or submit via form POST
-    // Since the site uses HTML form POST, we submit and show confirmation
-    var formData=new FormData(form);
-    // Try fetch for form submission
-    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(formData).toString()})
-      .then(function(){showConfirmation();})
-      .catch(function(){showConfirmation();});
-  });
+if(form){form.addEventListener('submit',function(e){e.preventDefault();submitCheckout();});}
+
+function showError(msg){
+  var el=document.getElementById('checkout-error');
+  if(el){el.textContent=msg;el.style.display='block';}
+  setLoading(false);
 }
 
-function showConfirmation(){
-  // Clear cart
-  saveCart([]);
-  // Show confirmation
-  var formWrap=document.getElementById('checkout-form-wrap');
-  var confEl=document.getElementById('checkout-confirmation');
-  if(formWrap)formWrap.style.display='none';
-  if(confEl)confEl.style.display='block';
-  // Scroll to top
-  window.scrollTo({top:0,behavior:'smooth'});
+function setLoading(on){
+  var btn=document.getElementById('submit-btn');
+  var txt=document.getElementById('submit-text');
+  var spin=document.getElementById('submit-spinner');
+  if(btn)btn.disabled=on;
+  if(txt)txt.style.display=on?'none':'';
+  if(spin)spin.style.display=on?'inline-block':'none';
+}
+
+function submitCheckout(){
+  var cart=getCart();
+  if(cart.length===0){showError('Din kurv er tom. Gå tilbage og tilføj produkter.');return;}
+
+  var navn=(document.getElementById('navn').value||'').trim();
+  var email=(document.getElementById('email').value||'').trim();
+  if(!navn){showError('Udfyld venligst dit navn.');return;}
+  if(!email||!email.includes('@')){showError('Udfyld venligst en gyldig e-mailadresse.');return;}
+
+  var errEl=document.getElementById('checkout-error');
+  if(errEl)errEl.style.display='none';
+  setLoading(true);
+
+  var subtotal=cart.reduce(function(s,i){return s+(i.price||0);},0);
+  var discountData=null;
+  try{discountData=JSON.parse(localStorage.getItem('nwf_discount')||'null');}catch(e){}
+  var finalTotal=discountData&&discountData.final?discountData.final:subtotal;
+
+  var payload={
+    navn:navn,
+    email:email,
+    telefon:(document.getElementById('telefon').value||'').trim(),
+    virksomhed:(document.getElementById('virksomhed').value||'').trim(),
+    cvr:(document.getElementById('cvr').value||'').trim(),
+    branche:(document.getElementById('branche').value||'').trim(),
+    farver:(document.getElementById('farver').value||'').trim(),
+    logo_url:(document.getElementById('logo-url').value||'').trim(),
+    stil:document.getElementById('stil').value,
+    antal_sider:document.getElementById('antal-sider').value,
+    virksomhedsbeskrivelse:(document.getElementById('virksomhedsbeskrivelse').value||'').trim(),
+    besked:(document.getElementById('besked').value||'').trim(),
+    cart:cart,
+    subtotal:subtotal,
+    finalTotal:finalTotal,
+    discount:discountData
+  };
+
+  fetch(WORKER_URL+'/order',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  })
+  .then(function(r){if(!r.ok)throw new Error('Serverfejl: '+r.status);return r.json();})
+  .then(function(data){
+    if(!data.ok)throw new Error(data.error||'Der opstod en fejl.');
+    var desc=cart.map(function(i){return i.label+(i.meta&&i.meta.length?' ('+i.meta.join(', ')+')':'');}).join(', ');
+    return fetch(WORKER_URL+'/create-checkout',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        amount:finalTotal,
+        customerEmail:email,
+        customerName:navn,
+        description:desc,
+        successUrl:window.location.origin+'/tak',
+        cancelUrl:window.location.origin+'/kurv'
+      })
+    });
+  })
+  .then(function(r){if(!r.ok)throw new Error('Betalingsfejl: '+r.status);return r.json();})
+  .then(function(data){
+    if(data.url){
+      saveCart([]);
+      localStorage.removeItem('nwf_discount');
+      window.location.href=data.url;
+    } else {
+      throw new Error('Ingen betalingsURL modtaget.');
+    }
+  })
+  .catch(function(err){
+    showError('Der opstod en fejl: '+err.message+'. Prøv igen eller kontakt os på hej@nordicwebflow.com.');
+  });
 }
 
 (function(){var c=document.getElementById('cursor');var r=document.getElementById('cursor-ring');if(!c||!r||window.matchMedia('(max-width:860px)').matches)return;var mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});function animRing(){rx+=(mx-rx)*.08;ry+=(my-ry)*.08;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(animRing);}animRing();})();
