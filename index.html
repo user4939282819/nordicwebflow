@@ -130,7 +130,7 @@
             i København
           </h1>
           <p class="hero-sub reveal d2 visible">Glem langsomme skabeloner. Professionelt webdesign med benhård lokal SEO i København — lynhurtige hjemmesider fra 4.999 kr. Du ejer alt 100% fra dag ét.</p>
-          <div class="hero-actions reveal d3">
+          <div class="hero-actions reveal d3 visible">
             <div class="hero-cta-dropdown" id="hero-cta-wrap">
               <button class="btn btn-primary btn-lg hero-cta-trigger" id="hero-cta-btn" aria-expanded="false" aria-haspopup="true" style="width:100%">
                 Se vores ydelser <span class="hero-cta-arrow">↓</span>
@@ -627,6 +627,8 @@
   var panel=document.getElementById('hero-cta-panel');
   var wrap=document.getElementById('hero-cta-wrap');
   if(!btn||!panel||!wrap)return;
+  // Move panel to body to escape stacking context of main (z-index:1)
+  document.body.appendChild(panel);
   function positionPanel(){
     var r=btn.getBoundingClientRect();
     var panelW=320;
