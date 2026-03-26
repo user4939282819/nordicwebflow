@@ -138,47 +138,6 @@
               </div>
             </div>
 
-            <!-- Website Brief -->
-            <div style="margin-bottom:28px">
-              <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Website Brief</div>
-              <div class="form-group">
-                <label class="form-label" for="farver">Foretrukne farver</label>
-                <input class="form-input" type="text" id="farver" name="farver" placeholder="F.eks. blå, hvid, orange">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="logo-url">Logo URL</label>
-                <input class="form-input" type="text" id="logo-url" name="logo_url" placeholder="https://example.com/logo.png">
-              </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-                <div class="form-group">
-                  <label class="form-label" for="stil">Ønsket stil</label>
-                  <select class="form-input" id="stil" name="stil" style="cursor:pointer">
-                    <option value="">Vælg stil...</option>
-                    <option value="Minimalistisk">Minimalistisk</option>
-                    <option value="Modern">Modern</option>
-                    <option value="Klassisk">Klassisk</option>
-                    <option value="Bold/Farverig">Bold/Farverig</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="antal-sider">Antal sider</label>
-                  <input class="form-input" type="number" id="antal-sider" name="antal_sider" placeholder="5" min="1" max="100">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="virksomhedsbeskrivelse">Kort beskrivelse af virksomheden</label>
-                <textarea class="form-textarea" id="virksomhedsbeskrivelse" name="virksomhedsbeskrivelse" placeholder="Beskriv kort hvad din virksomhed laver..." style="min-height:80px"></textarea>
-              </div>
-            </div>
-
-            <!-- Besked -->
-            <div style="margin-bottom:28px">
-              <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Besked / særlige ønsker</div>
-              <div class="form-group">
-                <textarea class="form-textarea" id="besked" name="besked" placeholder="Særlige ønsker, eksisterende hjemmeside URL, andet..." style="min-height:100px"></textarea>
-              </div>
-            </div>
-
             <!-- Legal notice -->
             <p style="font-size:.78rem;color:var(--muted);margin-bottom:20px;line-height:1.6">Ved at afgive din bestilling bekræfter du, at du har læst og accepterer vores <a href="/returpolitik" style="color:var(--orange)">Returpolitik</a> og <a href="/legal" style="color:var(--orange)">Privatlivspolitik</a>.</p>
 
@@ -376,12 +335,6 @@ function submitCheckout(){
     virksomhed:(document.getElementById('virksomhed').value||'').trim(),
     cvr:(document.getElementById('cvr').value||'').trim(),
     branche:(document.getElementById('branche').value||'').trim(),
-    farver:(document.getElementById('farver').value||'').trim(),
-    logo_url:(document.getElementById('logo-url').value||'').trim(),
-    stil:document.getElementById('stil').value,
-    antal_sider:document.getElementById('antal-sider').value,
-    virksomhedsbeskrivelse:(document.getElementById('virksomhedsbeskrivelse').value||'').trim(),
-    besked:(document.getElementById('besked').value||'').trim(),
     cart:cart,
     subtotal:subtotal,
     finalTotal:finalTotal,
@@ -405,7 +358,7 @@ function submitCheckout(){
         customerEmail:email,
         customerName:navn,
         description:desc,
-        successUrl:window.location.origin+'/tak',
+        successUrl:window.location.origin+'/onboarding',
         cancelUrl:window.location.origin+'/kurv'
       })
     });
@@ -415,6 +368,8 @@ function submitCheckout(){
     if(data.url){
       saveCart([]);
       localStorage.removeItem('nwf_discount');
+      localStorage.setItem('nwf_onboarding_email',email);
+      localStorage.setItem('nwf_onboarding_navn',navn);
       window.location.href=data.url;
     } else {
       throw new Error('Ingen betalingsURL modtaget.');

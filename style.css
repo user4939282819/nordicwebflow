@@ -952,6 +952,11 @@ html.switching,html.switching *{
   box-shadow:var(--shadow-orange);
 }
 .calc-tab-icon{font-size:1rem}
+@media(max-width:640px){
+  .calc-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .calc-tab{justify-content:center;padding:10px 12px;font-size:.82rem}
+  .calc-tabs .calc-tab:last-child:nth-child(odd){grid-column:1/-1}
+}
 
 /* Main two-column layout */
 .calc-grid{
@@ -1038,7 +1043,7 @@ html.switching,html.switching *{
 
 /* Price box at bottom of left column */
 .calc-price-box{
-  background:var(--heading);border-radius:var(--radius-lg);padding:24px;
+  background:#111008;border-radius:var(--radius-lg);padding:24px;
   margin-top:24px;text-align:center;position:sticky;bottom:20px;
 }
 .calc-price-label{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);

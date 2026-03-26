@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<script>!function(){var t=localStorage.getItem("nwf-theme");t&&document.documentElement.setAttribute("data-theme",t)}();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Onboarding — Fortæl os om dit projekt | NordicWebFlow</title>
+<meta name="description" content="Betaling modtaget! Udfyld dit website brief så vi kan komme i gang med dit projekt.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="page-inner">
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="NordicWebFlow — Webbureau København">
+      <div class="nav-logo-icon">N</div>
+      <span class="nav-logo-text">Nordic<span>WebFlow</span></span>
+    </a>
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="/ydelser">Ydelser ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+          <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
+          <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
+          <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
+          <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
+          <a href="/app-udvikling">App Udvikling</a>
+          </div>
+        </div>
+      </div>
+      <a href="/#beregn-din-pris">Priser</a>
+      <a href="/blog">Blog</a>
+      <a href="/faa-et-tilbud" class="nav-cta">Få et tilbud</a>
+    </div>
+    <div class="nav-right">
+      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
+    <div class="mobile-menu-cat">Ydelser</div>
+    <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
+    <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
+    <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
+    <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
+    <div class="mobile-menu-cat">Mere</div>
+    <a href="/#beregn-din-pris">Priser</a>
+    <a href="/kontakt">Kontakt</a>
+    <a href="/faa-et-tilbud" class="mobile-menu-cta">Få et tilbud →</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<div class="checkout-page">
+  <div class="container">
+    <div style="max-width:600px;margin:0 auto;padding:60px 0">
+
+      <!-- Progress indicator -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:36px;font-size:.82rem;color:var(--muted)">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#22c55e;color:#fff;font-weight:700;font-size:.75rem">✓</span>
+        <span style="color:#22c55e;font-weight:600">Betaling godkendt</span>
+        <span style="width:32px;height:1px;background:var(--border)"></span>
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--orange);color:#fff;font-weight:700;font-size:.75rem">2</span>
+        <span style="color:var(--heading);font-weight:600">Website Brief</span>
+        <span style="width:32px;height:1px;background:var(--border)"></span>
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--border);color:var(--muted);font-weight:700;font-size:.75rem">3</span>
+        <span>Færdig</span>
+      </div>
+
+      <div style="margin-bottom:8px;display:inline-flex;align-items:center;gap:8px">
+        <span style="font-size:1.6rem">🎉</span>
+        <span class="badge badge-orange" style="font-size:.72rem">Betaling modtaget</span>
+      </div>
+      <h1 style="margin-bottom:8px">Næsten færdig!</h1>
+      <p style="color:var(--muted);margin-bottom:36px;line-height:1.7">Fortæl os om dit projekt, så vi kan komme i gang. Det tager kun 2 minutter — og hjælper os med at levere præcis det du har brug for.</p>
+
+      <!-- Inline error -->
+      <div id="onboarding-error" style="display:none;background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:14px 18px;margin-bottom:20px;color:#dc2626;font-size:.9rem"></div>
+
+      <form id="onboarding-form" novalidate>
+
+        <!-- Website Brief -->
+        <div style="margin-bottom:28px">
+          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Website Brief</div>
+          <div class="form-group">
+            <label class="form-label" for="farver">Foretrukne farver</label>
+            <input class="form-input" type="text" id="farver" name="farver" placeholder="F.eks. blå, hvid, orange">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="logo-url">Logo URL <span style="font-weight:400;color:var(--muted)">(hvis du har et)</span></label>
+            <input class="form-input" type="text" id="logo-url" name="logo_url" placeholder="https://example.com/logo.png">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div class="form-group">
+              <label class="form-label" for="stil">Ønsket stil</label>
+              <select class="form-input" id="stil" name="stil" style="cursor:pointer">
+                <option value="">Vælg stil...</option>
+                <option value="Minimalistisk">Minimalistisk</option>
+                <option value="Modern">Modern</option>
+                <option value="Klassisk">Klassisk</option>
+                <option value="Bold/Farverig">Bold/Farverig</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="antal-sider">Antal sider</label>
+              <input class="form-input" type="number" id="antal-sider" name="antal_sider" placeholder="5" min="1" max="100">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="virksomhedsbeskrivelse">Kort beskrivelse af virksomheden</label>
+            <textarea class="form-textarea" id="virksomhedsbeskrivelse" name="virksomhedsbeskrivelse" placeholder="Beskriv kort hvad din virksomhed laver, hvem dine kunder er, og hvad der gør jer unikke..." style="min-height:90px"></textarea>
+          </div>
+        </div>
+
+        <!-- Besked -->
+        <div style="margin-bottom:28px">
+          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">Besked / særlige ønsker</div>
+          <div class="form-group">
+            <textarea class="form-textarea" id="besked" name="besked" placeholder="Særlige ønsker, eksisterende hjemmeside URL, referencer du kan lide, andet..." style="min-height:100px"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="checkout-submit" id="submit-btn">
+          <span id="submit-text">Send brief og afslut →</span>
+          <span id="submit-spinner" style="display:none"></span>
+        </button>
+
+        <p style="margin-top:14px;font-size:.78rem;color:var(--muted);text-align:center">
+          Du kan også sende dit brief direkte til <a href="mailto:hej@nordicwebflow.com" style="color:var(--orange)">hej@nordicwebflow.com</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">N</div>
+          <span class="footer-logo-text">Nordic<span>WebFlow</span></span>
+        </div>
+        <p>Vi bygger lynhurtige digitale salgsmaskiner for ambitiøse lokale virksomheder.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Brancher</h5>
+        <a href="/toemrer">Tømrer</a><a href="/tandlaege">Tandlæge</a>
+        <a href="/advokat">Advokat</a><a href="/murer">Murer</a>
+        <a href="/elektriker">Elektriker</a><a href="/maler">Maler</a>
+        <a href="/vvs">VVS</a><a href="/fysioterapeut">Fysioterapeut</a>
+        <a href="/revisor">Revisor</a><a href="/ejendomsmaegler">Ejendomsmægler</a>
+        <a href="/arkitekt">Arkitekt</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ydelser</h5>
+        <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
+        <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
+        <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
+        <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
+        <a href="/app-udvikling">App Udvikling (Android + iOS)</a>
+        <h5 style="margin-top:20px">Sider</h5>
+        <a href="/">Forside</a><a href="/#beregn-din-pris">Priser</a>
+        <a href="/blog">Blog</a>
+        <a href="/legal">Privatlivspolitik</a>
+        <a href="/returpolitik">Returpolitik</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kontakt os</h5>
+        <a href="/kontakt">Kontaktformular</a>
+        <a href="mailto:hej@nordicwebflow.com">hej@nordicwebflow.com</a>
+        <a href="/faa-et-tilbud">Få et tilbud</a>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.55);margin-top:14px;line-height:1.7">København, Danmark<br>CVR: 46305639</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NordicWebFlow. Alle rettigheder forbeholdes.</span>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/legal" style="color:rgba(255,255,255,.6)">Privatlivspolitik</a>
+        <a href="/returpolitik" style="color:rgba(255,255,255,.6)">Returpolitik</a>
+        <a href="#" data-cookie-settings style="color:rgba(255,255,255,.65)">Cookie-indstillinger</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+@keyframes spin{to{transform:rotate(360deg)}}
+#submit-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle}
+@media(max-width:640px){
+  .checkout-page .container > div{padding:40px 0}
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+}
+</style>
+
+<script>
+var WORKER_URL='https://nordicwebflow-worker.diegomaldonadonagore20.workers.dev';
+
+// Pre-fill email hint if available
+var savedEmail=localStorage.getItem('nwf_onboarding_email')||'';
+var savedNavn=localStorage.getItem('nwf_onboarding_navn')||'';
+
+var form=document.getElementById('onboarding-form');
+if(form){form.addEventListener('submit',function(e){e.preventDefault();submitBrief();});}
+
+function showError(msg){
+  var el=document.getElementById('onboarding-error');
+  if(el){el.textContent=msg;el.style.display='block';}
+  setLoading(false);
+}
+
+function setLoading(on){
+  var btn=document.getElementById('submit-btn');
+  var txt=document.getElementById('submit-text');
+  var spin=document.getElementById('submit-spinner');
+  if(btn)btn.disabled=on;
+  if(txt)txt.style.display=on?'none':'';
+  if(spin)spin.style.display=on?'inline-block':'none';
+}
+
+function submitBrief(){
+  var errEl=document.getElementById('onboarding-error');
+  if(errEl)errEl.style.display='none';
+  setLoading(true);
+
+  var payload={
+    type:'onboarding_brief',
+    email:savedEmail,
+    navn:savedNavn,
+    farver:(document.getElementById('farver').value||'').trim(),
+    logo_url:(document.getElementById('logo-url').value||'').trim(),
+    stil:document.getElementById('stil').value,
+    antal_sider:document.getElementById('antal-sider').value,
+    virksomhedsbeskrivelse:(document.getElementById('virksomhedsbeskrivelse').value||'').trim(),
+    besked:(document.getElementById('besked').value||'').trim()
+  };
+
+  fetch(WORKER_URL+'/order',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  })
+  .then(function(){
+    // Always redirect to /tak regardless of response
+    localStorage.removeItem('nwf_onboarding_email');
+    localStorage.removeItem('nwf_onboarding_navn');
+    window.location.href='/tak';
+  })
+  .catch(function(){
+    // Even on network error, redirect — brief can be sent via email
+    localStorage.removeItem('nwf_onboarding_email');
+    localStorage.removeItem('nwf_onboarding_navn');
+    window.location.href='/tak';
+  });
+}
+
+(function(){var c=document.getElementById('cursor');var r=document.getElementById('cursor-ring');if(!c||!r||window.matchMedia('(max-width:860px)').matches)return;var mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});function animRing(){rx+=(mx-rx)*.08;ry+=(my-ry)*.08;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(animRing);}animRing();})();
+(function(){var nav=document.getElementById('main-nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});})();
+(function(){var btn=document.getElementById('hamburger-btn');var mob=document.getElementById('mobile-menu');if(!btn||!mob)return;btn.addEventListener('click',function(){var open=mob.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Luk menu':'Åbn menu');});})();
+</script>
+<script src="/dark-mode.js" defer></script>
+</body>
+</html>
