@@ -42,20 +42,23 @@
       </button>
     </div>
     <div class="nav-right">
-      <div class="nav-links">
+            <div class="nav-links">
       <div class="dropdown">
         <a href="/ydelser">Ydelser ▾</a>
         <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
           <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
           <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
           <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
           <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
           <a href="/app-udvikling">App Udvikling</a>
+          </div>
         </div>
       </div>
       <div class="dropdown">
         <a href="/brancher">Brancher ▾</a>
         <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
           <a href="/toemrer">Tømrer</a>
           <a href="/tandlaege">Tandlæge</a>
           <a href="/advokat">Advokat</a>
@@ -67,19 +70,24 @@
           <a href="/revisor">Revisor</a>
           <a href="/ejendomsmaegler">Ejendomsmægler</a>
           <a href="/arkitekt">Arkitekt</a>
+          </div>
         </div>
       </div>
       <a href="/#beregn-din-pris">Priser</a>
-      <a href="/blog">Blog</a>
-      <a href="/#beregn-din-pris" class="nav-cta">Beregn din pris</a>
+            </div>
+      <div class="nav-cta-group">
+        <a href="/#beregn-din-pris" class="nav-cta">Beregn din pris</a>
       </div>
-
-    <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="/kurv" class="nav-cart-link" aria-label="Kurv" title="Din kurv">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
+      </a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
     <div class="mobile-menu-cat">Ydelser</div>
     <div class="mobile-menu-ydelser">
       <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>

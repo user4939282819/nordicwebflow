@@ -100,7 +100,7 @@
       </button>
     </div>
     <div class="nav-right">
-      <div class="nav-links">
+            <div class="nav-links">
       <div class="dropdown">
         <a href="/ydelser">Ydelser ▾</a>
         <div class="dropdown-menu">
@@ -114,7 +114,7 @@
         </div>
       </div>
       <div class="dropdown">
-        <a href="/brancher" class="active">Brancher ▾</a>
+        <a href="/brancher">Brancher ▾</a>
         <div class="dropdown-menu">
           <div class="dropdown-menu-inner">
           <a href="/toemrer">Tømrer</a>
@@ -132,23 +132,17 @@
         </div>
       </div>
       <a href="/#beregn-din-pris">Priser</a>
-      <a href="/blog">Blog</a>
+            </div>
+      <div class="nav-cta-group">
+        <a href="/#beregn-din-pris" class="nav-cta">Beregn priser</a>
       </div>
-
-    <div class="nav-cta-group">
-    <a href="/kurv" class="nav-cart-link" aria-label="Kurv" title="Din kurv">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      <span class="nav-cart-count" id="nav-cart-count" style="display:none">0</span>
-    </a>
-    <a href="/#beregn-din-pris" class="btn btn-primary nav-cta-btn">Beregn din pris</a>
-    </div>
-    <button class="theme-toggle" id="theme-toggle-btn" aria-label="Skift farvetema" title="Skift farvetema">
-      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="/kurv" class="nav-cart-link" aria-label="Kurv" title="Din kurv">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
+      </a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
   <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
@@ -888,5 +882,81 @@ if(hbtn&&mob){hbtn.addEventListener('click',()=>{const open=mob.classList.toggle
 </script>
 <script src="/dark-mode.js" defer></script>
 <script src="/sparkles.js" defer></script>
+<!-- GDPR Cookie Banner — Danish Cookiebekendtgørelsen + GDPR compliant -->
+<div id="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie-samtykke" class="cookie-banner">
+  <div class="cookie-banner-inner">
+    <div class="cookie-banner-row">
+      <div class="cookie-banner-text">
+        <p class="cookie-title"><strong>Vi respekterer dit privatliv</strong></p>
+        <p class="cookie-body">Vi bruger cookies til at sikre, at hjemmesiden fungerer (nødvendige), og til at analysere trafik (statistik) — kun med dit aktive samtykke. Du kan til enhver tid ændre dine valg. <a href="/legal" class="cookie-link">Læs vores cookie- og privatlivspolitik</a>.</p>
+        <div class="cookie-checks">
+          <label class="cookie-check-label cookie-check-disabled">
+            <input type="checkbox" checked disabled style="accent-color:#16A34A;width:16px;height:16px"> <span><strong>Nødvendige</strong> — kræves for at siden virker (kan ikke fravælges)</span>
+          </label>
+          <label class="cookie-check-label">
+            <input type="checkbox" id="cookie-stats" style="accent-color:#E84400;width:16px;height:16px"> <span><strong>Statistik</strong> — anonym trafik-analyse via Google Analytics</span>
+          </label>
+        </div>
+      </div>
+      <div class="cookie-btns">
+        <button id="cookie-reject" class="cookie-btn cookie-btn-ghost">Afvis alle</button>
+        <button id="cookie-selected" class="cookie-btn cookie-btn-ghost">Gem mine valg</button>
+        <button id="cookie-accept" class="cookie-btn cookie-btn-primary">Accepter alle</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Floating cookie icon — bottom right -->
+<button id="cookie-float-btn" class="cookie-float-btn" aria-label="Cookie-indstillinger" title="Skift cookie-indstillinger">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E84400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="1" fill="#E84400"/><circle cx="9" cy="14" r="1" fill="#E84400"/><circle cx="15" cy="14" r="1" fill="#E84400"/></svg>
+</button>
+<script>
+(function(){
+  var K='nwf_cookie_consent',D='nwf_consent_date';
+  var consent=localStorage.getItem(K);
+  var banner=document.getElementById('cookie-banner');
+  var statsBox=document.getElementById('cookie-stats');
+  function loadGA(){
+    if(document.getElementById('ga-script'))return;
+    var s=document.createElement('script');s.id='ga-script';s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());gtag('config','G-XXXXXXXX',{anonymize_ip:true});
+  }
+  function save(val){
+    localStorage.setItem(K,val);
+    localStorage.setItem(D,new Date().toISOString());
+    if(banner)banner.style.display='none';
+    if(val==='all'||val==='stats') loadGA();
+  }
+  if(consent==='all'||consent==='stats'){loadGA();}
+  else if(!consent||consent===''){
+    if(banner){
+      banner.style.display='block';
+      document.getElementById('cookie-accept').addEventListener('click',function(){save('all');});
+      document.getElementById('cookie-reject').addEventListener('click',function(){save('none');});
+      document.getElementById('cookie-selected').addEventListener('click',function(){
+        save(statsBox&&statsBox.checked?'stats':'necessary');
+      });
+    }
+  }
+  var floatBtn=document.getElementById('cookie-float-btn');
+  if(floatBtn){
+    floatBtn.addEventListener('click',function(){
+      localStorage.removeItem(K);localStorage.removeItem(D);
+      if(banner){banner.style.display='block';}
+    });
+  }
+  document.querySelectorAll('[data-cookie-settings]').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      localStorage.removeItem(K);localStorage.removeItem(D);
+      if(banner){banner.style.display='block';}
+    });
+  });
+})();
+</script>
 </body>
 </html>
