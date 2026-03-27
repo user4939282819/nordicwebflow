@@ -527,6 +527,21 @@ nav.scrolled .nav-links a:not(.nav-cta):hover{background:var(--bg2)}
   display:flex;align-items:center;justify-content:center;font-size:1.3rem;
   margin-bottom:16px;border:1px solid var(--orange-mid);
 }
+/* Illustration image variant — replaces emoji icon */
+.card-icon.card-icon-img{
+  width:100%;height:160px;background:transparent;border:none;
+  border-radius:0;padding:0;margin-bottom:12px;
+  display:flex;align-items:flex-end;justify-content:center;overflow:visible;
+}
+.card-icon.card-icon-img img{
+  width:auto;height:160px;max-width:100%;
+  object-fit:contain;object-position:bottom center;
+  display:block;
+}
+@media(max-width:640px){
+  .card-icon.card-icon-img{height:130px}
+  .card-icon.card-icon-img img{height:130px}
+}
 .card h3{margin-bottom:10px}
 .card p{font-size:.9rem;color:var(--muted)}
 .card-link{color:var(--orange);font-size:.85rem;margin-top:14px;display:inline-flex;align-items:center;gap:4px;font-weight:600;transition:gap var(--t)}
