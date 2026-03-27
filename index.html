@@ -39,7 +39,6 @@
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="NordicWebFlow — Webbureau København">
       <div class="nav-logo-icon">N</div>
-      <span class="nav-logo-text">Nordic<span>WebFlow</span></span>
     </a>
     <div class="nav-links">
       <div class="dropdown">
@@ -55,7 +54,7 @@
         </div>
       </div>
       <div class="dropdown">
-        <a href="#">Brancher ▾</a>
+        <a href="/brancher">Brancher ▾</a>
         <div class="dropdown-menu">
           <div class="dropdown-menu-inner">
           <a href="/toemrer">Tømrer</a>
@@ -74,13 +73,15 @@
       </div>
       <a href="/#beregn-din-pris">Priser</a>
       <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO-tjek</a>
-      <a href="/#beregn-din-pris" class="nav-cta">Beregn priser</a>
     </div>
     <div class="nav-right">
+    <div class="nav-cta-group">
     <a href="/kurv" class="nav-cart-link" aria-label="Kurv" title="Din kurv">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
       <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
     </a>
+    <a href="/#beregn-din-pris" class="nav-cta">Beregn priser</a>
+    </div>
     <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
@@ -88,19 +89,14 @@
   </div>
   <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
     <div class="mobile-menu-cat">Ydelser</div>
-    <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
-    <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
-    <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
-    <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
-    <div class="mobile-menu-cat">Brancher</div>
-    <div class="mobile-menu-brancher">
-      <a href="/toemrer">Tømrer</a><a href="/tandlaege">Tandlæge</a>
-      <a href="/advokat">Advokat</a><a href="/murer">Murer</a>
-      <a href="/elektriker">Elektriker</a><a href="/maler">Maler</a>
-      <a href="/vvs">VVS</a><a href="/fysioterapeut">Fysioterapeut</a>
-      <a href="/revisor">Revisor</a><a href="/ejendomsmaegler">Ejendomsmægler</a>
-      <a href="/arkitekt">Arkitekt</a>
+    <div class="mobile-menu-ydelser">
+      <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
+      <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
+      <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
+      <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
     </div>
+
+    <a href="/brancher"><span class="mm-icon">🏢</span>Brancher</a>
     <div class="mobile-menu-cat">Mere</div>
     <a href="/#beregn-din-pris">Priser</a>
     <a href="/kurv">Kurv <span id="mobile-cart-badge" style="display:none;background:var(--orange);color:#fff;border-radius:999px;padding:1px 7px;font-size:.65rem;font-weight:700;margin-left:4px">0</span></a>
@@ -333,24 +329,24 @@
           <div class="calc-section-label">Vælg SEO-pakke</div>
           <div class="calc-exclusive-group">
             <label class="calc-exclusive-option selected">
-              <input type="radio" name="seo-plan" value="1999" data-label="SEO Starter" checked onchange="updateCalc()">
+              <input type="radio" name="seo-plan" value="499" data-label="SEO Starter" checked onchange="updateCalc()">
               <div style="flex:1">
                 <div class="calc-exclusive-name">SEO Starter</div>
                 <div style="font-size:.72rem;color:var(--muted)">Google Business Profile, keyword-tracking, on-page SEO-opdateringer</div>
               </div>
               <div>
-                <div class="calc-exclusive-price">1.999 kr.</div>
+                <div class="calc-exclusive-price">499 kr.</div>
                 <div class="calc-exclusive-monthly">/md.</div>
               </div>
             </label>
             <label class="calc-exclusive-option">
-              <input type="radio" name="seo-plan" value="2999" data-label="SEO + Rapportering" onchange="updateCalc()">
+              <input type="radio" name="seo-plan" value="799" data-label="SEO + Rapportering" onchange="updateCalc()">
               <div style="flex:1">
                 <div class="calc-exclusive-name">SEO + Løbende rapportering</div>
                 <div style="font-size:.72rem;color:var(--muted)">Alt fra SEO Starter + detaljeret månedlig performance-rapport</div>
               </div>
               <div>
-                <div class="calc-exclusive-price">2.999 kr.</div>
+                <div class="calc-exclusive-price">799 kr.</div>
                 <div class="calc-exclusive-monthly">/md.</div>
               </div>
             </label>
@@ -505,28 +501,28 @@
           <div class="calc-section-label">Platform</div>
           <div class="calc-exclusive-group">
             <label class="calc-exclusive-option selected">
-              <input type="radio" name="app-platform" value="14999" data-label="Android App" checked onchange="updateCalc()">
+              <input type="radio" name="app-platform" value="29999" data-label="Android App" checked onchange="updateCalc()">
               <div style="flex:1">
                 <div class="calc-exclusive-name">Android</div>
                 <div style="font-size:.72rem;color:var(--muted)">Google Play Store · native app</div>
               </div>
-              <div class="calc-exclusive-price">1.499 kr.</div>
+              <div class="calc-exclusive-price">29.999 kr.</div>
             </label>
             <label class="calc-exclusive-option">
-              <input type="radio" name="app-platform" value="14999" data-label="iOS App" onchange="updateCalc()">
+              <input type="radio" name="app-platform" value="29999" data-label="iOS App" onchange="updateCalc()">
               <div style="flex:1">
                 <div class="calc-exclusive-name">iOS (iPhone + iPad)</div>
                 <div style="font-size:.72rem;color:var(--muted)">Apple App Store · native app</div>
               </div>
-              <div class="calc-exclusive-price">1.499 kr.</div>
+              <div class="calc-exclusive-price">29.999 kr.</div>
             </label>
             <label class="calc-exclusive-option">
-              <input type="radio" name="app-platform" value="24999" data-label="Android + iOS App" onchange="updateCalc()">
+              <input type="radio" name="app-platform" value="54999" data-label="Android + iOS App" onchange="updateCalc()">
               <div style="flex:1">
                 <div class="calc-exclusive-name">Android + iOS</div>
-                <div style="font-size:.72rem;color:var(--green);font-weight:600">Spar 4.998 kr. ved begge platforme</div>
+                <div style="font-size:.72rem;color:var(--green);font-weight:600">Spar 4.999 kr. ved begge platforme</div>
               </div>
-              <div class="calc-exclusive-price">24.999 kr.</div>
+              <div class="calc-exclusive-price">54.999 kr.</div>
             </label>
           </div>
           <div class="calc-section-label" style="margin-top:20px">Funktioner</div>
@@ -903,7 +899,7 @@
       <div class="faq-item"><button class="faq-q">Hvilke brancher arbejder I med?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Vi specialiserer os i lokale virksomheder som tømrere, tandlæger, advokater, murere, elektrikere, malere, VVS-firmaer, fysioterapeuter, revisorer og ejendomsmæglere i København.</div></div></div>
       <div class="faq-item"><button class="faq-q">Er hjemmesiden SEO-optimeret?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Ja, alle vores hjemmesider er 100% teknisk SEO-optimerede fra dag ét — inkl. meta-titler, schema markup, sitemap og Core Web Vitals.</div></div></div>
       <div class="faq-item"><button class="faq-q">Ejer jeg min hjemmeside?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Ja, 100%. Du ejer siden, koden og domænet fra dag ét. Ingen bindende abonnementer eller lock-in.</div></div></div>
-      <div class="faq-item"><button class="faq-q">Hvad er inkluderet i Lokal SEO-pakken?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">SEO Starter fra 1.999 kr./md. inkluderer optimering af Google Business Profile, månedlig keyword-tracking og on-page SEO-opdateringer. Med SEO + Løbende rapportering til 2.999 kr./md. får du desuden en månedlig performance-rapport. Begge kan opsiges med 30 dages varsel.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Hvad er inkluderet i Lokal SEO-pakken?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">SEO Starter fra 499 kr./md. inkluderer optimering af Google Business Profile, månedlig keyword-tracking og on-page SEO-opdateringer. Med SEO + Løbende rapportering til 799 kr./md. får du desuden en månedlig performance-rapport. Begge kan opsiges med 30 dages varsel.</div></div></div>
       <div class="faq-item"><button class="faq-q">Bruger I Custom kode til alle hjemmesider?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Ja. Vi bygger udelukkende fordi det producerer lynhurtige hjemmesider med sub-1-sekunds loadtid og 100 PageSpeed-score.</div></div></div>
     </div>
   </div>
@@ -1028,7 +1024,7 @@
         <h5>Kontakt os</h5>
         <a href="/kontakt">Kontaktformular</a>
         <a href="mailto:hej@nordicwebflow.com">hej@nordicwebflow.com</a>
-        <a href="/faa-et-tilbud">Få et tilbud</a>
+        <a href="/#beregn-din-pris">Beregn din pris</a>
         <p style="font-size:.8rem;color:rgba(255,255,255,.55);margin-top:14px;line-height:1.7">København, Danmark<br>CVR: 46305639</p>
       </div>
     </div>
@@ -1294,7 +1290,7 @@ function updateCalc(){
     updatePreview(tenPlus&&tenPlus.checked?10:pages);
   } else if(currentProduct==='seo'){
     var plan=document.querySelector('input[name="seo-plan"]:checked');
-    total=plan?parseInt(plan.value):1999;
+    total=plan?parseInt(plan.value):499;
     document.querySelectorAll('input[name="seo-addon"]').forEach(function(cb){
       if(cb.checked)total+=parseInt(cb.value)||0;
     });
@@ -1316,7 +1312,7 @@ function updateCalc(){
     hideBrowserPreview();
   } else if(currentProduct==='app'){
     var platform=document.querySelector('input[name="app-platform"]:checked');
-    total=platform?parseInt(platform.value):14999;
+    total=platform?parseInt(platform.value):29999;
     document.querySelectorAll('input[name="app-feature"]').forEach(function(cb){
       if(cb.checked)total+=parseInt(cb.value)||0;
     });
@@ -1399,14 +1395,14 @@ function updateUpsells(){
   if(!container)return;
   if(currentProduct==='website'){
     container.innerHTML='<div class="upsell-heading">Populære tilføjelser</div>'+
-      '<div class="upsell-card"><span class="upsell-icon">📍</span><div class="upsell-body"><div class="upsell-title">Lokal SEO Starter</div><div class="upsell-sub">Google Business Profile, keyword-tracking, on-page SEO — sæt din side øverst på Google</div></div><div class="upsell-right"><span class="upsell-price">1.999 kr./md.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'SEO Starter\',1999,\'seo\',[\'Månedlig ydelse\'])">+ Tilføj til kurv</button></div></div>'+
+      '<div class="upsell-card"><span class="upsell-icon">📍</span><div class="upsell-body"><div class="upsell-title">Lokal SEO Starter</div><div class="upsell-sub">Google Business Profile, keyword-tracking, on-page SEO — sæt din side øverst på Google</div></div><div class="upsell-right"><span class="upsell-price">499 kr./md.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'SEO Starter\',499,\'seo\',[\'Månedlig ydelse\'])">+ Tilføj til kurv</button></div></div>'+
       '<div class="upsell-card"><span class="upsell-icon">🔍</span><div class="upsell-body"><div class="upsell-title">Google Ads opsætning</div><div class="upsell-sub">Professionel kampagneopsætning inkl. søgeordsstrategi og konverteringssporing</div></div><div class="upsell-right"><span class="upsell-price">2.499 kr.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'Google Ads opsætning\',2499,\'google-ads\',[\'Opsætningspris\'])">+ Tilføj til kurv</button></div></div>'+
       '<div class="upsell-card"><span class="upsell-icon">📢</span><div class="upsell-body"><div class="upsell-title">Meta Ads opsætning</div><div class="upsell-sub">Facebook &amp; Instagram kampagner målrettet din branche og lokalområde</div></div><div class="upsell-right"><span class="upsell-price">2.499 kr.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'Meta Ads opsætning\',2499,\'meta-ads\',[\'Opsætningspris\'])">+ Tilføj til kurv</button></div></div>';
   } else if(currentProduct==='seo'){
     container.innerHTML='<div class="upsell-card"><span class="upsell-icon">🖥️</span><div class="upsell-body"><div class="upsell-title">Mangler du en hjemmeside?</div><div class="upsell-sub">En NordicWebFlow hjemmeside er grundlaget for god SEO — fra 1.499 kr.</div></div><div class="upsell-right"><a href="/#beregn-din-pris" class="upsell-add-btn" onclick="document.querySelector(\'[data-product=\\\'website\\\']\').click()">Se hjemmesider →</a></div></div>';
   } else if(currentProduct==='google-ads'||currentProduct==='meta-ads'){
     container.innerHTML='<div class="upsell-card"><span class="upsell-icon">🖥️</span><div class="upsell-body"><div class="upsell-title">Optimér din landingsside</div><div class="upsell-sub">Bedre hjemmeside = lavere pris pr. klik og flere konverteringer</div></div><div class="upsell-right"><span class="upsell-price">fra 1.499 kr.</span><button class="upsell-add-btn" onclick="document.querySelector(\'[data-product=\\\'website\\\']\').click()">Se hjemmesider →</button></div></div>'+
-      '<div class="upsell-card"><span class="upsell-icon">📍</span><div class="upsell-body"><div class="upsell-title">Kombinér ads med SEO</div><div class="upsell-sub">Annoncer giver hurtige resultater — SEO giver varige resultater</div></div><div class="upsell-right"><span class="upsell-price">1.999 kr./md.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'SEO Starter\',1999,\'seo\',[\'Månedlig ydelse\'])">+ Tilføj til kurv</button></div></div>';
+      '<div class="upsell-card"><span class="upsell-icon">📍</span><div class="upsell-body"><div class="upsell-title">Kombinér ads med SEO</div><div class="upsell-sub">Annoncer giver hurtige resultater — SEO giver varige resultater</div></div><div class="upsell-right"><span class="upsell-price">499 kr./md.</span><button class="upsell-add-btn" onclick="addUpsellToCart(\'SEO Starter\',499,\'seo\',[\'Månedlig ydelse\'])">+ Tilføj til kurv</button></div></div>';
   } else if(currentProduct==='app'){
     container.innerHTML='<div class="upsell-card"><span class="upsell-icon">🖥️</span><div class="upsell-body"><div class="upsell-title">Har du en hjemmeside til din app?</div><div class="upsell-sub">En professionel hjemmeside styrker konverteringen fra søgning til download</div></div><div class="upsell-right"><span class="upsell-price">fra 1.499 kr.</span><button class="upsell-add-btn" onclick="document.querySelector(\'[data-product=\\\'website\\\']\').click()">Se hjemmesider →</button></div></div>';
   } else {
@@ -1467,7 +1463,7 @@ function addToCart(){
   } else if(currentProduct==='seo'){
     var plan=document.querySelector('input[name="seo-plan"]:checked');
     label=plan?plan.getAttribute('data-label'):'SEO Starter';
-    price=plan?parseInt(plan.value):1999;
+    price=plan?parseInt(plan.value):499;
     document.querySelectorAll('input[name="seo-addon"]:checked').forEach(function(cb){
       price+=parseInt(cb.value)||0;
       meta.push(cb.getAttribute('data-label'));
@@ -1487,7 +1483,7 @@ function addToCart(){
   } else if(currentProduct==='app'){
     var platform=document.querySelector('input[name="app-platform"]:checked');
     label=platform?platform.getAttribute('data-label'):'Android App';
-    price=platform?parseInt(platform.value):14999;
+    price=platform?parseInt(platform.value):29999;
     document.querySelectorAll('input[name="app-feature"]:checked').forEach(function(cb){
       price+=parseInt(cb.value)||0;
       meta.push(cb.getAttribute('data-label'));
@@ -1497,14 +1493,7 @@ function addToCart(){
   cart.push({id:Date.now(),label:label,price:price,meta:meta,product:currentProduct});
   saveCart(cart);
   updateCartBadge();
-  // Show toast
-  var toast=document.getElementById('cart-toast');
-  var msg=document.getElementById('cart-toast-msg');
-  if(msg)msg.textContent=label+' tilføjet til kurv!';
-  if(toast){
-    toast.classList.add('visible');
-    setTimeout(function(){toast.classList.remove('visible');},3000);
-  }
+  window.location.href='/kurv';
 }
 </script>
 

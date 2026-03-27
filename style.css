@@ -146,7 +146,7 @@ nav.scrolled .nav-links a:not(.nav-cta):hover,
   transition:all var(--t)!important;
 }
 .nav-cta:hover{background:var(--orange-dim)!important;transform:translateY(-1px)!important;box-shadow:var(--shadow-orange)!important}
-.nav-right{display:flex;align-items:center;gap:6px}
+.nav-right{display:flex;align-items:center;gap:8px}
 .hamburger{display:none;flex-direction:column;gap:5px;padding:8px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
 .hamburger span{display:block;width:22px;height:2px;background:var(--heading);border-radius:2px;transition:var(--t)}
 .mobile-menu{
@@ -193,6 +193,21 @@ nav.scrolled .nav-links a:not(.nav-cta):hover,
 .mobile-menu-cta:hover{background:var(--orange-dim)!important;color:#fff!important}
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
 
+/* ydelser 2-col grid in mobile menu */
+.mobile-menu-ydelser{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--border);
+}
+.mobile-menu-ydelser a{
+  padding:14px 16px;color:var(--text);font-size:.88rem;font-weight:500;
+  border-bottom:1px solid var(--border);display:flex;align-items:center;min-height:48px;
+  gap:8px;transition:color var(--t),background var(--t);
+}
+.mobile-menu-ydelser a:hover{color:var(--orange);background:var(--orange-light)}
+.mobile-menu-ydelser a:nth-child(odd){border-right:1px solid var(--border)}
+/* nav CTA group — cart + button flush together */
+.nav-cta-group{display:flex;align-items:center;gap:0}
+@media(max-width:900px){.nav-cta-group .nav-cta{display:none!important}}
 /* BUTTONS */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
