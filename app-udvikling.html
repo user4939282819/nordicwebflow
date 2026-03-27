@@ -487,35 +487,44 @@ document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('
     function gtag(){dataLayer.push(arguments);}
     gtag('js',new Date());gtag('config','G-XXXXXXXX',{anonymize_ip:true});
   }
+  function showBanner(){
+    if(!banner)return;
+    banner.style.display='block';
+  }
   function save(val){
     localStorage.setItem(K,val);
     localStorage.setItem(D,new Date().toISOString());
     if(banner)banner.style.display='none';
-    if(val==='all'||val==='stats') loadGA();
+    if(val==='all'||val==='stats')loadGA();
   }
+  // Always attach button listeners
+  if(banner){
+    var btnAccept=document.getElementById('cookie-accept');
+    var btnReject=document.getElementById('cookie-reject');
+    var btnSelected=document.getElementById('cookie-selected');
+    if(btnAccept)btnAccept.addEventListener('click',function(){save('all');});
+    if(btnReject)btnReject.addEventListener('click',function(){save('none');});
+    if(btnSelected)btnSelected.addEventListener('click',function(){
+      save(statsBox&&statsBox.checked?'stats':'necessary');
+    });
+  }
+  // Show on first visit
   if(consent==='all'||consent==='stats'){loadGA();}
-  else if(!consent||consent===''){
-    if(banner){
-      banner.style.display='block';
-      document.getElementById('cookie-accept').addEventListener('click',function(){save('all');});
-      document.getElementById('cookie-reject').addEventListener('click',function(){save('none');});
-      document.getElementById('cookie-selected').addEventListener('click',function(){
-        save(statsBox&&statsBox.checked?'stats':'necessary');
-      });
-    }
-  }
+  else if(!consent||consent===''){showBanner();}
+  // Float button
   var floatBtn=document.getElementById('cookie-float-btn');
   if(floatBtn){
     floatBtn.addEventListener('click',function(){
       localStorage.removeItem(K);localStorage.removeItem(D);
-      if(banner){banner.style.display='block';}
+      showBanner();
     });
   }
+  // Footer links
   document.querySelectorAll('[data-cookie-settings]').forEach(function(el){
     el.addEventListener('click',function(e){
       e.preventDefault();
       localStorage.removeItem(K);localStorage.removeItem(D);
-      if(banner){banner.style.display='block';}
+      showBanner();
     });
   });
 })();

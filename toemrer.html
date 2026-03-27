@@ -139,7 +139,7 @@
 <section class="img-gallery-strip" style="padding:0 0 0">
   <div class="container">
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:0">
-      <img src="/images/T%C3%B8mrer/callum-hill-oamw52SCGi0-unsplash.jpg" alt="Tømrer i København billeder" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy">
+      <img src="/images/T%C3%B8mrer/haandvaerker-kbh.jpg" alt="Tømrer i København billeder" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy">
       <img src="/images/T%C3%B8mrer/byggeplads-koebenhavn.jpg" alt="Tømrer i København billeder" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy">
       <img src="/images/T%C3%B8mrer/austin-ramsey-rbi4q0-b-8g-unsplash.jpg" alt="Tømrer i København billeder" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy">
       <img src="/images/T%C3%B8mrer/nate-johnston-TltGIe9PK4Y-unsplash.jpg" alt="Tømrer i København billeder" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy">
@@ -364,35 +364,44 @@ if(btn&&mob){
     function gtag(){dataLayer.push(arguments);}
     gtag('js',new Date());gtag('config','G-XXXXXXXX',{anonymize_ip:true});
   }
+  function showBanner(){
+    if(!banner)return;
+    banner.style.display='block';
+  }
   function save(val){
     localStorage.setItem(K,val);
     localStorage.setItem(D,new Date().toISOString());
     if(banner)banner.style.display='none';
-    if(val==='all'||val==='stats') loadGA();
+    if(val==='all'||val==='stats')loadGA();
   }
+  // Always attach button listeners
+  if(banner){
+    var btnAccept=document.getElementById('cookie-accept');
+    var btnReject=document.getElementById('cookie-reject');
+    var btnSelected=document.getElementById('cookie-selected');
+    if(btnAccept)btnAccept.addEventListener('click',function(){save('all');});
+    if(btnReject)btnReject.addEventListener('click',function(){save('none');});
+    if(btnSelected)btnSelected.addEventListener('click',function(){
+      save(statsBox&&statsBox.checked?'stats':'necessary');
+    });
+  }
+  // Show on first visit
   if(consent==='all'||consent==='stats'){loadGA();}
-  else if(!consent||consent===''){
-    if(banner){
-      banner.style.display='block';
-      document.getElementById('cookie-accept').addEventListener('click',function(){save('all');});
-      document.getElementById('cookie-reject').addEventListener('click',function(){save('none');});
-      document.getElementById('cookie-selected').addEventListener('click',function(){
-        save(statsBox&&statsBox.checked?'stats':'necessary');
-      });
-    }
-  }
+  else if(!consent||consent===''){showBanner();}
+  // Float button
   var floatBtn=document.getElementById('cookie-float-btn');
   if(floatBtn){
     floatBtn.addEventListener('click',function(){
       localStorage.removeItem(K);localStorage.removeItem(D);
-      if(banner){banner.style.display='block';}
+      showBanner();
     });
   }
+  // Footer links
   document.querySelectorAll('[data-cookie-settings]').forEach(function(el){
     el.addEventListener('click',function(e){
       e.preventDefault();
       localStorage.removeItem(K);localStorage.removeItem(D);
-      if(banner){banner.style.display='block';}
+      showBanner();
     });
   });
 })();
