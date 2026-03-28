@@ -630,10 +630,16 @@ nav.scrolled .nav-links a:not(.nav-cta):hover{background:var(--bg2)}
 .case-metric-val.o{color:var(--orange)}.case-metric-val.g{color:var(--green)}.case-metric-val.p{color:var(--purple)}
 .case-metric-lbl{font-size:.65rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;font-weight:600}
 .case-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.case-showcase-card--reverse{grid-template-columns:0.9fr 1.1fr}
+.case-mockup-col--right{padding:40px 40px 40px 0;display:flex;align-items:center}
+.case-showcase-card--reverse .case-client-col{border-left:none;border-right:1px solid rgba(255,255,255,.07)}
 @media(max-width:900px){
   .case-showcase-card{grid-template-columns:1fr}
   .case-mockup-col{padding:32px 32px 0}
   .case-client-col{padding:32px;border-left:none;border-top:1px solid rgba(255,255,255,.07)}
+  .case-showcase-card--reverse{grid-template-columns:1fr}
+  .case-showcase-card--reverse .case-client-col{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);order:1}
+  .case-showcase-card--reverse .case-mockup-col--right{padding:32px 32px 0;order:0}
 }
 @media(max-width:640px){
   .case-mockup-col{padding:24px 24px 0}
