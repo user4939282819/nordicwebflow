@@ -1,32 +1,27 @@
-// NordicWebFlow Ballpit — faithful vanilla JS port of React Bits source
-// Uses Three.js r155 + RoomEnvironment + subsurface scattering shader
+// NordicWebFlow Ballpit — vanilla JS port of ReactBits Ballpit
+// Loads Three.js ESM + RoomEnvironment via dynamic import (no bundler needed)
 (function () {
   var canvas = document.getElementById('ballpit-canvas');
   if (!canvas) return;
 
-  function load(src, cb) {
-    var s = document.createElement('script');
-    s.src = src;
-    s.onload = cb;
-    s.onerror = function () { console.error('Failed:', src); };
-    document.head.appendChild(s);
-  }
-
-  // Load Three r155
-  load('https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js', function () {
-    start();
+  Promise.all([
+    import('https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.module.js'),
+    import('https://cdn.jsdelivr.net/npm/three@0.155.0/examples/jsm/environments/RoomEnvironment.js')
+  ]).then(function (mods) {
+    start(mods[0], mods[1].RoomEnvironment);
+  }).catch(function (err) {
+    console.error('[Ballpit] Failed to load Three.js:', err);
   });
 
-  function start() {
-    var THREE = window.THREE;
+  function start(THREE, RoomEnvironment) {
 
-    // ── CONFIG (your settings) ──────────────────────────────────────────
+    // ── CONFIG ─────────────────────────────────────────────────────────────
     var CONFIG = {
-      count:        50,
-      colors:       ['#e84400', '#ff4f00', '#ffffff', '#ffffff'],
+      count:        100,
+      colors:       ['#ff6600', '#ffffff', '#ff6600', '#ff7300'],
       ambientColor: 0xffffff,
       ambientIntensity: 1,
-      lightIntensity:   200,
+      lightIntensity: 200,
       materialParams: {
         metalness:          0.5,
         roughness:          0.5,
@@ -36,7 +31,7 @@
       minSize:      0.5,
       maxSize:      1.0,
       size0:        1.0,
-      gravity:      0,        // float freely
+      gravity:      0.01,
       friction:     0.9975,
       wallBounce:   0.95,
       maxVelocity:  0.15,
@@ -44,10 +39,10 @@
       maxY:         5,
       maxZ:         2,
       controlSphere0: false,
-      followCursor:   false   // cursor ball OFF
+      followCursor: false
     };
 
-    // ── RENDERER ─────────────────────────────────────────────────────────
+    // ── RENDERER ──────────────────────────────────────────────────────────
     var renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: true,
@@ -62,266 +57,211 @@
     camera.position.set(0, 0, 20);
     camera.lookAt(0, 0, 0);
 
-    // ── ENV MAP — programmatic neutral studio environment ─────────────────
-    // Build a simple HDR-like environment using a CubeRenderTarget
+    // ── ENV MAP via RoomEnvironment + PMREMGenerator ───────────────────────
     var pmrem = new THREE.PMREMGenerator(renderer);
-    pmrem.compileEquirectangularShader();
-
-    // Create a neutral grey scene for environment baking
-    var envScene = new THREE.Scene();
-    // Top light (warm white)
-    var eL1 = new THREE.DirectionalLight(0xfff5e0, 3); eL1.position.set(2, 4, 3); envScene.add(eL1);
-    // Fill light (cool)
-    var eL2 = new THREE.DirectionalLight(0xe0f0ff, 1.5); eL2.position.set(-3, -1, 2); envScene.add(eL2);
-    // Back light
-    var eL3 = new THREE.DirectionalLight(0xffffff, 2); eL3.position.set(0, -4, -3); envScene.add(eL3);
-    // Ambient
-    envScene.add(new THREE.AmbientLight(0xffffff, 0.5));
-
-    var envTex = pmrem.fromScene(envScene, 0.04).texture;
-    scene.environment = envTex;
+    pmrem.compileCubemapShader();
+    var envTexture = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environment = envTexture;
     pmrem.dispose();
 
-    // ── CUSTOM MATERIAL with subsurface scattering (port of class Y) ─────
-    function createMaterial(envMap, params) {
-      var mat = new THREE.MeshPhysicalMaterial(Object.assign({ envMap: envMap }, params));
-      mat.envMapRotation = new THREE.Euler(-Math.PI / 2, 0, 0);
+    // ── MATERIAL — MeshPhysicalMaterial + subsurface scattering shader ────
+    var sssUniforms = {
+      thicknessDistortion: { value: 0.1 },
+      thicknessAmbient:    { value: 0 },
+      thicknessAttenuation:{ value: 0.1 },
+      thicknessPower:      { value: 2 },
+      thicknessScale:      { value: 10 }
+    };
 
-      // Subsurface scattering uniforms
-      var uniforms = {
-        thicknessDistortion: { value: 0.1 },
-        thicknessAmbient:    { value: 0 },
-        thicknessAttenuation:{ value: 0.1 },
-        thicknessPower:      { value: 2 },
-        thicknessScale:      { value: 10 }
-      };
-      mat.defines = mat.defines || {};
-      mat.defines.USE_UV = '';
+    var mat = new THREE.MeshPhysicalMaterial(
+      Object.assign({ envMap: envTexture }, CONFIG.materialParams)
+    );
+    // envMapRotation must be mutated in-place (it's a getter-backed Euler)
+    mat.envMapRotation.x = -Math.PI / 2;
+    mat.defines = mat.defines || {};
+    mat.defines.USE_UV = '';
 
-      mat.onBeforeCompile = function (shader) {
-        Object.assign(shader.uniforms, uniforms);
+    mat.onBeforeCompile = function (shader) {
+      Object.assign(shader.uniforms, sssUniforms);
 
-        // Inject uniform declarations
-        shader.fragmentShader =
-          '\nuniform float thicknessPower;\nuniform float thicknessScale;\nuniform float thicknessDistortion;\nuniform float thicknessAmbient;\nuniform float thicknessAttenuation;\n' +
-          shader.fragmentShader;
+      // Prepend uniform declarations
+      shader.fragmentShader =
+        'uniform float thicknessPower;\n' +
+        'uniform float thicknessScale;\n' +
+        'uniform float thicknessDistortion;\n' +
+        'uniform float thicknessAmbient;\n' +
+        'uniform float thicknessAttenuation;\n' +
+        shader.fragmentShader;
 
-        // Inject scattering function before main()
-        shader.fragmentShader = shader.fragmentShader.replace(
-          'void main() {',
-          [
-            'void RE_Direct_Scattering(const in IncidentLight directLight, const in vec2 uv, const in vec3 geometryPosition, const in vec3 geometryNormal, const in vec3 geometryViewDir, const in vec3 geometryClearcoatNormal, inout ReflectedLight reflectedLight) {',
-            '  vec3 scatteringHalf = normalize(directLight.direction + (geometryNormal * thicknessDistortion));',
-            '  float scatteringDot = pow(saturate(dot(geometryViewDir, -scatteringHalf)), thicknessPower) * thicknessScale;',
-            '  #ifdef USE_COLOR',
-            '    vec3 scatteringIllu = (scatteringDot + thicknessAmbient) * vColor;',
-            '  #else',
-            '    vec3 scatteringIllu = (scatteringDot + thicknessAmbient) * diffuse;',
-            '  #endif',
-            '  reflectedLight.directDiffuse += scatteringIllu * thicknessAttenuation * directLight.color;',
-            '}',
-            'void main() {'
-          ].join('\n')
-        );
+      // Inject RE_Direct_Scattering function before main()
+      shader.fragmentShader = shader.fragmentShader.replace(
+        'void main() {',
+        [
+          'void RE_Direct_Scattering(const in IncidentLight directLight, const in vec2 uv, const in vec3 geometryPosition, const in vec3 geometryNormal, const in vec3 geometryViewDir, const in vec3 geometryClearcoatNormal, inout ReflectedLight reflectedLight) {',
+          '  vec3 scatteringHalf = normalize(directLight.direction + (geometryNormal * thicknessDistortion));',
+          '  float scatteringDot = pow(saturate(dot(geometryViewDir, -scatteringHalf)), thicknessPower) * thicknessScale;',
+          '  #ifdef USE_COLOR',
+          '    vec3 scatteringIllu = (scatteringDot + thicknessAmbient) * vColor;',
+          '  #else',
+          '    vec3 scatteringIllu = (scatteringDot + thicknessAmbient) * diffuse;',
+          '  #endif',
+          '  reflectedLight.directDiffuse += scatteringIllu * thicknessAttenuation * directLight.color;',
+          '}',
+          'void main() {'
+        ].join('\n')
+      );
 
-        // Inject scattering call after RE_Direct
-        var patched = THREE.ShaderChunk.lights_fragment_begin.replaceAll(
-          'RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );',
-          'RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );\nRE_Direct_Scattering(directLight, vUv, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, reflectedLight);'
-        );
-        shader.fragmentShader = shader.fragmentShader.replace('#include <lights_fragment_begin>', patched);
-      };
+      // Patch lights_fragment_begin to also call RE_Direct_Scattering
+      var patched = THREE.ShaderChunk.lights_fragment_begin.replaceAll(
+        'RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );',
+        'RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );\n' +
+        'RE_Direct_Scattering(directLight, vUv, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, reflectedLight);'
+      );
+      shader.fragmentShader = shader.fragmentShader.replace(
+        '#include <lights_fragment_begin>', patched
+      );
+    };
 
-      return mat;
-    }
-
-    // ── COLOR GRADIENT HELPER (port of inline function in setColors) ──────
-    function makeGradient(hexColors) {
-      var colors = hexColors.map(function (h) { return new THREE.Color(h); });
-      return function (ratio) {
-        var scaled = Math.max(0, Math.min(1, ratio)) * (colors.length - 1);
-        var idx    = Math.floor(scaled);
-        var start  = colors[idx];
-        if (idx >= colors.length - 1) return start.clone();
-        var alpha  = scaled - idx;
-        var end    = colors[idx + 1];
-        var out    = new THREE.Color();
-        out.r = start.r + alpha * (end.r - start.r);
-        out.g = start.g + alpha * (end.g - start.g);
-        out.b = start.b + alpha * (end.b - start.b);
-        return out;
-      };
-    }
-
-    // ── INSTANCED MESH (port of class Z) ──────────────────────────────────
-    var geo      = new THREE.SphereGeometry(1, 32, 32);
-    var mat      = createMaterial(envTex, CONFIG.materialParams);
-    var mesh     = new THREE.InstancedMesh(geo, mat, CONFIG.count);
+    // ── INSTANCED MESH ────────────────────────────────────────────────────
+    var geo  = new THREE.SphereGeometry(1, 32, 32);
+    var mesh = new THREE.InstancedMesh(geo, mat, CONFIG.count);
     mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     scene.add(mesh);
 
-    // Lights
     var ambLight = new THREE.AmbientLight(CONFIG.ambientColor, CONFIG.ambientIntensity);
     mesh.add(ambLight);
-    var ptLight  = new THREE.PointLight(0xe84400, CONFIG.lightIntensity);
+    var ptLight  = new THREE.PointLight(0xff6600, CONFIG.lightIntensity);
     mesh.add(ptLight);
 
-    // Set gradient colors
-    var gradient = makeGradient(CONFIG.colors);
-    for (var ci = 0; ci < CONFIG.count; ci++) {
-      mesh.setColorAt(ci, gradient(ci / CONFIG.count));
-      if (ci === 0) ptLight.color.copy(gradient(0));
-    }
-    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+    // ── COLOR GRADIENT ────────────────────────────────────────────────────
+    (function () {
+      var cols = CONFIG.colors.map(function (h) { return new THREE.Color(h); });
+      function getColor(ratio) {
+        var n = cols.length - 1;
+        var scaled = Math.max(0, Math.min(1, ratio)) * n;
+        var idx = Math.floor(scaled);
+        var s = cols[idx];
+        if (idx >= n) return s.clone();
+        var a = scaled - idx;
+        var e = cols[idx + 1];
+        return new THREE.Color(
+          s.r + a * (e.r - s.r),
+          s.g + a * (e.g - s.g),
+          s.b + a * (e.b - s.b)
+        );
+      }
+      for (var ci = 0; ci < CONFIG.count; ci++) {
+        mesh.setColorAt(ci, getColor(ci / CONFIG.count));
+        if (ci === 0) ptLight.color.copy(getColor(0));
+      }
+      if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+    })();
 
-    // ── PHYSICS (port of class W) ─────────────────────────────────────────
-    var posData = new Float32Array(CONFIG.count * 3).fill(0);
-    var velData = new Float32Array(CONFIG.count * 3).fill(0);
-    var sizeData= new Float32Array(CONFIG.count).fill(1);
-    var center  = new THREE.Vector3();
+    // ── PHYSICS DATA ──────────────────────────────────────────────────────
+    var posData  = new Float32Array(CONFIG.count * 3).fill(0);
+    var velData  = new Float32Array(CONFIG.count * 3).fill(0);
+    var sizeData = new Float32Array(CONFIG.count).fill(1);
 
-    // Init sphere 0 at center, rest random
-    center.toArray(posData, 0);
     sizeData[0] = CONFIG.size0;
     for (var i = 1; i < CONFIG.count; i++) {
-      posData[i*3]   = (Math.random()-0.5) * 2 * CONFIG.maxX;
-      posData[i*3+1] = (Math.random()-0.5) * 2 * CONFIG.maxY;
-      posData[i*3+2] = (Math.random()-0.5) * 2 * CONFIG.maxZ;
-      sizeData[i]    = CONFIG.minSize + Math.random() * (CONFIG.maxSize - CONFIG.minSize);
+      posData[i*3]   = (Math.random() - 0.5) * 2 * CONFIG.maxX;
+      posData[i*3+1] = (Math.random() - 0.5) * 2 * CONFIG.maxY;
+      posData[i*3+2] = (Math.random() - 0.5) * 2 * CONFIG.maxZ;
+      sizeData[i] = CONFIG.minSize + Math.random() * (CONFIG.maxSize - CONFIG.minSize);
     }
-
-    // Give initial random velocities so balls move immediately
+    // Give all balls an initial random velocity so they move immediately
     for (var i = 0; i < CONFIG.count; i++) {
       var spd = 0.05 + Math.random() * 0.08;
       var ang = Math.random() * Math.PI * 2;
       velData[i*3]   = Math.cos(ang) * spd;
       velData[i*3+1] = Math.sin(ang) * spd;
-      velData[i*3+2] = (Math.random()-0.5) * spd;
+      velData[i*3+2] = (Math.random() - 0.5) * spd;
     }
 
-    var F=new THREE.Vector3(),I=new THREE.Vector3(),O=new THREE.Vector3(),
-        V=new THREE.Vector3(),B=new THREE.Vector3(),N=new THREE.Vector3(),
-        _=new THREE.Vector3(),j=new THREE.Vector3(),H=new THREE.Vector3(),T=new THREE.Vector3();
+    // Pre-allocated Vector3 scratch registers (avoids GC pressure)
+    var vA = new THREE.Vector3(), vB = new THREE.Vector3();
+    var vC = new THREE.Vector3(), vD = new THREE.Vector3();
+    var vE = new THREE.Vector3(), vF = new THREE.Vector3();
+    var vG = new THREE.Vector3(), vH = new THREE.Vector3();
 
+    // ── PHYSICS UPDATE (faithful port of class W) ─────────────────────────
     function updatePhysics(delta) {
-      var r0 = CONFIG.controlSphere0 ? 1 : 0;
+      var idx, base, jdx, otherBase, dist, sumR, overlap, r2;
 
-      if (CONFIG.controlSphere0) {
-        F.fromArray(posData, 0);
-        F.lerp(center, 0.1).toArray(posData, 0);
-        V.set(0,0,0).toArray(velData, 0);
+      // Step 1: gravity + friction + velocity integration
+      for (idx = 0; idx < CONFIG.count; idx++) {
+        base = idx * 3;
+        vA.fromArray(posData, base);
+        vB.fromArray(velData, base);
+        vB.y -= delta * CONFIG.gravity * sizeData[idx];
+        vB.multiplyScalar(CONFIG.friction);
+        vB.clampLength(0, CONFIG.maxVelocity);
+        vA.add(vB);
+        vA.toArray(posData, base);
+        vB.toArray(velData, base);
       }
 
-      // Gravity + friction
-      for (var idx = r0; idx < CONFIG.count; idx++) {
-        var base = idx * 3;
-        I.fromArray(posData, base);
-        B.fromArray(velData, base);
-        B.y -= delta * CONFIG.gravity * sizeData[idx];
-        B.multiplyScalar(CONFIG.friction);
-        B.clampLength(0, CONFIG.maxVelocity);
-        I.add(B);
-        I.toArray(posData, base);
-        B.toArray(velData, base);
-      }
-
-      // Collisions
-      for (var idx = r0; idx < CONFIG.count; idx++) {
-        var base = idx * 3;
-        I.fromArray(posData, base);
-        B.fromArray(velData, base);
+      // Step 2: ball–ball collisions + wall bounce
+      for (idx = 0; idx < CONFIG.count; idx++) {
+        base = idx * 3;
+        vA.fromArray(posData, base);
+        vB.fromArray(velData, base);
         var radius = sizeData[idx];
 
-        for (var jdx = idx + 1; jdx < CONFIG.count; jdx++) {
-          var otherBase = jdx * 3;
-          O.fromArray(posData, otherBase);
-          N.fromArray(velData, otherBase);
-          var otherRadius = sizeData[jdx];
-          _.copy(O).sub(I);
-          var dist = _.length();
-          var sumR = radius + otherRadius;
-          if (dist < sumR) {
-            var overlap = sumR - dist;
-            j.copy(_).normalize().multiplyScalar(0.5 * overlap);
-            H.copy(j).multiplyScalar(Math.max(B.length(), 1));
-            T.copy(j).multiplyScalar(Math.max(N.length(), 1));
-            I.sub(j); B.sub(H);
-            I.toArray(posData, base); B.toArray(velData, base);
-            O.add(j); N.add(T);
-            O.toArray(posData, otherBase); N.toArray(velData, otherBase);
+        for (jdx = idx + 1; jdx < CONFIG.count; jdx++) {
+          otherBase = jdx * 3;
+          vC.fromArray(posData, otherBase);
+          vD.fromArray(velData, otherBase);
+          r2 = sizeData[jdx];
+          vE.copy(vC).sub(vA);
+          dist = vE.length();
+          sumR = radius + r2;
+          if (dist < sumR && dist > 0.0001) {
+            overlap = sumR - dist;
+            vF.copy(vE).normalize().multiplyScalar(0.5 * overlap);
+            vG.copy(vF).multiplyScalar(Math.max(vB.length(), 1));
+            vH.copy(vF).multiplyScalar(Math.max(vD.length(), 1));
+            vA.sub(vF); vB.sub(vG);
+            vA.toArray(posData, base); vB.toArray(velData, base);
+            vC.add(vF); vD.add(vH);
+            vC.toArray(posData, otherBase); vD.toArray(velData, otherBase);
           }
         }
 
-        // Cursor sphere collision
-        if (CONFIG.controlSphere0) {
-          _.copy(F).sub(I);
-          var d0 = _.length(), sr0 = radius + sizeData[0];
-          if (d0 < sr0) {
-            var diff = sr0 - d0;
-            j.copy(_.normalize()).multiplyScalar(diff);
-            H.copy(j).multiplyScalar(Math.max(B.length(), 2));
-            I.sub(j); B.sub(H);
-          }
-        }
-
-        // Wall bounce — all axes (gravity=0)
-        if (Math.abs(I.x) + radius > CONFIG.maxX) {
-          I.x = Math.sign(I.x) * (CONFIG.maxX - radius);
-          B.x = -B.x * CONFIG.wallBounce;
+        // Wall bounce
+        if (Math.abs(vA.x) + radius > CONFIG.maxX) {
+          vA.x = Math.sign(vA.x) * (CONFIG.maxX - radius);
+          vB.x = -vB.x * CONFIG.wallBounce;
         }
         if (CONFIG.gravity === 0) {
-          if (Math.abs(I.y) + radius > CONFIG.maxY) {
-            I.y = Math.sign(I.y) * (CONFIG.maxY - radius);
-            B.y = -B.y * CONFIG.wallBounce;
+          if (Math.abs(vA.y) + radius > CONFIG.maxY) {
+            vA.y = Math.sign(vA.y) * (CONFIG.maxY - radius);
+            vB.y = -vB.y * CONFIG.wallBounce;
           }
-        } else if (I.y - radius < -CONFIG.maxY) {
-          I.y = -CONFIG.maxY + radius;
-          B.y = -B.y * CONFIG.wallBounce;
+        } else if (vA.y - radius < -CONFIG.maxY) {
+          vA.y = -CONFIG.maxY + radius;
+          vB.y = -vB.y * CONFIG.wallBounce;
         }
-        var maxBound = Math.max(CONFIG.maxZ, CONFIG.maxSize);
-        if (Math.abs(I.z) + radius > maxBound) {
-          I.z = Math.sign(I.z) * (CONFIG.maxZ - radius);
-          B.z = -B.z * CONFIG.wallBounce;
+        var maxB = Math.max(CONFIG.maxZ, CONFIG.maxSize);
+        if (Math.abs(vA.z) + radius > maxB) {
+          vA.z = Math.sign(vA.z) * (CONFIG.maxZ - radius);
+          vB.z = -vB.z * CONFIG.wallBounce;
         }
 
-        I.toArray(posData, base);
-        B.toArray(velData, base);
+        vA.toArray(posData, base);
+        vB.toArray(velData, base);
       }
     }
 
-    // ── CURSOR FOLLOW (port of S / onMove / onLeave) ──────────────────────
-    var raycaster = new THREE.Raycaster();
-    var nPos      = new THREE.Vector2();
-    var camPlane  = new THREE.Plane();
-    var hitPoint  = new THREE.Vector3();
-
-    canvas.addEventListener('pointermove', function (e) {
-      if (!CONFIG.followCursor) return;
-      var rect = canvas.getBoundingClientRect();
-      nPos.x = ((e.clientX - rect.left) / rect.width)  *  2 - 1;
-      nPos.y = ((e.clientY - rect.top)  / rect.height) * -2 + 1;
-      raycaster.setFromCamera(nPos, camera);
-      camera.getWorldDirection(camPlane.normal);
-      raycaster.ray.intersectPlane(camPlane, hitPoint);
-      center.copy(hitPoint);
-      CONFIG.controlSphere0 = true;
-    }, { passive: true });
-
-    canvas.addEventListener('pointerleave', function () {
-      CONFIG.controlSphere0 = false;
-    });
-
-    // ── RESIZE (port of x.resize + onAfterResize) ─────────────────────────
+    // ── RESIZE ────────────────────────────────────────────────────────────
     function resize() {
       var wrap = canvas.parentElement;
-      var W = wrap ? wrap.offsetWidth  : window.innerWidth;
-      var H = wrap ? wrap.offsetHeight : 600;
+      var W = (wrap && wrap.offsetWidth  > 0) ? wrap.offsetWidth  : window.innerWidth;
+      var H = (wrap && wrap.offsetHeight > 0) ? wrap.offsetHeight : 600;
       renderer.setSize(W, H, false);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      canvas.style.width  = W + 'px';
-      canvas.style.height = H + 'px';
       camera.aspect = W / H;
-      // cameraMaxAspect = 1.5 (from source)
+      // cameraMaxAspect = 1.5 (matches React source)
       if (camera.aspect > 1.5) {
         var t = Math.tan(THREE.MathUtils.degToRad(50 / 2)) / (camera.aspect / 1.5);
         camera.fov = 2 * THREE.MathUtils.radToDeg(Math.atan(t));
@@ -341,25 +281,19 @@
     }, { passive: true });
 
     // ── RENDER LOOP ───────────────────────────────────────────────────────
-    var dummy  = new THREE.Object3D();
+    var dummy = new THREE.Object3D();
     var clock  = new THREE.Clock();
-    var paused = false;
+    var rafId  = null;
 
     function tick() {
-      if (paused) return;
-      requestAnimationFrame(tick);
+      rafId = requestAnimationFrame(tick);
       var delta = clock.getDelta();
-
-      updatePhysics({ delta: delta });
+      updatePhysics(delta);
 
       for (var idx = 0; idx < CONFIG.count; idx++) {
         dummy.position.fromArray(posData, idx * 3);
-        // Hide sphere0 when followCursor=false
-        if (idx === 0 && !CONFIG.followCursor) {
-          dummy.scale.setScalar(0);
-        } else {
-          dummy.scale.setScalar(sizeData[idx]);
-        }
+        // Hide sphere 0 when followCursor is off (it's the cursor-tracking ball)
+        dummy.scale.setScalar(idx === 0 && !CONFIG.followCursor ? 0 : sizeData[idx]);
         dummy.updateMatrix();
         mesh.setMatrixAt(idx, dummy.matrix);
         if (idx === 0) ptLight.position.copy(dummy.position);
@@ -368,17 +302,31 @@
       renderer.render(scene, camera);
     }
 
-    // Pause when off-screen
+    function stopLoop() {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+        clock.stop();
+      }
+    }
+
+    function startLoop() {
+      if (rafId !== null) return; // already running
+      clock.start();
+      tick();
+    }
+
+    // Pause when scrolled out of view
     new IntersectionObserver(function (entries) {
-      paused = !entries[0].isIntersecting;
-      if (!paused) { clock.start(); tick(); }
-    }).observe(canvas);
+      if (entries[0].isIntersecting) { startLoop(); }
+      else { stopLoop(); }
+    }, { threshold: 0 }).observe(canvas);
+
+    // Pause when tab is hidden
     document.addEventListener('visibilitychange', function () {
-      paused = document.hidden;
-      if (!paused) { clock.start(); tick(); }
+      if (document.hidden) { stopLoop(); } else { startLoop(); }
     });
 
-    clock.start();
-    tick();
+    startLoop();
   }
 })();
