@@ -16,7 +16,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="/images/hjemmeside-mockup-nordicwebflow.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#FAFAF8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +28,50 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad koster en hjemmeside hos NordicWebFlow?","acceptedAnswer":{"@type":"Answer","text":"Vores hjemmesider starter fra 1.499 kr. for 1 side. Du tilpasser prisen selv i vores beregner — vælg antal sider og tilvalg. Ingen skjulte gebyrer, du ejer siden 100%."}},{"@type":"Question","name":"Hvor lang tid tager det at bygge en hjemmeside?","acceptedAnswer":{"@type":"Answer","text":"Vi leverer din færdige hjemmeside på under 14 dage fra bestilling til lancering."}},{"@type":"Question","name":"Hvilke brancher arbejder I med?","acceptedAnswer":{"@type":"Answer","text":"Vi specialiserer os i lokale virksomheder som tømrere, tandlæger, advokater, murere, elektrikere, malere, VVS-firmaer, fysioterapeuter, revisorer og ejendomsmæglere i København."}},{"@type":"Question","name":"Er hjemmesiden SEO-optimeret?","acceptedAnswer":{"@type":"Answer","text":"Ja, alle vores hjemmesider er 100% teknisk SEO-optimerede fra dag ét — inkl. meta-titler, schema markup, sitemap og Core Web Vitals."}},{"@type":"Question","name":"Ejer jeg min hjemmeside?","acceptedAnswer":{"@type":"Answer","text":"Ja, 100%. Du ejer siden, koden og domænet fra dag ét. Ingen bindende abonnementer eller lock-in."}},{"@type":"Question","name":"Hvad er inkluderet i Lokal SEO-pakken?","acceptedAnswer":{"@type":"Answer","text":"Lokal SEO-pakken til 1.999 kr./md. inkluderer optimering af Google Business Profile, månedlig keyword-tracking, on-page SEO-opdateringer og en simpel månedlig rapport."}},{"@type":"Question","name":"Bruger I Custom kode til alle hjemmesider?","acceptedAnswer":{"@type":"Answer","text":"Ja. Vi bygger udelukkende med custom kode fordi det producerer lynhurtige hjemmesider med sub-1-sekunds loadtid og 100 PageSpeed-score."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"NordicWebFlow","url":"https://nordicwebflow.com","potentialAction":{"@type":"SearchAction","target":"https://nordicwebflow.com/performancechecker?url={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <style>
+/* ── BALLPIT HERO ── */
+#hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  padding-top: 68px;
+}
+.ballpit-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+#ballpit-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero-content-wrap {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+}
+.hero-content-wrap a,
+.hero-content-wrap button { pointer-events: auto; }
+.hero-text-center {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 0;
+}
+.hero-text-center .hero-actions {
+  justify-content: center;
+}
+@media (max-width: 860px) {
+  #hero-section { min-height: 480px; }
+  .hero-text-center { padding: 40px 0; }
+}
+
 /* ── CARD NAV (mobile hamburger replacement) ── */
 .card-nav-hamburger {
   display: none;
@@ -137,18 +180,47 @@
 <style>
 
 /* ── BALLPIT HERO ── */
-.hero {
-  min-height: 580px;
-  background: var(--bg) !important;
-  overflow: visible !important;
+#hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  padding-top: 68px;
 }
-.hero .container { pointer-events: none; }
-.hero .container a,
-.hero .container button,
-.hero .container [role="button"] { pointer-events: auto; }
-#ballpit-canvas { border-radius: 0; }
+.ballpit-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+#ballpit-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero-content-wrap {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+}
+.hero-content-wrap a,
+.hero-content-wrap button { pointer-events: auto; }
+.hero-text-center {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 0;
+}
+.hero-text-center .hero-actions {
+  justify-content: center;
+}
 @media (max-width: 860px) {
-  .hero { min-height: 480px; }
+  #hero-section { min-height: 480px; }
+  .hero-text-center { padding: 40px 0; }
 }
 
 /* ── CARD NAV ── */
@@ -399,67 +471,28 @@
 <main id="main-content">
 
 <!-- HERO -->
-<section class="hero" style="position:relative;overflow:visible;background:transparent">
-  <!-- BALLPIT CANVAS — full hero background -->
-  <canvas id="ballpit-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block;pointer-events:auto"></canvas>
-  <div class="container" style="position:relative;z-index:1">
+<section class="hero" id="hero-section">
+  <div class="ballpit-wrap" id="ballpit-wrap">
+    <canvas id="ballpit-canvas" aria-hidden="true"></canvas>
+  </div>
+  <div class="container hero-content-wrap">
     <div class="hero-inner">
-      <div class="grid-2" style="gap:64px;align-items:center">
-        <div>
-          <h1 class="reveal d1 visible">
-            Hjemmesider der<br>
-            <em>skaffer kunder</em><br>
-            i København
-          </h1>
-          <p class="hero-sub reveal d2 visible">Glem langsomme skabeloner. Professionelt webdesign med benhård lokal SEO i København — lynhurtige hjemmesider fra 1.499 kr. Du ejer alt 100% fra dag ét.</p>
-          <div class="hero-actions reveal d3 visible">
-            <a href="/#beregn-din-pris" class="btn btn-primary btn-lg">Beregn din pris →</a>
-            <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Gratis hjemmeside test</a>
-          </div>
-          </div>
-        </div>
-        <div class="hero-visual-col reveal-right d2">
-          <!-- Morphing blob background -->
-          <svg class="hero-blob" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;inset:-15%;width:130%;height:130%;z-index:0;opacity:.12;pointer-events:none">
-            <defs>
-              <linearGradient id="blob-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#E84400"/>
-                <stop offset="50%" style="stop-color:#2563EB"/>
-                <stop offset="100%" style="stop-color:#7C3AED"/>
-              </linearGradient>
-            </defs>
-            <path fill="url(#blob-grad)">
-              <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450Q159,406,99.5,356Q40,306,40.5,235Q41,164,89,107Q137,50,210.5,34Q284,18,345,62.5Q406,107,435,178.5Q464,250,440.5,320.5Z;M453.78,319.01Q414,388,348.5,434Q283,480,216,437.5Q149,395,98.5,347.5Q48,300,40,225Q32,150,92.5,99.5Q153,49,222.5,42Q292,35,348,82Q404,129,445.78,189.5Q487.56,250,453.78,319.01Z;M411,314Q400,378,342.5,427Q285,476,219.5,445.5Q154,415,104,363.5Q54,312,46.5,237.5Q39,163,96.5,109Q154,55,224,47.5Q294,40,348.5,84.5Q403,129,412,189.5Q421,250,411,314Z;M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450Q159,406,99.5,356Q40,306,40.5,235Q41,164,89,107Q137,50,210.5,34Q284,18,345,62.5Q406,107,435,178.5Q464,250,440.5,320.5Z"/>
-            </path>
-          </svg>
-          <div class="hero-mockup" id="hero-mockup" style="position:relative">
-            <div class="mockup-bar">
-              <div class="mockup-dots"><span></span><span></span><span></span></div>
-              <div class="mockup-url">nordicwebflow.com</div>
-            </div>
-            
-              
-              <img src="/images/hjemmeside-mockup-nordicwebflow.png"
-                alt="Professionelt webdesign til danske virksomheder"
-                class="mockup-img" width="655" height="409" loading="eager" fetchpriority="high" decoding="async">
-            
-          </div>
-          <div class="hero-float hero-float-1">
-            <div class="float-score">100%</div>
-            <div class="float-lbl">Optimeret</div>
-          </div>
-          <div class="hero-float hero-float-2">
-            <div class="float-stars" style="color:#00b67a">★★★★★</div>
-            <div class="float-txt">"Resultatet er virkelig imponerende" — Benjamin W.</div>
-          </div>
+      <div class="hero-text-center">
+        <h1 class="reveal d1 visible">
+          Hjemmesider der<br>
+          <em>skaffer kunder</em><br>
+          i København
+        </h1>
+        <p class="hero-sub reveal d2 visible">Glem langsomme skabeloner. Professionelt webdesign med benhård lokal SEO i København — lynhurtige hjemmesider fra 1.499 kr. Du ejer alt 100% fra dag ét.</p>
+        <div class="hero-actions reveal d3 visible">
+          <a href="/#beregn-din-pris" class="btn btn-primary btn-lg">Beregn din pris →</a>
+          <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Gratis hjemmeside test</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BALLPIT FADE OVERLAY — fades balls into ticker below -->
-<div style="position:relative;height:80px;margin-top:-80px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:2;pointer-events:none"></div>
 
 <!-- Cart toast notification -->
 <div class="cart-toast" id="cart-toast">
