@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<script>!function(){var t=localStorage.getItem("nwf-theme");t&&document.documentElement.setAttribute("data-theme",t)}();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hjemmeside til Home Staging København — Fra 1.499 kr. | Skaff nye home staging-kunder</title>
+<meta name="description" content="Hjemmeside til home staging i København fra 1.499 kr. Vi bygger hjemmesider til home staging-konsulenter der skaffer nye bolgsalgskunder. Betalt én gang, ejet for altid. Ingen abonnementer.">
+<link rel="canonical" href="https://nordicwebflow.com/homestaging">
+<meta property="og:title" content="Hjemmeside til Home Staging København — Fra 1.499 kr. | Skaff nye home staging-kunder">
+<meta property="og:description" content="Hjemmeside til home staging i København fra 1.499 kr. Vi bygger hjemmesider til home staging-konsulenter der skaffer nye bolgsalgskunder. Betalt én gang, ejet for altid. Ingen abonnementer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nordicwebflow.com/homestaging">
+<meta property="og:image" content="https://nordicwebflow.com/images/og-default.jpg">
+<meta property="og:locale" content="da_DK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad skal en home staging-hjemmeside indeholde for at skaffe kunder?","acceptedAnswer":{"@type":"Answer","text":"En effektiv home staging-hjemmeside bør indeholde en klar præsentation af dine ydelser, professionelle billeder, kundeanmeldelser fra Google eller Trustpilot og en let tilgængelig kontaktformular. Lokal SEO sikrer at siden dukker op når potentielle kunder søger efter home staging i dit område."}},{"@type":"Question","name":"Hvad koster en hjemmeside til Home staging og boligfremvisning?","acceptedAnswer":{"@type":"Answer","text":"Vores priser starter fra 1.499 kr. for en komplet landingsside klar til Google. Du betaler én gang og ejer siden 100% — ingen bureau-abonnementer, ingen skjulte gebyrer."}},{"@type":"Question","name":"Hvordan rangerer en home staging-hjemmeside på Google i København?","acceptedAnswer":{"@type":"Answer","text":"Vi optimerer din side til søgetermer som 'home staging København' og 'home staging nær mig', som bruges af folk der aktivt leder efter din ydelse. Vi opsætter lokal SEO med schema markup og Google Business Profile optimering."}},{"@type":"Question","name":"Hvor hurtigt kan jeg få min home staging-hjemmeside?","acceptedAnswer":{"@type":"Answer","text":"Vi leverer din færdige hjemmeside på under 14 dage fra bestilling til lancering. Du godkender designet undervejs, og vi opsætter alt det tekniske inklusive hosting og domæne."}}]}</script>
+<style>
+/* ── CARD NAV (mobile hamburger replacement) ── */
+.card-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--heading);
+}
+@media (max-width: 860px) {
+  .card-nav-hamburger { display: flex; }
+}
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
+  display: block;
+}
+.card-nav-hamburger.open .hamburger-line:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+.card-nav-hamburger.open .hamburger-line:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+.card-nav-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 480px;
+  z-index: 200;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.18);
+}
+@media (max-width: 860px) {
+  .card-nav-panel { display: block; }
+}
+.card-nav-panel.card-nav-open {
+  pointer-events: auto;
+}
+.card-nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+.nav-card {
+  border-radius: calc(1rem - 4px);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.nav-card-1 { background: #0f0f0f; color: #fff; }
+.nav-card-2 { background: #1a0a2e; color: #fff; }
+.nav-card-3 { background: #E84400; color: #fff; }
+[data-theme="light"] .nav-card-1 { background: #1a1a2e; }
+.nav-card-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: inherit;
+}
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-card-link {
+  font-size: .9rem;
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color .2s, opacity .2s;
+  display: block;
+}
+.nav-card-link:hover { color: #fff; opacity: .9; }
+.nav-card-cta {
+  margin-top: 6px;
+  background: rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: 8px 14px !important;
+  font-weight: 700;
+  color: #fff !important;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.25);
+}
+.nav-card-cta:hover { background: rgba(255,255,255,.25) !important; }
+/* hide old mobile-menu styles */
+.mobile-menu { display: none !important; }
+</style>
+<style>
+/* ── CARD NAV ── */
+.card-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--heading);
+}
+@media (max-width: 860px) {
+  .card-nav-hamburger { display: flex; }
+}
+.hamburger-line {
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
+  display: block;
+  border-radius: 2px;
+}
+.card-nav-hamburger.open .hamburger-line:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+.card-nav-hamburger.open .hamburger-line:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+/* Panel */
+.card-nav-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 460px;
+  z-index: 200;
+}
+@media (max-width: 860px) {
+  .card-nav-panel { display: block; }
+}
+.card-nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+/* Card 1 — warm cream (site's own bg) */
+.nav-card {
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
+.nav-card-1 {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--heading);
+}
+/* Card 2 — deep dark */
+.nav-card-2 {
+  background: #0E0D0B;
+  border: 1px solid #2C2922;
+  color: #F2EDE7;
+}
+[data-theme="light"] .nav-card-2 {
+  background: #0E0D0B;
+  border-color: #2C2922;
+  color: #F2EDE7;
+}
+/* Card 3 — orange brand */
+.nav-card-3 {
+  background: #E84400;
+  border: 1px solid #C23A00;
+  color: #fff;
+}
+.nav-card-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  font-family: var(--font-display);
+}
+.nav-card-1 .nav-card-label { color: var(--heading); }
+.nav-card-2 .nav-card-label { color: #F2EDE7; }
+.nav-card-3 .nav-card-label { color: #fff; }
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-card-link {
+  font-size: .875rem;
+  text-decoration: none;
+  padding: 4px 0;
+  transition: opacity .2s;
+  display: block;
+  font-weight: 500;
+}
+.nav-card-1 .nav-card-link { color: var(--text); }
+.nav-card-2 .nav-card-link { color: rgba(242,237,231,.75); }
+.nav-card-3 .nav-card-link { color: rgba(255,255,255,.85); }
+.nav-card-link:hover { opacity: .7; }
+.nav-card-highlight {
+  font-weight: 700 !important;
+  color: #E84400 !important;
+}
+.nav-card-3 .nav-card-highlight {
+  color: #fff !important;
+  opacity: 1;
+}
+.nav-card-cta {
+  margin-top: 8px;
+  background: rgba(255,255,255,.18);
+  border-radius: 10px;
+  padding: 9px 14px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.3);
+  transition: background .2s !important;
+}
+.nav-card-cta:hover { background: rgba(255,255,255,.28) !important; opacity: 1 !important; }
+.mobile-menu { display: none !important; }
+</style>
+</head>
+<body class="page-inner">
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<nav id="main-nav">
+  <div class="nav-inner">
+    <div class="nav-left-group">
+      <a href="/" class="nav-logo" aria-label="NordicWebFlow — Webbureau København">
+        <div class="nav-logo-icon">N</div>
+      </a>
+      <button id="theme-toggle" class="nav-theme-icon" aria-label="Skift farvetema" title="Skift farvetema">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <div class="dropdown">
+          <a href="/ydelser">Ydelser ▾</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
+              <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
+              <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
+              <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
+              <a href="/app-udvikling">App Udvikling</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="/brancher">Brancher ▾</a>
+          <div class="dropdown-menu" style="min-width:240px">
+            <div class="dropdown-menu-inner">
+              <a href="/brancher#haandvaerk-byggeri" style="font-weight:600">🔨 Håndværk &amp; Byggeri</a>
+              <a href="/brancher#sundhed-velvaere" style="font-weight:600">🏥 Sundhed &amp; Velvære</a>
+              <a href="/brancher#mad-drikke" style="font-weight:600">🍽️ Mad &amp; Drikke</a>
+              <a href="/brancher#foto-events" style="font-weight:600">📸 Foto, Kreativt &amp; Events</a>
+              <a href="/brancher#liberale-erhverv" style="font-weight:600">💼 Liberale Erhverv</a>
+              <a href="/brancher#uddannelse-undervisning" style="font-weight:600">🎓 Uddannelse &amp; Undervisning</a>
+              <a href="/brancher#dyr-natur" style="font-weight:600">🐾 Dyr &amp; Natur</a>
+              <a href="/brancher#transport-koeretoejer" style="font-weight:600">🚗 Transport &amp; Køretøjer</a>
+              <a href="/brancher#overnatning-turisme" style="font-weight:600">🏨 Overnatning &amp; Turisme</a>
+              <a href="/brancher#retail-butikker" style="font-weight:600">🏪 Retail &amp; Specialbutikker</a>
+              <a href="/brancher#ejendom-bolig" style="font-weight:600">🏗️ Ejendom &amp; Bolig</a>
+              <a href="/brancher#skoenhed-pleje" style="font-weight:600">💈 Skønhed &amp; Personlig Pleje</a>
+              <a href="/brancher" style="border-top:1px solid var(--border);padding-top:10px;margin-top:6px;font-weight:700;color:var(--orange)">Se alle brancher →</a>
+            </div>
+          </div>
+        </div>
+        <a href="/cases">Cases</a>
+        <a href="/performancechecker">Gratis SEO Tjek</a>
+        <a href="/kontakt">Kontakt</a>
+        <a href="/#beregn-din-pris">Priser</a>
+      </div>
+      <div class="nav-cta-group">
+        <a href="/#beregn-din-pris" class="nav-cta">Beregn priser</a>
+        <a href="/kurv" class="nav-cart-link" aria-label="Kurv" title="Din kurv">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
+        </a>
+      </div>
+            <button class="hamburger card-nav-hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="card-nav-panel">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+      </button>
+    </div>
+  </div>
+  <!-- CARD NAV PANEL -->
+  <div class="card-nav-panel" id="card-nav-panel" aria-hidden="true">
+    <div class="card-nav-cards">
+      <div class="nav-card nav-card-1">
+        <div class="nav-card-label">Ydelser</div>
+        <div class="nav-card-links">
+          <a href="/ydelser/lynhurtige-hjemmesider-framer" class="nav-card-link">↗ Premium Hjemmesider</a>
+          <a href="/ydelser/lokal-seo-koebenhavn" class="nav-card-link">↗ Lokal SEO</a>
+          <a href="/ydelser/google-meta-ads-koebenhavn" class="nav-card-link">↗ Google &amp; Meta Ads</a>
+          <a href="/ydelser/drift-og-sikkerhed" class="nav-card-link">↗ Drift &amp; Sikkerhed</a>
+          <a href="/app-udvikling" class="nav-card-link">↗ App Udvikling</a>
+        </div>
+      </div>
+      <div class="nav-card nav-card-2">
+        <div class="nav-card-label">Brancher</div>
+        <div class="nav-card-links">
+          <a href="/brancher#haandvaerk-byggeri" class="nav-card-link">↗ Håndværk &amp; Byggeri</a>
+          <a href="/brancher#sundhed-velvaere" class="nav-card-link">↗ Sundhed &amp; Velvære</a>
+          <a href="/brancher#mad-drikke" class="nav-card-link">↗ Mad &amp; Drikke</a>
+          <a href="/brancher#liberale-erhverv" class="nav-card-link">↗ Liberale Erhverv</a>
+          <a href="/brancher#skoenhed-pleje" class="nav-card-link">↗ Skønhed &amp; Pleje</a>
+          <a href="/brancher" class="nav-card-link" style="font-weight:700;color:#E84400">↗ Se alle brancher</a>
+        </div>
+      </div>
+      <div class="nav-card nav-card-3">
+        <div class="nav-card-label">Mere</div>
+        <div class="nav-card-links">
+          <a href="/cases" class="nav-card-link">↗ Cases</a>
+          <a href="/performancechecker" class="nav-card-link">↗ Gratis SEO Tjek</a>
+          <a href="/kontakt" class="nav-card-link">↗ Kontakt</a>
+          <a href="/priser" class="nav-card-link">↗ Priser</a>
+          <a href="/#beregn-din-pris" class="nav-card-link nav-card-cta">Beregn din pris →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<main id="main-content">
+<div class="page-hero">
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+    <div>
+      <span class="badge badge-orange" style="margin-bottom:16px">🛋️ Webdesign til Home Staging</span>
+      <h1>Hjemmesider til Home Staging — Skaff nye home staging-kunder</h1>
+      <p class="lead" style="margin:14px 0 26px">Vi bygger hjemmesider til home staging-konsulenter der skaffer nye bolgsalgskunder. Betalt én gang, ejet for altid. Ingen abonnementer.</p>
+      <div class="page-hero-actions">
+        <a href="/faa-et-tilbud" class="btn btn-primary btn-lg">Ny hjemmeside fra 1.499 kr. →</a>
+      </div>
+      <p style="font-size:.78rem;color:var(--muted2);margin-top:12px">Betalt én gang. Ejet for altid. Ingen skjulte abonnementer.</p>
+    </div>
+    <div style="position:relative">
+      <img src="/images/Home Staging/homestaging-hero.jpg" alt="Home Staging i København — professionelt webdesign til Home staging og boligfremvisning" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-xl);border:1px solid var(--border)" width="580" height="435" loading="eager" onerror="this.style.background='var(--bg2)';this.style.minHeight='300px';this.removeAttribute('onerror')">
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="badge badge-white">Dit lokale webbureau</span>
+      <h2>Vi bygger hjemmesider der <span>skaffer home staging-kunder</span></h2>
+      <p>Kunderne finder dig på Google — ikke kun via anbefalinger. Vi bygger lynhurtige, professionelle hjemmesider der viser dine ydelser frem og forvandler besøgende til bookede kunder.</p>
+    </div>
+    <div class="features-grid">
+      <div class="card"><div class="card-icon">📍</div><h4>Lokal SEO: Bliv fundet i nærheden</h4><p>Når folk søger "home staging København" skal din hjemmeside ligge øverst. Vi opsætter målrettet Lokal SEO der sikrer, at du dukker op præcis der.</p></div>
+      <div class="card"><div class="card-icon">⚡</div><h4>Sub-1-sekunds loadtid</h4><p>En langsom hjemmeside mister kunder. Vi leverer konsekvent sub-1-sekunds loadtid og 97+ PageSpeed — bedre end 95% af konkurrenterne.</p></div>
+      <div class="card"><div class="card-icon">💰</div><h4>Fast pris — ingen overraskelser</h4><p>Du betaler én fast pris og ejer din hjemmeside 100% fra dag ét. Ingen dyre bureau-abonnementer eller skjulte gebyrer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="img-gallery-strip" style="padding:0 0 0">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:0">
+      <img src="/images/Home Staging/homestaging-gallery-1.jpg" alt="Home Staging i København" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy" onerror="this.style.display='none'">
+      <img src="/images/Home Staging/homestaging-gallery-2.jpg" alt="Home Staging i København" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy" onerror="this.style.display='none'">
+      <img src="/images/Home Staging/homestaging-gallery-3.jpg" alt="Home Staging i København" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy" onerror="this.style.display='none'">
+      <img src="/images/Home Staging/homestaging-gallery-4.jpg" alt="Home Staging i København" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" loading="lazy" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <img src="/images/Home Staging/homestaging-split.jpg" alt="Home Staging — hjemmeside til Home staging og boligfremvisning" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border)" width="560" height="420" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <span class="badge badge-orange" style="margin-bottom:16px">Professionelt online nærvær</span>
+        <h2 style="font-size:1.7rem;margin-bottom:14px">En hjemmeside der <span style="color:var(--orange)">sælger for dig</span></h2>
+        <p style="margin-bottom:16px">Vi bygger en hjemmeside der præsenterer dine ydelser professionelt, viser dine styrker og gør det let for kunder at tage kontakt — døgnet rundt.</p>
+        <ul style="margin:0;padding:0">
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Professionelt design der afspejler din virksomhed</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Anmeldelser fra Trustpilot eller Google integreret direkte</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Kontaktformular der sender leads direkte til din e-mail</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Mobiloptimeret — 60%+ af dine kunder søger på mobil</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>100% teknisk SEO fra lancering — synlig på Google fra dag ét</li>
+        </ul>
+        <a href="/faa-et-tilbud" class="btn btn-primary" style="margin-top:20px">Ny hjemmeside fra 1.499 kr. →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:60px 0">
+  <div class="container">
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">Jeg kan klart anbefale Nordicwebflow. De har lavet min hjemmeside, og resultatet er virkelig imponerende. Designet er flot, stilrent og professionelt — og vigtigst af alt, så spiller det hele bare. Siden er 100% SEO-optimeret, så jeg står stærkt på Google.</p>
+      <div class="t-author">
+        <img src="/images/WTSBYG/wts-byg-logo.png.png" alt="WTS Byg logo" class="t-avatar" style="border-radius:12px;background:#fff;padding:4px" width="52" height="52" loading="lazy">
+        <div>
+          <div class="t-name">Benjamin Wenneke</div>
+          <div class="t-role">Ejer, Wenneke Tømrer &amp; Snedker ApS</div>
+          <a href="https://wtsbyg.dk" class="t-link" target="_blank" rel="noopener noreferrer">wtsbyg.dk</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="badge badge-white">FAQ</span>
+      <h2>Spørgsmål om hjemmesider til home staging</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Hvad skal en home staging-hjemmeside indeholde for at skaffe kunder?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">En effektiv home staging-hjemmeside bør indeholde en klar præsentation af dine ydelser, professionelle billeder, kundeanmeldelser fra Google eller Trustpilot og en let tilgængelig kontaktformular. Lokal SEO sikrer at siden dukker op når potentielle kunder søger efter home staging i dit område.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Hvad koster en hjemmeside til Home staging og boligfremvisning?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Vores priser starter fra 1.499 kr. for en komplet landingsside klar til Google. Du betaler én gang og ejer siden 100% — ingen bureau-abonnementer, ingen skjulte gebyrer.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Hvordan rangerer en home staging-hjemmeside på Google i København?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Vi optimerer din side til søgetermer som 'home staging København' og 'home staging nær mig', som bruges af folk der aktivt leder efter din ydelse. Vi opsætter lokal SEO med schema markup og Google Business Profile optimering.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Hvor hurtigt kan jeg få min home staging-hjemmeside?<span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Vi leverer din færdige hjemmeside på under 14 dage fra bestilling til lancering. Du godkender designet undervejs, og vi opsætter alt det tekniske inklusive hosting og domæne.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:60px 0">
+  <div class="container">
+    <div class="grid-2" style="gap:48px">
+      <div>
+        <span class="badge badge-orange" style="margin-bottom:16px">Din Partner</span>
+        <h2 style="margin-bottom:14px">Din faste digitale partner i <span style="color:var(--orange)">København</span></h2>
+        <p style="margin-bottom:20px">Vi gemmer os ikke bag forvirrende bureau-sprog eller lange ventetider. Hos NordicWebFlow får du direkte kontakt til specialisterne, der bygger din nye hjemmeside.</p>
+        <div style="display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px">
+          <img src="/images/Homepage/diego-maldonado.png" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--border-orange);flex-shrink:0" width="64" height="64" loading="lazy">
+          <div>
+            <div style="font-family:var(--font-display);font-weight:700;color:var(--heading);font-size:1rem">Diego Maldonado</div>
+            <div style="font-size:.82rem;color:var(--muted)">Stifter &amp; Digital Strateg</div>
+            <a href="mailto:hej@nordicwebflow.com" style="font-size:.8rem;color:var(--orange)">hej@nordicwebflow.com</a>
+          </div>
+        </div>
+        <a href="/faa-et-tilbud" class="btn btn-primary" style="margin-top:20px">Ny hjemmeside fra 1.499 kr. →</a>
+      </div>
+      <div class="stats-row" style="align-self:center">
+        <div style="text-align:center"><div class="s-val o">97</div><div class="s-lbl">PageSpeed</div></div>
+        <div style="text-align:center"><div class="s-val g">&lt;1s</div><div class="s-lbl">Loadtid</div></div>
+        <div style="text-align:center"><div class="s-val b">100%</div><div class="s-lbl">SEO Score</div></div>
+        <div style="text-align:center"><div class="s-val p">14d</div><div class="s-lbl">Lancering</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-section">
+      <h2>Klar til en hjemmeside der skaffer dig flere home staging-kunder?</h2>
+      <p>Vi leverer en lynhurtig, professionel hjemmeside på under 14 dage — med lokal SEO der sikrer synlighed på Google.</p>
+      <div class="cta-actions">
+        <a href="/faa-et-tilbud" class="btn btn-primary btn-lg">Ny hjemmeside fra 1.499 kr. →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="seo-block">
+  <h3>Relaterede sider &amp; ydelser</h3>
+  <p>NordicWebFlow er et webbureau i København der specialiserer sig i hjemmesider til Home staging og boligfremvisning. Vi leverer lynhurtige skræddersyede hjemmesider med 100% lokal SEO fra 1.499 kr.</p>
+  <div class="internal-links"><a href="/#beregn-din-pris">Se vores priser</a> · <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO København</a> · <a href="https://seotjek.dk">Gratis SEO-tjek</a> · <a href="/cases">Cases &amp; resultater</a> · <a href="/brancher#ejendom-bolig">Flere Ejendom & Bolig brancher</a></div>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">N</div>
+          <span class="footer-logo-text">Nordic<span>WebFlow</span></span>
+        </div>
+        <p>Vi bygger lynhurtige digitale salgsmaskiner for ambitiøse lokale virksomheder. Fra premium webdesign til lokal dominans på Google.</p>
+        <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+          <a href="https://g.page/r/CVCeBui8XFZJEAE/review" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(66,133,244,.15);border:1px solid rgba(66,133,244,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#FBBC04">★</span> Google</a>
+          <a href="https://www.trustpilot.com/review/nordicwebflow.com" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(0,182,122,.12);border:1px solid rgba(0,182,122,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#00b67a">★</span> Trustpilot</a>
+          <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(10,102,194,.12);border:1px solid rgba(10,102,194,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#0A66C2">in</span> LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=61576391762219" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(24,119,242,.12);border:1px solid rgba(24,119,242,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#1877F2">f</span> Facebook</a>
+        </div>
+      </div>
+            <div class="footer-col">
+        <h5>Brancher</h5>
+        <a href="/brancher#haandvaerk-byggeri">🔨 Håndværk &amp; Byggeri</a>
+        <a href="/brancher#sundhed-velvaere">🏥 Sundhed &amp; Velvære</a>
+        <a href="/brancher#mad-drikke">🍽️ Mad &amp; Drikke</a>
+        <a href="/brancher#foto-events">📸 Foto, Kreativt &amp; Events</a>
+        <a href="/brancher#liberale-erhverv">💼 Liberale Erhverv</a>
+        <a href="/brancher#uddannelse-undervisning">🎓 Uddannelse &amp; Undervisning</a>
+        <a href="/brancher#dyr-natur">🐾 Dyr &amp; Natur</a>
+        <a href="/brancher#transport-koeretoejer">🚗 Transport &amp; Køretøjer</a>
+        <a href="/brancher#overnatning-turisme">🏨 Overnatning &amp; Turisme</a>
+        <a href="/brancher#retail-butikker">🏪 Retail &amp; Specialbutikker</a>
+        <a href="/brancher#ejendom-bolig">🏗️ Ejendom &amp; Bolig</a>
+        <a href="/brancher#skoenhed-pleje">💈 Skønhed &amp; Personlig Pleje</a>
+        <a href="/brancher" style="font-weight:700;color:var(--orange);margin-top:6px">Se alle brancher →</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ydelser</h5>
+        <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
+        <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
+        <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
+        <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
+        <a href="/app-udvikling">App Udvikling</a>
+        <h5 style="margin-top:20px;color:rgba(255,255,255,.6)">Sider</h5>
+        <a href="/cases">Cases</a>
+        <a href="/performancechecker">Gratis SEO Tjek</a>
+        <a href="/kontakt">Kontakt</a>
+        <a href="/#beregn-din-pris">Priser</a>
+        <a href="/legal">Privatlivspolitik</a>
+        <a href="/returpolitik">Returpolitik</a>
+        <a href="/handelsbetingelser">Handelsbetingelser</a>
+      </div>
+      <div class="footer-col">
+        <h5>Kontakt os</h5>
+        <a href="/kontakt">Kontaktformular</a>
+        <a href="mailto:hej@nordicwebflow.com">hej@nordicwebflow.com</a>
+        <a href="/#beregn-din-pris">Beregn din pris</a>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.55);margin-top:14px;line-height:1.7">København, Danmark<br>CVR: 46305639</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NordicWebFlow. Alle rettigheder forbeholdes.</span>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/legal" style="color:rgba(255,255,255,.6)">Privatlivspolitik</a>
+        <a href="/legal" style="color:rgba(255,255,255,.6)">Cookiepolitik</a>
+        <a href="/returpolitik" style="color:rgba(255,255,255,.6)">Returpolitik</a>
+        <a href="/handelsbetingelser" style="color:rgba(255,255,255,.6)">Handelsbetingelser</a>
+        <a href="#" data-cookie-settings style="color:rgba(255,255,255,.65)">Cookie-indstillinger</a>
+        <a href="https://seotjek.dk" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.6)">Gratis SEO-analyseværktøj</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+const hbtn=document.getElementById('hamburger-btn');
+const mob=document.getElementById('mobile-menu');
+if(hbtn&&mob){hbtn.addEventListener('click',()=>{const open=mob.classList.toggle('open');hbtn.setAttribute('aria-expanded',open);});}
+(function(){var c=document.getElementById('cursor');var r=document.getElementById('cursor-ring');if(!c||!r||window.matchMedia('(max-width:860px)').matches)return;var mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});function animRing(){rx+=(mx-rx)*.08;ry+=(my-ry)*.08;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(animRing);}animRing();})();
+(function(){var nav=document.getElementById('main-nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});})();
+document.querySelectorAll('.dropdown').forEach(function(d){d.addEventListener('mouseenter',function(){d.classList.add('open');});d.addEventListener('mouseleave',function(){d.classList.remove('open');});});
+</script>
+<script src="/dark-mode.js" defer></script>
+<script src="/sparkles.js" defer></script>
+<script>
+/* ── CARD NAV GSAP ── */
+(function(){
+  if(window.matchMedia('(min-width:861px)').matches) return;
+  var btn = document.getElementById('hamburger-btn');
+  var panel = document.getElementById('card-nav-panel');
+  if(!btn || !panel) return;
+
+  var cards = panel.querySelectorAll('.nav-card');
+  var open = false;
+
+  // Load GSAP from CDN if not already loaded
+  function initGSAP() {
+    if(window.gsap) { setupAnim(); return; }
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+    s.onload = setupAnim;
+    document.head.appendChild(s);
+  }
+
+  function setupAnim() {
+    gsap.set(panel, { height: 0, overflow: 'hidden', opacity: 0 });
+    gsap.set(cards, { y: 30, opacity: 0 });
+    panel.style.display = 'block';
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      open ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener('click', function(e) {
+      if(open && !panel.contains(e.target) && !btn.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape' && open) closeMenu();
+    });
+  }
+
+  function openMenu() {
+    open = true;
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    panel.classList.add('card-nav-open');
+
+    // measure height
+    gsap.set(panel, { height: 'auto', opacity: 1 });
+    var h = panel.scrollHeight;
+    gsap.set(panel, { height: 0, opacity: 0 });
+
+    gsap.timeline()
+      .to(panel, { height: h, opacity: 1, duration: 0.35, ease: 'power3.out' })
+      .to(cards, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.07 }, '-=0.15');
+  }
+
+  function closeMenu() {
+    open = false;
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+    panel.classList.remove('card-nav-open');
+
+    gsap.timeline()
+      .to(cards, { y: 20, opacity: 0, duration: 0.2, ease: 'power2.in', stagger: 0.04 })
+      .to(panel, { height: 0, opacity: 0, duration: 0.25, ease: 'power2.in' }, '-=0.1');
+  }
+
+  initGSAP();
+})();
+</script>
+</body></html>

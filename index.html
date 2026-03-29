@@ -28,6 +28,266 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Benjamin Wenneke"},"reviewBody":"Jeg kan klart anbefale Nordicwebflow. De har lavet min hjemmeside, og resultatet er virkelig imponerende. Designet er flot, stilrent og professionelt.","itemReviewed":{"@type":"LocalBusiness","name":"NordicWebFlow"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad koster en hjemmeside hos NordicWebFlow?","acceptedAnswer":{"@type":"Answer","text":"Vores hjemmesider starter fra 1.499 kr. for 1 side. Du tilpasser prisen selv i vores beregner — vælg antal sider og tilvalg. Ingen skjulte gebyrer, du ejer siden 100%."}},{"@type":"Question","name":"Hvor lang tid tager det at bygge en hjemmeside?","acceptedAnswer":{"@type":"Answer","text":"Vi leverer din færdige hjemmeside på under 14 dage fra bestilling til lancering."}},{"@type":"Question","name":"Hvilke brancher arbejder I med?","acceptedAnswer":{"@type":"Answer","text":"Vi specialiserer os i lokale virksomheder som tømrere, tandlæger, advokater, murere, elektrikere, malere, VVS-firmaer, fysioterapeuter, revisorer og ejendomsmæglere i København."}},{"@type":"Question","name":"Er hjemmesiden SEO-optimeret?","acceptedAnswer":{"@type":"Answer","text":"Ja, alle vores hjemmesider er 100% teknisk SEO-optimerede fra dag ét — inkl. meta-titler, schema markup, sitemap og Core Web Vitals."}},{"@type":"Question","name":"Ejer jeg min hjemmeside?","acceptedAnswer":{"@type":"Answer","text":"Ja, 100%. Du ejer siden, koden og domænet fra dag ét. Ingen bindende abonnementer eller lock-in."}},{"@type":"Question","name":"Hvad er inkluderet i Lokal SEO-pakken?","acceptedAnswer":{"@type":"Answer","text":"Lokal SEO-pakken til 1.999 kr./md. inkluderer optimering af Google Business Profile, månedlig keyword-tracking, on-page SEO-opdateringer og en simpel månedlig rapport."}},{"@type":"Question","name":"Bruger I Custom kode til alle hjemmesider?","acceptedAnswer":{"@type":"Answer","text":"Ja. Vi bygger udelukkende med custom kode fordi det producerer lynhurtige hjemmesider med sub-1-sekunds loadtid og 100 PageSpeed-score."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"NordicWebFlow","url":"https://nordicwebflow.com","potentialAction":{"@type":"SearchAction","target":"https://nordicwebflow.com/performancechecker?url={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<style>
+/* ── CARD NAV (mobile hamburger replacement) ── */
+.card-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--heading);
+}
+@media (max-width: 860px) {
+  .card-nav-hamburger { display: flex; }
+}
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
+  display: block;
+}
+.card-nav-hamburger.open .hamburger-line:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+.card-nav-hamburger.open .hamburger-line:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+.card-nav-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 480px;
+  z-index: 200;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.18);
+}
+@media (max-width: 860px) {
+  .card-nav-panel { display: block; }
+}
+.card-nav-panel.card-nav-open {
+  pointer-events: auto;
+}
+.card-nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+.nav-card {
+  border-radius: calc(1rem - 4px);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.nav-card-1 { background: #0f0f0f; color: #fff; }
+.nav-card-2 { background: #1a0a2e; color: #fff; }
+.nav-card-3 { background: #E84400; color: #fff; }
+[data-theme="light"] .nav-card-1 { background: #1a1a2e; }
+.nav-card-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: inherit;
+}
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-card-link {
+  font-size: .9rem;
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color .2s, opacity .2s;
+  display: block;
+}
+.nav-card-link:hover { color: #fff; opacity: .9; }
+.nav-card-cta {
+  margin-top: 6px;
+  background: rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: 8px 14px !important;
+  font-weight: 700;
+  color: #fff !important;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.25);
+}
+.nav-card-cta:hover { background: rgba(255,255,255,.25) !important; }
+/* hide old mobile-menu styles */
+.mobile-menu { display: none !important; }
+</style>
+<style>
+
+/* ── BALLPIT HERO ── */
+.hero {
+  min-height: 580px;
+  background: var(--bg) !important;
+  overflow: visible !important;
+}
+.hero .container { pointer-events: none; }
+.hero .container a,
+.hero .container button,
+.hero .container [role="button"] { pointer-events: auto; }
+#ballpit-canvas { border-radius: 0; }
+@media (max-width: 860px) {
+  .hero { min-height: 480px; }
+}
+
+/* ── CARD NAV ── */
+.card-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--heading);
+}
+@media (max-width: 860px) {
+  .card-nav-hamburger { display: flex; }
+}
+.hamburger-line {
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
+  display: block;
+  border-radius: 2px;
+}
+.card-nav-hamburger.open .hamburger-line:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+.card-nav-hamburger.open .hamburger-line:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+/* Panel */
+.card-nav-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 460px;
+  z-index: 200;
+}
+@media (max-width: 860px) {
+  .card-nav-panel { display: block; }
+}
+.card-nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+/* Card 1 — warm cream (site's own bg) */
+.nav-card {
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
+.nav-card-1 {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--heading);
+}
+/* Card 2 — deep dark */
+.nav-card-2 {
+  background: #0E0D0B;
+  border: 1px solid #2C2922;
+  color: #F2EDE7;
+}
+[data-theme="light"] .nav-card-2 {
+  background: #0E0D0B;
+  border-color: #2C2922;
+  color: #F2EDE7;
+}
+/* Card 3 — orange brand */
+.nav-card-3 {
+  background: #E84400;
+  border: 1px solid #C23A00;
+  color: #fff;
+}
+.nav-card-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  font-family: var(--font-display);
+}
+.nav-card-1 .nav-card-label { color: var(--heading); }
+.nav-card-2 .nav-card-label { color: #F2EDE7; }
+.nav-card-3 .nav-card-label { color: #fff; }
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-card-link {
+  font-size: .875rem;
+  text-decoration: none;
+  padding: 4px 0;
+  transition: opacity .2s;
+  display: block;
+  font-weight: 500;
+}
+.nav-card-1 .nav-card-link { color: var(--text); }
+.nav-card-2 .nav-card-link { color: rgba(242,237,231,.75); }
+.nav-card-3 .nav-card-link { color: rgba(255,255,255,.85); }
+.nav-card-link:hover { opacity: .7; }
+.nav-card-highlight {
+  font-weight: 700 !important;
+  color: #E84400 !important;
+}
+.nav-card-3 .nav-card-highlight {
+  color: #fff !important;
+  opacity: 1;
+}
+.nav-card-cta {
+  margin-top: 8px;
+  background: rgba(255,255,255,.18);
+  border-radius: 10px;
+  padding: 9px 14px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.3);
+  transition: background .2s !important;
+}
+.nav-card-cta:hover { background: rgba(255,255,255,.28) !important; opacity: 1 !important; }
+.mobile-menu { display: none !important; }
+</style>
 </head>
 <body>
 
@@ -62,18 +322,20 @@
         </div>
         <div class="dropdown">
           <a href="/brancher">Brancher ▾</a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu" style="min-width:240px">
             <div class="dropdown-menu-inner">
-              <a href="/toemrer">Tømrer</a>
-              <a href="/tandlaege">Tandlæge</a>
-              <a href="/advokat">Advokat</a>
-              <a href="/murer">Murer</a>
-              <a href="/elektriker">Elektriker</a>
-              <a href="/maler">Maler</a>
-              <a href="/vvs">VVS</a>
-              <a href="/fysioterapeut">Fysioterapeut</a>
-              <a href="/revisor">Revisor</a>
-              <a href="/ejendomsmaegler">Ejendomsmægler</a>
+              <a href="/brancher#haandvaerk-byggeri" style="font-weight:600">🔨 Håndværk &amp; Byggeri</a>
+              <a href="/brancher#sundhed-velvaere" style="font-weight:600">🏥 Sundhed &amp; Velvære</a>
+              <a href="/brancher#mad-drikke" style="font-weight:600">🍽️ Mad &amp; Drikke</a>
+              <a href="/brancher#foto-events" style="font-weight:600">📸 Foto, Kreativt &amp; Events</a>
+              <a href="/brancher#liberale-erhverv" style="font-weight:600">💼 Liberale Erhverv</a>
+              <a href="/brancher#uddannelse-undervisning" style="font-weight:600">🎓 Uddannelse &amp; Undervisning</a>
+              <a href="/brancher#dyr-natur" style="font-weight:600">🐾 Dyr &amp; Natur</a>
+              <a href="/brancher#transport-koeretoejer" style="font-weight:600">🚗 Transport &amp; Køretøjer</a>
+              <a href="/brancher#overnatning-turisme" style="font-weight:600">🏨 Overnatning &amp; Turisme</a>
+              <a href="/brancher#retail-butikker" style="font-weight:600">🏪 Retail &amp; Specialbutikker</a>
+              <a href="/brancher#ejendom-bolig" style="font-weight:600">🏗️ Ejendom &amp; Bolig</a>
+              <a href="/brancher#skoenhed-pleje" style="font-weight:600">💈 Skønhed &amp; Personlig Pleje</a>
               <a href="/brancher" style="border-top:1px solid var(--border);padding-top:10px;margin-top:6px;font-weight:700;color:var(--orange)">Se alle brancher →</a>
             </div>
           </div>
@@ -90,34 +352,57 @@
           <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
         </a>
       </div>
-      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span><span></span><span></span>
+            <button class="hamburger card-nav-hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="card-nav-panel">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
       </button>
     </div>
   </div>
-  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
-    <div class="mobile-menu-cat">Ydelser</div>
-    <div class="mobile-menu-ydelser">
-      <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
-      <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
-      <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
-      <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
+  <!-- CARD NAV PANEL -->
+  <div class="card-nav-panel" id="card-nav-panel" aria-hidden="true">
+    <div class="card-nav-cards">
+      <div class="nav-card nav-card-1">
+        <div class="nav-card-label">Ydelser</div>
+        <div class="nav-card-links">
+          <a href="/ydelser/lynhurtige-hjemmesider-framer" class="nav-card-link">↗ Premium Hjemmesider</a>
+          <a href="/ydelser/lokal-seo-koebenhavn" class="nav-card-link">↗ Lokal SEO</a>
+          <a href="/ydelser/google-meta-ads-koebenhavn" class="nav-card-link">↗ Google &amp; Meta Ads</a>
+          <a href="/ydelser/drift-og-sikkerhed" class="nav-card-link">↗ Drift &amp; Sikkerhed</a>
+          <a href="/app-udvikling" class="nav-card-link">↗ App Udvikling</a>
+        </div>
+      </div>
+      <div class="nav-card nav-card-2">
+        <div class="nav-card-label">Brancher</div>
+        <div class="nav-card-links">
+          <a href="/brancher#haandvaerk-byggeri" class="nav-card-link">↗ Håndværk &amp; Byggeri</a>
+          <a href="/brancher#sundhed-velvaere" class="nav-card-link">↗ Sundhed &amp; Velvære</a>
+          <a href="/brancher#mad-drikke" class="nav-card-link">↗ Mad &amp; Drikke</a>
+          <a href="/brancher#liberale-erhverv" class="nav-card-link">↗ Liberale Erhverv</a>
+          <a href="/brancher#skoenhed-pleje" class="nav-card-link">↗ Skønhed &amp; Pleje</a>
+          <a href="/brancher" class="nav-card-link" style="font-weight:700;color:#E84400">↗ Se alle brancher</a>
+        </div>
+      </div>
+      <div class="nav-card nav-card-3">
+        <div class="nav-card-label">Mere</div>
+        <div class="nav-card-links">
+          <a href="/cases" class="nav-card-link">↗ Cases</a>
+          <a href="/performancechecker" class="nav-card-link">↗ Gratis SEO Tjek</a>
+          <a href="/kontakt" class="nav-card-link">↗ Kontakt</a>
+          <a href="/priser" class="nav-card-link">↗ Priser</a>
+          <a href="/#beregn-din-pris" class="nav-card-link nav-card-cta">Beregn din pris →</a>
+        </div>
+      </div>
     </div>
-    <a href="/brancher"><span class="mm-icon">🏢</span>Brancher</a>
-    <div class="mobile-menu-cat">Mere</div>
-    <a href="/#beregn-din-pris">Priser</a>
-    <a href="/kontakt">Kontakt</a>
-    <a href="/#beregn-din-pris" class="mobile-menu-cta">Beregn din pris →</a>
   </div>
 </nav>
 
 <main id="main-content">
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="container">
+<section class="hero" style="position:relative;overflow:visible;background:transparent">
+  <!-- BALLPIT CANVAS — full hero background -->
+  <canvas id="ballpit-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block;pointer-events:auto"></canvas>
+  <div class="container" style="position:relative;z-index:1">
     <div class="hero-inner">
       <div class="grid-2" style="gap:64px;align-items:center">
         <div>
@@ -131,23 +416,6 @@
             <a href="/#beregn-din-pris" class="btn btn-primary btn-lg">Beregn din pris →</a>
             <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Gratis hjemmeside test</a>
           </div>
-          <div class="hero-proof reveal d4">
-            <div class="proof-item">
-              <span class="proof-num o">100%</span>
-              <span class="proof-lbl">Optimeret</span>
-            </div>
-            <div class="proof-item">
-              <span class="proof-num g">&lt;1s</span>
-              <span class="proof-lbl">Loadtid</span>
-            </div>
-            <div class="proof-item">
-              <span class="proof-num b">100%</span>
-              <span class="proof-lbl">SEO Score</span>
-            </div>
-            <div class="proof-item">
-              <span class="proof-num p">14d</span>
-              <span class="proof-lbl">Lancering</span>
-            </div>
           </div>
         </div>
         <div class="hero-visual-col reveal-right d2">
@@ -189,6 +457,9 @@
     </div>
   </div>
 </section>
+
+<!-- BALLPIT FADE OVERLAY — fades balls into ticker below -->
+<div style="position:relative;height:80px;margin-top:-80px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:2;pointer-events:none"></div>
 
 <!-- Cart toast notification -->
 <div class="cart-toast" id="cart-toast">
@@ -971,29 +1242,19 @@
   </div>
 </section>
 
-<!-- PARTNER -->
+<!-- PARTNER — LANYARD CARD -->
 <section class="partner-section-bg">
   <div class="container">
-    <div class="grid-2" style="gap:56px">
+    <div class="grid-2" style="gap:56px;align-items:center">
       <div class="reveal-left">
         <span class="badge badge-dark" style="margin-bottom:20px">Din Partner</span>
         <h2 style="margin-bottom:16px">Din faste digitale partner i <span>København</span></h2>
         <p class="lead" style="margin-bottom:28px">Ingen bureau-sprog eller lange ventetider. Direkte kontakt til specialisten der bygger din hjemmeside og skalerer din forretning.</p>
-        <div class="partner-card" style="margin-bottom:24px">
-          <img src="/images/Homepage/diego-maldonado.png" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);flex-shrink:0" width="64" height="64" loading="lazy">
-          <div>
-            <div style="font-family:var(--font-display);font-weight:700;color:#fff;font-size:1rem">Diego Maldonado</div>
-            <div style="font-size:.82rem;color:rgba(255,255,255,.7);margin-top:2px">Stifter &amp; Digital Strateg</div>
-            <a href="mailto:hej@nordicwebflow.com" style="font-size:.8rem;color:var(--orange)">hej@nordicwebflow.com</a>
-          </div>
-        </div>
         <a href="/#beregn-din-pris" class="btn btn-primary">Beregn din pris →</a>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.45);margin-top:12px">Træk kortet rundt 👆</p>
       </div>
-      <div class="stats-row reveal-right" style="align-self:center">
-        <div style="text-align:center"><div class="s-val o">100%</div><div class="s-lbl">Optimeret</div></div>
-        <div style="text-align:center"><div class="s-val g">&lt;1s</div><div class="s-lbl">Loadtid</div></div>
-        <div style="text-align:center"><div class="s-val b">100%</div><div class="s-lbl">SEO Score</div></div>
-        <div style="text-align:center"><div class="s-val p">14d</div><div class="s-lbl">Lancering</div></div>
+      <div class="reveal-right" style="position:relative;height:480px;width:100%">
+        <canvas id="lanyard-canvas" aria-label="Diego Maldonado — NordicWebFlow visitkort" style="position:absolute;inset:0;width:100%;height:100%;border-radius:12px;cursor:grab"></canvas>
       </div>
     </div>
   </div>
@@ -1058,36 +1319,20 @@
           <a href="https://www.linkedin.com/company/nordicwebflow/" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(10,102,194,.12);border:1px solid rgba(10,102,194,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#0A66C2">in</span> LinkedIn</a><a href="https://www.facebook.com/profile.php?id=61576391762219" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(24,119,242,.12);border:1px solid rgba(24,119,242,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#1877F2">f</span> Facebook</a>
         </div>
       </div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h5>Brancher</h5>
-        <a href="/toemrer">Tømrer</a>
-        <a href="/tandlaege">Tandlæge</a>
-        <a href="/advokat">Advokat</a>
-        <a href="/murer">Murer</a>
-        <a href="/elektriker">Elektriker</a>
-        <a href="/maler">Maler</a>
-        <a href="/vvs">VVS</a>
-        <a href="/fysioterapeut">Fysioterapeut</a>
-        <a href="/revisor">Revisor</a>
-        <a href="/ejendomsmaegler">Ejendomsmægler</a>
-        <a href="/arkitekt">Arkitekt</a>
-        <a href="/frisoer">Frisør</a>
-        <a href="/autovaerksted">Autoværksted</a>
-        <a href="/restaurant">Restaurant</a>
-        <a href="/luksusrestaurant">Luksusrestaurant</a>
-        <a href="/kebab-pizza">Kebab &amp; Pizza</a>
-        <a href="/cafe">Café</a>
-        <a href="/laege-klinik">Læge &amp; Klinik</a>
-        <a href="/dyrlaege">Dyrlæge</a>
-        <a href="/fotograf">Fotograf</a>
-        <a href="/personlig-traener">Personlig Træner</a>
-        <a href="/rengoering">Rengøring</a>
-        <a href="/tagdaekker">Tagdækker</a>
-        <a href="/laasesmed">Låsesmed</a>
-        <a href="/gulvlaegger">Gulvlægger</a>
-        <a href="/anlaegsgartner">Anlægsgartner</a>
-        <a href="/barbershop">Barbershop</a>
-        <a href="/cykelvaerksted">Cykelværksted</a>
+        <a href="/brancher#haandvaerk-byggeri">🔨 Håndværk &amp; Byggeri</a>
+        <a href="/brancher#sundhed-velvaere">🏥 Sundhed &amp; Velvære</a>
+        <a href="/brancher#mad-drikke">🍽️ Mad &amp; Drikke</a>
+        <a href="/brancher#foto-events">📸 Foto, Kreativt &amp; Events</a>
+        <a href="/brancher#liberale-erhverv">💼 Liberale Erhverv</a>
+        <a href="/brancher#uddannelse-undervisning">🎓 Uddannelse &amp; Undervisning</a>
+        <a href="/brancher#dyr-natur">🐾 Dyr &amp; Natur</a>
+        <a href="/brancher#transport-koeretoejer">🚗 Transport &amp; Køretøjer</a>
+        <a href="/brancher#overnatning-turisme">🏨 Overnatning &amp; Turisme</a>
+        <a href="/brancher#retail-butikker">🏪 Retail &amp; Specialbutikker</a>
+        <a href="/brancher#ejendom-bolig">🏗️ Ejendom &amp; Bolig</a>
+        <a href="/brancher#skoenhed-pleje">💈 Skønhed &amp; Personlig Pleje</a>
         <a href="/brancher" style="font-weight:700;color:var(--orange);margin-top:6px">Se alle brancher →</a>
       </div>
       <div class="footer-col">
@@ -1672,7 +1917,8 @@ function addToCart(){
   });
 })();
 </script>
+<script src="/ballpit.js" defer></script>
+<script src="/lanyard.js" defer></script>
 <script src="/dark-mode.js" defer></script>
-<script src="/sparkles.js" defer></script>
 </body>
 </html>

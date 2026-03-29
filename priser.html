@@ -27,6 +27,250 @@
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad koster en hjemmeside hos NordicWebFlow?","acceptedAnswer":{"@type":"Answer","text":"Vores hjemmesider starter fra 1.499 kr. for 1 side. Du bruger vores interaktive prisberegner til at vælge antal sider og tilvalg — prisen opdateres live. Ingen skjulte gebyrer, du betaler én gang og ejer siden 100%."}},{"@type":"Question","name":"Er der skjulte gebyrer?","acceptedAnswer":{"@type":"Answer","text":"Nej. Du betaler den beregnede pris én gang og ejer siden 100% fra dag ét. Den eneste løbende udgift er hosting — typisk 800-1.200 kr./år. Ingen bureau-abonnementer, ingen lock-in."}},{"@type":"Question","name":"Ejer jeg min hjemmeside?","acceptedAnswer":{"@type":"Answer","text":"Ja, 100%. Du ejer siden, koden og domænet fra dag ét. Ingen bindende abonnementer eller lock-in nogensinde."}},{"@type":"Question","name":"Hvad koster SEO?","acceptedAnswer":{"@type":"Answer","text":"SEO Starter koster 1.999 kr./md. SEO med løbende rapportering koster 2.999 kr./md. Begge kan opsiges med 30 dages varsel."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"NordicWebFlow Priser","itemListElement":[{"@type":"Offer","position":1,"name":"Hjemmeside (1 side)","price":"1499","priceCurrency":"DKK","description":"1 side hjemmeside med kontaktformular og SEO-opsætning"},{"@type":"Offer","position":2,"name":"SEO Starter","price":"1999","priceCurrency":"DKK","description":"Månedlig SEO optimering, Google Business Profile, keyword-tracking"},{"@type":"Offer","position":3,"name":"Google Ads opsætning","price":"2499","priceCurrency":"DKK","description":"Professionel kampagneopsætning inkl. søgeordsstrategi"},{"@type":"Offer","position":4,"name":"Android App","price":"14999","priceCurrency":"DKK","description":"Native Android app til Google Play Store"},{"@type":"Offer","position":5,"name":"iOS App","price":"14999","priceCurrency":"DKK","description":"Native iOS app til Apple App Store"}]}</script>
+<style>
+/* ── CARD NAV (mobile hamburger replacement) ── */
+.card-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--heading);
+}
+@media (max-width: 860px) {
+  .card-nav-hamburger { display: flex; }
+}
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
+  display: block;
+}
+.card-nav-hamburger.open .hamburger-line:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+.card-nav-hamburger.open .hamburger-line:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+.card-nav-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 480px;
+  z-index: 200;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.18);
+}
+@media (max-width: 860px) {
+  .card-nav-panel { display: block; }
+}
+.card-nav-panel.card-nav-open {
+  pointer-events: auto;
+}
+.card-nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+.nav-card {
+  border-radius: calc(1rem - 4px);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.nav-card-1 { background: #0f0f0f; color: #fff; }
+.nav-card-2 { background: #1a0a2e; color: #fff; }
+.nav-card-3 { background: #E84400; color: #fff; }
+[data-theme="light"] .nav-card-1 { background: #1a1a2e; }
+.nav-card-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  color: inherit;
+}
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-card-link {
+  font-size: .9rem;
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color .2s, opacity .2s;
+  display: block;
+}
+.nav-card-link:hover { color: #fff; opacity: .9; }
+.nav-card-cta {
+  margin-top: 6px;
+  background: rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: 8px 14px !important;
+  font-weight: 700;
+  color: #fff !important;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.25);
+}
+.nav-card-cta:hover { background: rgba(255,255,255,.25) !important; }
+/* hide old mobile-menu styles */
+.mobile-menu { display: none !important; }
+</style>
+<style>
+/* ── CARD NAV ── */
+.card-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--heading);
+}
+@media (max-width: 860px) {
+  .card-nav-hamburger { display: flex; }
+}
+.hamburger-line {
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
+  display: block;
+  border-radius: 2px;
+}
+.card-nav-hamburger.open .hamburger-line:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+.card-nav-hamburger.open .hamburger-line:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+/* Panel */
+.card-nav-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 460px;
+  z-index: 200;
+}
+@media (max-width: 860px) {
+  .card-nav-panel { display: block; }
+}
+.card-nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+/* Card 1 — warm cream (site's own bg) */
+.nav-card {
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
+.nav-card-1 {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--heading);
+}
+/* Card 2 — deep dark */
+.nav-card-2 {
+  background: #0E0D0B;
+  border: 1px solid #2C2922;
+  color: #F2EDE7;
+}
+[data-theme="light"] .nav-card-2 {
+  background: #0E0D0B;
+  border-color: #2C2922;
+  color: #F2EDE7;
+}
+/* Card 3 — orange brand */
+.nav-card-3 {
+  background: #E84400;
+  border: 1px solid #C23A00;
+  color: #fff;
+}
+.nav-card-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  font-family: var(--font-display);
+}
+.nav-card-1 .nav-card-label { color: var(--heading); }
+.nav-card-2 .nav-card-label { color: #F2EDE7; }
+.nav-card-3 .nav-card-label { color: #fff; }
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-card-link {
+  font-size: .875rem;
+  text-decoration: none;
+  padding: 4px 0;
+  transition: opacity .2s;
+  display: block;
+  font-weight: 500;
+}
+.nav-card-1 .nav-card-link { color: var(--text); }
+.nav-card-2 .nav-card-link { color: rgba(242,237,231,.75); }
+.nav-card-3 .nav-card-link { color: rgba(255,255,255,.85); }
+.nav-card-link:hover { opacity: .7; }
+.nav-card-highlight {
+  font-weight: 700 !important;
+  color: #E84400 !important;
+}
+.nav-card-3 .nav-card-highlight {
+  color: #fff !important;
+  opacity: 1;
+}
+.nav-card-cta {
+  margin-top: 8px;
+  background: rgba(255,255,255,.18);
+  border-radius: 10px;
+  padding: 9px 14px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.3);
+  transition: background .2s !important;
+}
+.nav-card-cta:hover { background: rgba(255,255,255,.28) !important; opacity: 1 !important; }
+.mobile-menu { display: none !important; }
+</style>
 </head>
 <body class="page-inner">
 <!-- CUSTOM CURSOR (desktop only) -->
@@ -60,18 +304,20 @@
         </div>
         <div class="dropdown">
           <a href="/brancher">Brancher ▾</a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu" style="min-width:240px">
             <div class="dropdown-menu-inner">
-              <a href="/toemrer">Tømrer</a>
-              <a href="/tandlaege">Tandlæge</a>
-              <a href="/advokat">Advokat</a>
-              <a href="/murer">Murer</a>
-              <a href="/elektriker">Elektriker</a>
-              <a href="/maler">Maler</a>
-              <a href="/vvs">VVS</a>
-              <a href="/fysioterapeut">Fysioterapeut</a>
-              <a href="/revisor">Revisor</a>
-              <a href="/ejendomsmaegler">Ejendomsmægler</a>
+              <a href="/brancher#haandvaerk-byggeri" style="font-weight:600">🔨 Håndværk &amp; Byggeri</a>
+              <a href="/brancher#sundhed-velvaere" style="font-weight:600">🏥 Sundhed &amp; Velvære</a>
+              <a href="/brancher#mad-drikke" style="font-weight:600">🍽️ Mad &amp; Drikke</a>
+              <a href="/brancher#foto-events" style="font-weight:600">📸 Foto, Kreativt &amp; Events</a>
+              <a href="/brancher#liberale-erhverv" style="font-weight:600">💼 Liberale Erhverv</a>
+              <a href="/brancher#uddannelse-undervisning" style="font-weight:600">🎓 Uddannelse &amp; Undervisning</a>
+              <a href="/brancher#dyr-natur" style="font-weight:600">🐾 Dyr &amp; Natur</a>
+              <a href="/brancher#transport-koeretoejer" style="font-weight:600">🚗 Transport &amp; Køretøjer</a>
+              <a href="/brancher#overnatning-turisme" style="font-weight:600">🏨 Overnatning &amp; Turisme</a>
+              <a href="/brancher#retail-butikker" style="font-weight:600">🏪 Retail &amp; Specialbutikker</a>
+              <a href="/brancher#ejendom-bolig" style="font-weight:600">🏗️ Ejendom &amp; Bolig</a>
+              <a href="/brancher#skoenhed-pleje" style="font-weight:600">💈 Skønhed &amp; Personlig Pleje</a>
               <a href="/brancher" style="border-top:1px solid var(--border);padding-top:10px;margin-top:6px;font-weight:700;color:var(--orange)">Se alle brancher →</a>
             </div>
           </div>
@@ -88,24 +334,47 @@
           <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
         </a>
       </div>
-      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span><span></span><span></span>
+            <button class="hamburger card-nav-hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="card-nav-panel">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
       </button>
     </div>
   </div>
-  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
-    <div class="mobile-menu-cat">Ydelser</div>
-    <div class="mobile-menu-ydelser">
-      <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
-      <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
-      <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
-      <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
+  <!-- CARD NAV PANEL -->
+  <div class="card-nav-panel" id="card-nav-panel" aria-hidden="true">
+    <div class="card-nav-cards">
+      <div class="nav-card nav-card-1">
+        <div class="nav-card-label">Ydelser</div>
+        <div class="nav-card-links">
+          <a href="/ydelser/lynhurtige-hjemmesider-framer" class="nav-card-link">↗ Premium Hjemmesider</a>
+          <a href="/ydelser/lokal-seo-koebenhavn" class="nav-card-link">↗ Lokal SEO</a>
+          <a href="/ydelser/google-meta-ads-koebenhavn" class="nav-card-link">↗ Google &amp; Meta Ads</a>
+          <a href="/ydelser/drift-og-sikkerhed" class="nav-card-link">↗ Drift &amp; Sikkerhed</a>
+          <a href="/app-udvikling" class="nav-card-link">↗ App Udvikling</a>
+        </div>
+      </div>
+      <div class="nav-card nav-card-2">
+        <div class="nav-card-label">Brancher</div>
+        <div class="nav-card-links">
+          <a href="/brancher#haandvaerk-byggeri" class="nav-card-link">↗ Håndværk &amp; Byggeri</a>
+          <a href="/brancher#sundhed-velvaere" class="nav-card-link">↗ Sundhed &amp; Velvære</a>
+          <a href="/brancher#mad-drikke" class="nav-card-link">↗ Mad &amp; Drikke</a>
+          <a href="/brancher#liberale-erhverv" class="nav-card-link">↗ Liberale Erhverv</a>
+          <a href="/brancher#skoenhed-pleje" class="nav-card-link">↗ Skønhed &amp; Pleje</a>
+          <a href="/brancher" class="nav-card-link" style="font-weight:700;color:#E84400">↗ Se alle brancher</a>
+        </div>
+      </div>
+      <div class="nav-card nav-card-3">
+        <div class="nav-card-label">Mere</div>
+        <div class="nav-card-links">
+          <a href="/cases" class="nav-card-link">↗ Cases</a>
+          <a href="/performancechecker" class="nav-card-link">↗ Gratis SEO Tjek</a>
+          <a href="/kontakt" class="nav-card-link">↗ Kontakt</a>
+          <a href="/priser" class="nav-card-link">↗ Priser</a>
+          <a href="/#beregn-din-pris" class="nav-card-link nav-card-cta">Beregn din pris →</a>
+        </div>
+      </div>
     </div>
-    <a href="/brancher"><span class="mm-icon">🏢</span>Brancher</a>
-    <div class="mobile-menu-cat">Mere</div>
-    <a href="/#beregn-din-pris">Priser</a>
-    <a href="/kontakt">Kontakt</a>
-    <a href="/#beregn-din-pris" class="mobile-menu-cta">Beregn din pris →</a>
   </div>
 </nav>
 <main id="main-content">
@@ -283,36 +552,20 @@
           <a href="https://www.facebook.com/profile.php?id=61576391762219" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(24,119,242,.12);border:1px solid rgba(24,119,242,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#1877F2">f</span> Facebook</a>
         </div>
       </div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h5>Brancher</h5>
-        <a href="/toemrer">Tømrer</a>
-        <a href="/tandlaege">Tandlæge</a>
-        <a href="/advokat">Advokat</a>
-        <a href="/murer">Murer</a>
-        <a href="/elektriker">Elektriker</a>
-        <a href="/maler">Maler</a>
-        <a href="/vvs">VVS</a>
-        <a href="/fysioterapeut">Fysioterapeut</a>
-        <a href="/revisor">Revisor</a>
-        <a href="/ejendomsmaegler">Ejendomsmægler</a>
-        <a href="/arkitekt">Arkitekt</a>
-        <a href="/frisoer">Frisør</a>
-        <a href="/autovaerksted">Autoværksted</a>
-        <a href="/restaurant">Restaurant</a>
-        <a href="/luksusrestaurant">Luksusrestaurant</a>
-        <a href="/kebab-pizza">Kebab &amp; Pizza</a>
-        <a href="/cafe">Café</a>
-        <a href="/laege-klinik">Læge &amp; Klinik</a>
-        <a href="/dyrlaege">Dyrlæge</a>
-        <a href="/fotograf">Fotograf</a>
-        <a href="/personlig-traener">Personlig Træner</a>
-        <a href="/rengoering">Rengøring</a>
-        <a href="/tagdaekker">Tagdækker</a>
-        <a href="/laasesmed">Låsesmed</a>
-        <a href="/gulvlaegger">Gulvlægger</a>
-        <a href="/anlaegsgartner">Anlægsgartner</a>
-        <a href="/barbershop">Barbershop</a>
-        <a href="/cykelvaerksted">Cykelværksted</a>
+        <a href="/brancher#haandvaerk-byggeri">🔨 Håndværk &amp; Byggeri</a>
+        <a href="/brancher#sundhed-velvaere">🏥 Sundhed &amp; Velvære</a>
+        <a href="/brancher#mad-drikke">🍽️ Mad &amp; Drikke</a>
+        <a href="/brancher#foto-events">📸 Foto, Kreativt &amp; Events</a>
+        <a href="/brancher#liberale-erhverv">💼 Liberale Erhverv</a>
+        <a href="/brancher#uddannelse-undervisning">🎓 Uddannelse &amp; Undervisning</a>
+        <a href="/brancher#dyr-natur">🐾 Dyr &amp; Natur</a>
+        <a href="/brancher#transport-koeretoejer">🚗 Transport &amp; Køretøjer</a>
+        <a href="/brancher#overnatning-turisme">🏨 Overnatning &amp; Turisme</a>
+        <a href="/brancher#retail-butikker">🏪 Retail &amp; Specialbutikker</a>
+        <a href="/brancher#ejendom-bolig">🏗️ Ejendom &amp; Bolig</a>
+        <a href="/brancher#skoenhed-pleje">💈 Skønhed &amp; Personlig Pleje</a>
         <a href="/brancher" style="font-weight:700;color:var(--orange);margin-top:6px">Se alle brancher →</a>
       </div>
       <div class="footer-col">
@@ -460,4 +713,75 @@ if(btn&&mob){
 </script>
 <script src="/dark-mode.js" defer></script>
 <script src="/sparkles.js" defer></script>
+<script>
+/* ── CARD NAV GSAP ── */
+(function(){
+  if(window.matchMedia('(min-width:861px)').matches) return;
+  var btn = document.getElementById('hamburger-btn');
+  var panel = document.getElementById('card-nav-panel');
+  if(!btn || !panel) return;
+
+  var cards = panel.querySelectorAll('.nav-card');
+  var open = false;
+
+  // Load GSAP from CDN if not already loaded
+  function initGSAP() {
+    if(window.gsap) { setupAnim(); return; }
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+    s.onload = setupAnim;
+    document.head.appendChild(s);
+  }
+
+  function setupAnim() {
+    gsap.set(panel, { height: 0, overflow: 'hidden', opacity: 0 });
+    gsap.set(cards, { y: 30, opacity: 0 });
+    panel.style.display = 'block';
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      open ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener('click', function(e) {
+      if(open && !panel.contains(e.target) && !btn.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape' && open) closeMenu();
+    });
+  }
+
+  function openMenu() {
+    open = true;
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    panel.classList.add('card-nav-open');
+
+    // measure height
+    gsap.set(panel, { height: 'auto', opacity: 1 });
+    var h = panel.scrollHeight;
+    gsap.set(panel, { height: 0, opacity: 0 });
+
+    gsap.timeline()
+      .to(panel, { height: h, opacity: 1, duration: 0.35, ease: 'power3.out' })
+      .to(cards, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.07 }, '-=0.15');
+  }
+
+  function closeMenu() {
+    open = false;
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+    panel.classList.remove('card-nav-open');
+
+    gsap.timeline()
+      .to(cards, { y: 20, opacity: 0, duration: 0.2, ease: 'power2.in', stagger: 0.04 })
+      .to(panel, { height: 0, opacity: 0, duration: 0.25, ease: 'power2.in' }, '-=0.1');
+  }
+
+  initGSAP();
+})();
+</script>
 </body></html>

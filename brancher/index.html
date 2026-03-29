@@ -4,11 +4,11 @@
 <script>!function(){var t=localStorage.getItem("nwf-theme");t&&document.documentElement.setAttribute("data-theme",t)}();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Brancher vi hjælper — Hjemmesider til lokale virksomheder | NordicWebFlow</title>
-<meta name="description" content="Vi bygger professionelle hjemmesider og lokal SEO til 28+ brancher i Danmark — fra tømrere og tandlæger til restauranter og frisører. Find din branche her.">
+<title>Brancher vi hjælper — 215+ Hjemmesider til lokale virksomheder | NordicWebFlow</title>
+<meta name="description" content="Vi bygger professionelle hjemmesider og lokal SEO til 215+ brancher i Danmark — håndværk, sundhed, mad, liberale erhverv og meget mere. Find din branche her.">
 <link rel="canonical" href="https://nordicwebflow.com/brancher">
-<meta property="og:title" content="Brancher vi hjælper — Hjemmesider til lokale virksomheder | NordicWebFlow">
-<meta property="og:description" content="Vi bygger professionelle hjemmesider og lokal SEO til 28+ brancher i Danmark — fra tømrere og tandlæger til restauranter og frisører. Find din branche her.">
+<meta property="og:title" content="Brancher vi hjælper — 215+ Hjemmesider til lokale virksomheder | NordicWebFlow">
+<meta property="og:description" content="Vi bygger professionelle hjemmesider og lokal SEO til 215+ brancher i Danmark. Find din branche her.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nordicwebflow.com/brancher">
 <meta property="og:image" content="https://nordicwebflow.com/images/og-default.jpg">
@@ -17,105 +17,305 @@
 <meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
 <link rel="stylesheet" href="/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Brancher — NordicWebFlow","description":"Professionelle hjemmesider og lokal SEO til 28+ brancher i Danmark.","url":"https://nordicwebflow.com/brancher","publisher":{"@type":"Organization","name":"NordicWebFlow","url":"https://nordicwebflow.com"}}</script>
 <style>
-.brancher-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 40px;
-}
-.brancher-card {
-  display: flex;
+.brancher-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:20px}
+.brancher-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;color:var(--text);font-weight:600;font-size:.9rem;transition:border-color .18s,box-shadow .18s,transform .18s}
+.brancher-card:hover{border-color:var(--orange);box-shadow:0 4px 20px rgba(230,88,25,.12);transform:translateY(-2px);color:var(--heading)}
+.brancher-card-img{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--bg2)}
+.brancher-card-body{padding:12px 14px;display:flex;align-items:center;gap:8px}
+.brancher-cat-header{margin:48px 0 4px;display:flex;align-items:center;gap:10px}
+.brancher-cat-header h2{font-size:1.3rem;margin:0}
+.brancher-cat-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+</style>
+<style>
+/* ── CARD NAV (mobile hamburger replacement) ── */
+.card-nav-hamburger {
+  display: none;
   flex-direction: column;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  font-size: .95rem;
-  transition: border-color .18s, box-shadow .18s, transform .18s;
-}
-.brancher-card:hover {
-  border-color: var(--orange);
-  box-shadow: 0 4px 20px rgba(230,88,25,.12);
-  transform: translateY(-2px);
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
   color: var(--heading);
 }
-.brancher-card-img {
-  width: 100%;
-  aspect-ratio: 3/2;
-  object-fit: cover;
+@media (max-width: 860px) {
+  .card-nav-hamburger { display: flex; }
+}
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
   display: block;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
-.brancher-card-name {
-  padding: 14px 18px 16px;
+.card-nav-hamburger.open .hamburger-line:first-child {
+  transform: translateY(4px) rotate(45deg);
 }
-.brancher-category {
-  font-size: .7rem;
+.card-nav-hamburger.open .hamburger-line:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+.card-nav-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 480px;
+  z-index: 200;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.18);
+}
+@media (max-width: 860px) {
+  .card-nav-panel { display: block; }
+}
+.card-nav-panel.card-nav-open {
+  pointer-events: auto;
+}
+.card-nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+.nav-card {
+  border-radius: calc(1rem - 4px);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.nav-card-1 { background: #0f0f0f; color: #fff; }
+.nav-card-2 { background: #1a0a2e; color: #fff; }
+.nav-card-3 { background: #E84400; color: #fff; }
+[data-theme="light"] .nav-card-1 { background: #1a1a2e; }
+.nav-card-label {
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin: 48px 0 8px;
+  letter-spacing: -.03em;
+  color: inherit;
 }
-.brancher-category:first-of-type {
-  margin-top: 0;
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
+.nav-card-link {
+  font-size: .9rem;
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+  padding: 3px 0;
+  transition: color .2s, opacity .2s;
+  display: block;
+}
+.nav-card-link:hover { color: #fff; opacity: .9; }
+.nav-card-cta {
+  margin-top: 6px;
+  background: rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: 8px 14px !important;
+  font-weight: 700;
+  color: #fff !important;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.25);
+}
+.nav-card-cta:hover { background: rgba(255,255,255,.25) !important; }
+/* hide old mobile-menu styles */
+.mobile-menu { display: none !important; }
+</style>
+<style>
+/* ── CARD NAV ── */
+.card-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--heading);
+}
+@media (max-width: 860px) {
+  .card-nav-hamburger { display: flex; }
+}
+.hamburger-line {
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: 50% 50%;
+  display: block;
+  border-radius: 2px;
+}
+.card-nav-hamburger.open .hamburger-line:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+.card-nav-hamburger.open .hamburger-line:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+/* Panel */
+.card-nav-panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 460px;
+  z-index: 200;
+}
+@media (max-width: 860px) {
+  .card-nav-panel { display: block; }
+}
+.card-nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+/* Card 1 — warm cream (site's own bg) */
+.nav-card {
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
+.nav-card-1 {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--heading);
+}
+/* Card 2 — deep dark */
+.nav-card-2 {
+  background: #0E0D0B;
+  border: 1px solid #2C2922;
+  color: #F2EDE7;
+}
+[data-theme="light"] .nav-card-2 {
+  background: #0E0D0B;
+  border-color: #2C2922;
+  color: #F2EDE7;
+}
+/* Card 3 — orange brand */
+.nav-card-3 {
+  background: #E84400;
+  border: 1px solid #C23A00;
+  color: #fff;
+}
+.nav-card-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  font-family: var(--font-display);
+}
+.nav-card-1 .nav-card-label { color: var(--heading); }
+.nav-card-2 .nav-card-label { color: #F2EDE7; }
+.nav-card-3 .nav-card-label { color: #fff; }
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-card-link {
+  font-size: .875rem;
+  text-decoration: none;
+  padding: 4px 0;
+  transition: opacity .2s;
+  display: block;
+  font-weight: 500;
+}
+.nav-card-1 .nav-card-link { color: var(--text); }
+.nav-card-2 .nav-card-link { color: rgba(242,237,231,.75); }
+.nav-card-3 .nav-card-link { color: rgba(255,255,255,.85); }
+.nav-card-link:hover { opacity: .7; }
+.nav-card-highlight {
+  font-weight: 700 !important;
+  color: #E84400 !important;
+}
+.nav-card-3 .nav-card-highlight {
+  color: #fff !important;
+  opacity: 1;
+}
+.nav-card-cta {
+  margin-top: 8px;
+  background: rgba(255,255,255,.18);
+  border-radius: 10px;
+  padding: 9px 14px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.3);
+  transition: background .2s !important;
+}
+.nav-card-cta:hover { background: rgba(255,255,255,.28) !important; opacity: 1 !important; }
+.mobile-menu { display: none !important; }
 </style>
 </head>
 <body class="page-inner">
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-
+<div id="cursor"></div><div id="cursor-ring"></div>
 <nav id="main-nav">
   <div class="nav-inner">
     <div class="nav-left-group">
-      <a href="/" class="nav-logo" aria-label="NordicWebFlow — Webbureau København">
-        <div class="nav-logo-icon">N</div>
-      </a>
-      <button id="theme-toggle" class="nav-theme-icon" aria-label="Skift farvetema" title="Skift farvetema">
-        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <a href="/" class="nav-logo" aria-label="NordicWebFlow — Webbureau København"><div class="nav-logo-icon">N</div></a>
+      <button id="theme-toggle" class="nav-theme-icon" aria-label="Skift farvetema">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
     </div>
     <div class="nav-right">
       <div class="nav-links">
         <div class="dropdown">
           <a href="/ydelser">Ydelser ▾</a>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-inner">
-              <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
-              <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
-              <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
-              <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
-              <a href="/app-udvikling">App Udvikling</a>
-            </div>
-          </div>
+          <div class="dropdown-menu"><div class="dropdown-menu-inner">
+            <a href="/ydelser/lynhurtige-hjemmesider-framer">Premium Hjemmesider</a>
+            <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
+            <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
+            <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
+            <a href="/app-udvikling">App Udvikling</a>
+          </div></div>
         </div>
         <div class="dropdown">
           <a href="/brancher">Brancher ▾</a>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu" style="min-width:240px">
             <div class="dropdown-menu-inner">
-              <a href="/toemrer">Tømrer</a>
-              <a href="/tandlaege">Tandlæge</a>
-              <a href="/advokat">Advokat</a>
-              <a href="/murer">Murer</a>
-              <a href="/elektriker">Elektriker</a>
-              <a href="/maler">Maler</a>
-              <a href="/vvs">VVS</a>
-              <a href="/fysioterapeut">Fysioterapeut</a>
-              <a href="/revisor">Revisor</a>
-              <a href="/ejendomsmaegler">Ejendomsmægler</a>
+              <a href="/brancher#haandvaerk-byggeri" style="font-weight:600">🔨 Håndværk &amp; Byggeri</a>
+              <a href="/brancher#sundhed-velvaere" style="font-weight:600">🏥 Sundhed &amp; Velvære</a>
+              <a href="/brancher#mad-drikke" style="font-weight:600">🍽️ Mad &amp; Drikke</a>
+              <a href="/brancher#foto-events" style="font-weight:600">📸 Foto, Kreativt &amp; Events</a>
+              <a href="/brancher#liberale-erhverv" style="font-weight:600">💼 Liberale Erhverv</a>
+              <a href="/brancher#uddannelse-undervisning" style="font-weight:600">🎓 Uddannelse &amp; Undervisning</a>
+              <a href="/brancher#dyr-natur" style="font-weight:600">🐾 Dyr &amp; Natur</a>
+              <a href="/brancher#transport-koeretoejer" style="font-weight:600">🚗 Transport &amp; Køretøjer</a>
+              <a href="/brancher#overnatning-turisme" style="font-weight:600">🏨 Overnatning &amp; Turisme</a>
+              <a href="/brancher#retail-butikker" style="font-weight:600">🏪 Retail &amp; Specialbutikker</a>
+              <a href="/brancher#ejendom-bolig" style="font-weight:600">🏗️ Ejendom &amp; Bolig</a>
+              <a href="/brancher#skoenhed-pleje" style="font-weight:600">💈 Skønhed &amp; Personlig Pleje</a>
               <a href="/brancher" style="border-top:1px solid var(--border);padding-top:10px;margin-top:6px;font-weight:700;color:var(--orange)">Se alle brancher →</a>
             </div>
           </div>
@@ -127,145 +327,281 @@
       </div>
       <div class="nav-cta-group">
         <a href="/#beregn-din-pris" class="nav-cta">Beregn priser</a>
-        <a href="/kurv" class="nav-cart-link" aria-label="Kurv" title="Din kurv">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <a href="/kurv" class="nav-cart-link" aria-label="Kurv">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
         </a>
       </div>
-      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span><span></span><span></span>
+            <button class="hamburger card-nav-hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="card-nav-panel">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
       </button>
     </div>
   </div>
-  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
-    <div class="mobile-menu-cat">Ydelser</div>
-    <div class="mobile-menu-ydelser">
-      <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
-      <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
-      <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
-      <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
+  <!-- CARD NAV PANEL -->
+  <div class="card-nav-panel" id="card-nav-panel" aria-hidden="true">
+    <div class="card-nav-cards">
+      <div class="nav-card nav-card-1">
+        <div class="nav-card-label">Ydelser</div>
+        <div class="nav-card-links">
+          <a href="/ydelser/lynhurtige-hjemmesider-framer" class="nav-card-link">↗ Premium Hjemmesider</a>
+          <a href="/ydelser/lokal-seo-koebenhavn" class="nav-card-link">↗ Lokal SEO</a>
+          <a href="/ydelser/google-meta-ads-koebenhavn" class="nav-card-link">↗ Google &amp; Meta Ads</a>
+          <a href="/ydelser/drift-og-sikkerhed" class="nav-card-link">↗ Drift &amp; Sikkerhed</a>
+          <a href="/app-udvikling" class="nav-card-link">↗ App Udvikling</a>
+        </div>
+      </div>
+      <div class="nav-card nav-card-2">
+        <div class="nav-card-label">Brancher</div>
+        <div class="nav-card-links">
+          <a href="/brancher#haandvaerk-byggeri" class="nav-card-link">↗ Håndværk &amp; Byggeri</a>
+          <a href="/brancher#sundhed-velvaere" class="nav-card-link">↗ Sundhed &amp; Velvære</a>
+          <a href="/brancher#mad-drikke" class="nav-card-link">↗ Mad &amp; Drikke</a>
+          <a href="/brancher#liberale-erhverv" class="nav-card-link">↗ Liberale Erhverv</a>
+          <a href="/brancher#skoenhed-pleje" class="nav-card-link">↗ Skønhed &amp; Pleje</a>
+          <a href="/brancher" class="nav-card-link" style="font-weight:700;color:#E84400">↗ Se alle brancher</a>
+        </div>
+      </div>
+      <div class="nav-card nav-card-3">
+        <div class="nav-card-label">Mere</div>
+        <div class="nav-card-links">
+          <a href="/cases" class="nav-card-link">↗ Cases</a>
+          <a href="/performancechecker" class="nav-card-link">↗ Gratis SEO Tjek</a>
+          <a href="/kontakt" class="nav-card-link">↗ Kontakt</a>
+          <a href="/priser" class="nav-card-link">↗ Priser</a>
+          <a href="/#beregn-din-pris" class="nav-card-link nav-card-cta">Beregn din pris →</a>
+        </div>
+      </div>
     </div>
-    <a href="/brancher"><span class="mm-icon">🏢</span>Brancher</a>
-    <div class="mobile-menu-cat">Mere</div>
-    <a href="/#beregn-din-pris">Priser</a>
-    <a href="/kontakt">Kontakt</a>
-    <a href="/#beregn-din-pris" class="mobile-menu-cta">Beregn din pris →</a>
   </div>
 </nav>
-
 <main id="main-content">
-
 <div class="page-hero" style="padding-bottom:0">
-  <div class="container" style="text-align:center;max-width:720px;margin:0 auto">
-    <span class="badge badge-orange" style="margin-bottom:16px">🏢 28+ Brancher</span>
-    <h1>Hjemmesider til lokale<br>virksomheder i Danmark</h1>
-    <p class="lead" style="margin:14px 0 32px">Vi specialiserer os i professionelt webdesign og lokal digital vækst til håndværkere, sundhed, restauranter, liberale erhverv og servicevirksomheder. Find din branche herunder.</p>
+  <div class="container" style="text-align:center;max-width:760px;margin:0 auto">
+    <span class="badge badge-orange" style="margin-bottom:16px">🏢 215+ Brancher</span>
+    <h1>Hjemmesider til alle lokale<br>virksomheder i Danmark</h1>
+    <p class="lead" style="margin:14px 0 32px">Vi bygger professionelle hjemmesider og lokal SEO til over 215 brancher — fra håndværkere og sundhedsprofessionelle til restauranter og liberale erhverv. Find din branche herunder.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a href="/#beregn-din-pris" class="btn btn-primary">Beregn din pris →</a>
       <a href="/kontakt" class="btn btn-ghost">Kontakt os</a>
     </div>
   </div>
 </div>
-
 <section style="padding:60px 0 80px">
   <div class="container">
 
-    <!-- HÅNDVÆRK & BYGGERI -->
-    <p class="brancher-category">🔨 Håndværk &amp; Byggeri</p>
+    <div id="haandvaerk-byggeri" class="brancher-cat-header">
+      <span style="font-size:2rem">🔨</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Håndværk &amp; Byggeri</h2></div>
+    </div>
     <div class="brancher-grid">
-      <a href="/toemrer" class="brancher-card"><img src="/images/T%C3%B8mrer/austin-ramsey-rbi4q0-b-8g-unsplash.jpg" alt="Tømrer" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Tømrer</span></a>
-      <a href="/murer" class="brancher-card"><img src="/images/Murer/angel-arcalle-Gz0gfUcCYsU-unsplash.jpg" alt="Murer" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Murer</span></a>
-      <a href="/elektriker" class="brancher-card"><img src="/images/Elektriker/brancher-maler.jpg" alt="Elektriker" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Elektriker</span></a>
-      <a href="/maler" class="brancher-card"><img src="/images/Maler/callum-hill-DJEkxDFAci8-unsplash.webp" alt="Maler" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Maler</span></a>
-      <a href="/vvs" class="brancher-card"><img src="/images/VVS/alexander-schimmeck-1N5jjLyBafc-unsplash.jpg" alt="VVS" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">VVS</span></a>
-      <a href="/tagdaekker" class="brancher-card"><img src="/images/Tagdaekker/tagdaekker-hero.jpg" alt="Tagdækker" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Tagdækker</span></a>
-      <a href="/gulvlaegger" class="brancher-card"><img src="/images/Gulvlaegger/gulvlaegger-hero.jpg" alt="Gulvlægger" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Gulvlægger</span></a>
-      <a href="/anlaegsgartner" class="brancher-card"><img src="/images/Anlaegsgartner/anlaegsgartner-hero.jpg" alt="Anlægsgartner" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Anlægsgartner</span></a>
-      <a href="/laasesmed" class="brancher-card"><img src="/images/Laasesmed/laasesmed-hero.jpg" alt="Låsesmed" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Låsesmed</span></a>
+      <a href="/toemrer" class="brancher-card"><img src="/images/Tømrer/carpenteer.jpg" class="brancher-card-img" alt="Tømrer" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🪚 Tømrer</div></a>
+      <a href="/murer" class="brancher-card"><img src="/images/Murer/murer-koebenhavn.jpg" class="brancher-card-img" alt="Murer" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧱 Murer</div></a>
+      <a href="/elektriker" class="brancher-card"><img src="/images/Elektriker/elektriker-koebenhavn.jpg" class="brancher-card-img" alt="Elektriker" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">⚡ Elektriker</div></a>
+      <a href="/maler" class="brancher-card"><img src="/images/Maler/maler-koebenhavn.jpg" class="brancher-card-img" alt="Maler" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🖌️ Maler</div></a>
+      <a href="/vvs" class="brancher-card"><img src="/images/VVS/vvs-arbejde-koebenhavn.jpg" class="brancher-card-img" alt="VVS" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🔧 VVS</div></a>
+      <a href="/tagdaekker" class="brancher-card"><img src="/images/Tagdaekker/tagdaekker-hero.jpg" class="brancher-card-img" alt="Tagdækker" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏠 Tagdækker</div></a>
+      <a href="/gulvlaegger" class="brancher-card"><img src="/images/Gulvlaegger/gulvlaegger-hero.jpg" class="brancher-card-img" alt="Gulvlægger" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🪵 Gulvlægger</div></a>
+      <a href="/anlaegsgartner" class="brancher-card"><img src="/images/Anlaegsgartner/anlaegsgartner-hero.jpg" class="brancher-card-img" alt="Anlægsgartner" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🌿 Anlægsgartner</div></a>
+      <a href="/laasesmed" class="brancher-card"><img src="/images/Laasesmed/laasesmed-hero.jpg" class="brancher-card-img" alt="Låsesmed" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🔑 Låsesmed</div></a>
+      <a href="/blikkenslager" class="brancher-card"><img src="/images/Blikkenslager/blikkenslager-hero.jpg" class="brancher-card-img" alt="Blikkenslager" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🛠️ Blikkenslager</div></a>
+      <a href="/brolaegger" class="brancher-card"><img src="/images/Brolaegger/brolaegger-hero.jpg" class="brancher-card-img" alt="Brolægger" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🪨 Brolægger</div></a>
+      <a href="/skorstensfejer" class="brancher-card"><img src="/images/Skorstensfejer/skorstensfejer-hero.jpg" class="brancher-card-img" alt="Skorstensfejer" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏭 Skorstensfejer</div></a>
+      <a href="/solceller" class="brancher-card"><img src="/images/Solceller/solceller-hero.jpg" class="brancher-card-img" alt="Solceller" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">☀️ Solcelleinstallation</div></a>
+      <a href="/varmepumpe" class="brancher-card"><img src="/images/Varmepumpe/varmepumpe-hero.jpg" class="brancher-card-img" alt="Varmepumpe" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">♨️ Varmepumpe</div></a>
+      <a href="/facademaler" class="brancher-card"><img src="/images/Facademaler/facademaler-hero.jpg" class="brancher-card-img" alt="Facademaler" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏗️ Facademaler</div></a>
+      <a href="/kloakservice" class="brancher-card"><img src="/images/Kloakservice/kloakservice-hero.jpg" class="brancher-card-img" alt="Kloakservice" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚰 Kloakservice</div></a>
+      <a href="/alarminstallation" class="brancher-card"><img src="/images/Alarminstallation/alarminstallation-hero.jpg" class="brancher-card-img" alt="Alarminstallation" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🔒 Alarminstallation</div></a>
+      <a href="/ventilation" class="brancher-card"><img src="/images/Ventilation/ventilation-hero.jpg" class="brancher-card-img" alt="Ventilation" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💨 Ventilation</div></a>
+      <a href="/brandsikring" class="brancher-card"><img src="/images/Brandsikring/brandsikring-hero.jpg" class="brancher-card-img" alt="Brandsikring" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧯 Brandsikring</div></a>
+      <a href="/stillads" class="brancher-card"><img src="/images/Stillads/stillads-hero.jpg" class="brancher-card-img" alt="Stillads" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏗️ Stilladsarbejde</div></a>
+      <a href="/entreprise" class="brancher-card"><img src="/images/Entreprise/entreprise-hero.jpg" class="brancher-card-img" alt="Entreprise" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚜 Jordarbejde &amp; Entreprise</div></a>
+      <a href="/badevaerelsesrenovering" class="brancher-card"><img src="/images/Badevaerelsesrenovering/badevaerelsesrenovering-hero.jpg" class="brancher-card-img" alt="Badeværelsesrenovering" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🛁 Badeværelsesrenovering</div></a>
+      <a href="/koekkenmontering" class="brancher-card"><img src="/images/Koekkenmontering/koekkenmontering-hero.jpg" class="brancher-card-img" alt="Køkkenmontering" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🍳 Køkkenmontering</div></a>
+      <a href="/betonarbejde" class="brancher-card"><img src="/images/Betonarbejde/betonarbejde-hero.jpg" class="brancher-card-img" alt="Betonarbejde" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧱 Betonarbejde</div></a>
     </div>
 
-    <!-- SUNDHED & VELVÆRE -->
-    <p class="brancher-category">🏥 Sundhed &amp; Velvære</p>
+    <div id="sundhed-velvaere" class="brancher-cat-header">
+      <span style="font-size:2rem">🏥</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Sundhed &amp; Velvære</h2></div>
+    </div>
     <div class="brancher-grid">
-      <a href="/tandlaege" class="brancher-card"><img src="/images/Tandlaege/alex-padurariu-7ByfI6Fpi90-unsplash.webp" alt="Tandlæge" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Tandlæge</span></a>
-      <a href="/fysioterapeut" class="brancher-card"><img src="/images/Fysioterapeut/fysio%202.jpg" alt="Fysioterapeut" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Fysioterapeut</span></a>
-      <a href="/laege-klinik" class="brancher-card"><img src="/images/Laege-Klinik/laege-klinik-hero.jpg" alt="Læge &amp; Klinik" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Læge &amp; Klinik</span></a>
-      <a href="/dyrlaege" class="brancher-card"><img src="/images/Dyrlaege/dyrlaege-hero.jpg" alt="Dyrlæge" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Dyrlæge</span></a>
-      <a href="/personlig-traener" class="brancher-card"><img src="/images/Personlig-Traener/personlig-traener-hero.jpg" alt="Personlig Træner" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Personlig Træner</span></a>
+      <a href="/tandlaege" class="brancher-card"><img src="/images/Tandlaege/tandlaege-arbejde-koebenhavn.jpg" class="brancher-card-img" alt="Tandlæge" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🦷 Tandlæge</div></a>
+      <a href="/fysioterapeut" class="brancher-card"><img src="/images/Fysioterapeut/fysioterapeut-hero.jpg" class="brancher-card-img" alt="Fysioterapeut" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💪 Fysioterapeut</div></a>
+      <a href="/laege-klinik" class="brancher-card"><img src="/images/Laege-Klinik/laege-klinik-hero.jpg" class="brancher-card-img" alt="Læge &amp; Klinik" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🩺 Læge &amp; Klinik</div></a>
+      <a href="/dyrlaege" class="brancher-card"><img src="/images/Dyrlaege/dyrlaege-hero.jpg" class="brancher-card-img" alt="Dyrlæge" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🐾 Dyrlæge</div></a>
+      <a href="/personlig-traener" class="brancher-card"><img src="/images/Personlig-Traener/personlig-traener-hero.jpg" class="brancher-card-img" alt="Personlig Træner" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏋️ Personlig Træner</div></a>
+      <a href="/psykolog" class="brancher-card"><img src="/images/Psykolog/psykolog-hero.jpg" class="brancher-card-img" alt="Psykolog" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧠 Psykolog</div></a>
+      <a href="/kiropraktor" class="brancher-card"><img src="/images/Kiropraktor/kiropraktor-hero.jpg" class="brancher-card-img" alt="Kiropraktor" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🦴 Kiropraktor</div></a>
+      <a href="/massoer" class="brancher-card"><img src="/images/Massoer/massoer-hero.jpg" class="brancher-card-img" alt="Massør" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💆 Massør</div></a>
+      <a href="/akupunktoer" class="brancher-card"><img src="/images/Akupunktoer/akupunktoer-hero.jpg" class="brancher-card-img" alt="Akupunktør" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🪡 Akupunktør</div></a>
+      <a href="/fodterapeut" class="brancher-card"><img src="/images/Fodterapeut/fodterapeut-hero.jpg" class="brancher-card-img" alt="Fodterapeut" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🦶 Fodterapeut</div></a>
+      <a href="/kosmetolog" class="brancher-card"><img src="/images/Kosmetolog/kosmetolog-hero.jpg" class="brancher-card-img" alt="Kosmetolog" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">✨ Hudpleje &amp; Kosmetolog</div></a>
+      <a href="/optiker" class="brancher-card"><img src="/images/Optiker/optiker-hero.jpg" class="brancher-card-img" alt="Optiker" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">👓 Optiker</div></a>
+      <a href="/ergoterapeut" class="brancher-card"><img src="/images/Ergoterapeut/ergoterapeut-hero.jpg" class="brancher-card-img" alt="Ergoterapeut" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🖐️ Ergoterapeut</div></a>
+      <a href="/ernaeringsraadgiver" class="brancher-card"><img src="/images/Ernaeringsraadgiver/ernaeringsraadgiver-hero.jpg" class="brancher-card-img" alt="Ernæringsrådgiver" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🥗 Ernæringsrådgiver</div></a>
+      <a href="/osteopat" class="brancher-card"><img src="/images/Osteopat/osteopat-hero.jpg" class="brancher-card-img" alt="Osteopat" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🫁 Osteopat</div></a>
+      <a href="/zoneterapeut" class="brancher-card"><img src="/images/Zoneterapeut/zoneterapeut-hero.jpg" class="brancher-card-img" alt="Zoneterapeut" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🌀 Zoneterapeut</div></a>
+      <a href="/psykiater" class="brancher-card"><img src="/images/Psykiater/psykiater-hero.jpg" class="brancher-card-img" alt="Psykiater" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧬 Psykiater</div></a>
+      <a href="/parterapeut" class="brancher-card"><img src="/images/Parterapeut/parterapeut-hero.jpg" class="brancher-card-img" alt="Parterapeut" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💑 Parterapeut</div></a>
+      <a href="/laser-klinik" class="brancher-card"><img src="/images/Laser-klinik/laser-klinik-hero.jpg" class="brancher-card-img" alt="Laser Klinik" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💫 Laser &amp; Æstetik Klinik</div></a>
+      <a href="/pilates" class="brancher-card"><img src="/images/Pilates/pilates-hero.jpg" class="brancher-card-img" alt="Pilates" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧘 Pilates Studie</div></a>
+      <a href="/kampsport" class="brancher-card"><img src="/images/Kampsport/kampsport-hero.jpg" class="brancher-card-img" alt="Kampsport" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🥋 Kampsport</div></a>
     </div>
 
-    <!-- MAD & DRIKKE -->
-    <p class="brancher-category">🍽️ Mad &amp; Drikke</p>
+    <div id="mad-drikke" class="brancher-cat-header">
+      <span style="font-size:2rem">🍽️</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Mad &amp; Drikke</h2></div>
+    </div>
     <div class="brancher-grid">
-      <a href="/restaurant" class="brancher-card"><img src="/images/Restaurant/restaurant-hero.jpg" alt="Restaurant" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Restaurant</span></a>
-      <a href="/luksusrestaurant" class="brancher-card"><img src="/images/Luksusrestaurant/luksusrestaurant-hero.jpg" alt="Luksusrestaurant" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Luksusrestaurant</span></a>
-      <a href="/kebab-pizza" class="brancher-card"><img src="/images/Kebab-Pizza/kebab-pizza-hero.jpg" alt="Kebab &amp; Pizza" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Kebab &amp; Pizza</span></a>
-      <a href="/cafe" class="brancher-card"><img src="/images/Cafe/cafe-hero.jpg" alt="Café" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Café</span></a>
+      <a href="/restaurant" class="brancher-card"><img src="/images/Restaurant/restaurant-hero.jpg" class="brancher-card-img" alt="Restaurant" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🍴 Restaurant</div></a>
+      <a href="/luksusrestaurant" class="brancher-card"><img src="/images/Luksusrestaurant/luksusrestaurant-hero.jpg" class="brancher-card-img" alt="Luksusrestaurant" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🥂 Luksusrestaurant</div></a>
+      <a href="/kebab-pizza" class="brancher-card"><img src="/images/Kebab-Pizza/kebab-pizza-hero.jpg" class="brancher-card-img" alt="Kebab &amp; Pizza" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🍕 Kebab &amp; Pizza</div></a>
+      <a href="/cafe" class="brancher-card"><img src="/images/Cafe/cafe-hero.jpg" class="brancher-card-img" alt="Café" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">☕ Café</div></a>
+      <a href="/bageri" class="brancher-card"><img src="/images/Bageri/bageri-hero.jpg" class="brancher-card-img" alt="Bageri" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🥐 Bageri</div></a>
+      <a href="/slagter" class="brancher-card"><img src="/images/Slagter/slagter-hero.jpg" class="brancher-card-img" alt="Slagter" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🥩 Slagter</div></a>
+      <a href="/catering" class="brancher-card"><img src="/images/Catering/catering-hero.jpg" class="brancher-card-img" alt="Catering" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🍱 Catering</div></a>
+      <a href="/konditori" class="brancher-card"><img src="/images/Konditori/konditori-hero.jpg" class="brancher-card-img" alt="Konditori" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎂 Konditori</div></a>
+      <a href="/pizzeria" class="brancher-card"><img src="/images/Pizzeria/pizzeria-hero.jpg" class="brancher-card-img" alt="Pizzeria" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🍕 Pizzeria</div></a>
+      <a href="/sushi" class="brancher-card"><img src="/images/Sushi/sushi-hero.jpg" class="brancher-card-img" alt="Sushi" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🍣 Sushi Restaurant</div></a>
+      <a href="/vegansk-restaurant" class="brancher-card"><img src="/images/Vegansk-restaurant/vegansk-restaurant-hero.jpg" class="brancher-card-img" alt="Vegansk Restaurant" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🥦 Vegansk Restaurant</div></a>
+      <a href="/food-truck" class="brancher-card"><img src="/images/Food-truck/food-truck-hero.jpg" class="brancher-card-img" alt="Food Truck" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚚 Food Truck</div></a>
+      <a href="/mikrobryggeri" class="brancher-card"><img src="/images/Mikrobryggeri/mikrobryggeri-hero.jpg" class="brancher-card-img" alt="Mikrobryggeri" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🍺 Mikrobryggeri</div></a>
+      <a href="/delikatesse" class="brancher-card"><img src="/images/Delikatesse/delikatesse-hero.jpg" class="brancher-card-img" alt="Delikatesse" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧀 Delikatesse</div></a>
     </div>
 
-    <!-- LIBERALE ERHVERV -->
-    <p class="brancher-category">💼 Liberale Erhverv</p>
+    <div id="foto-events" class="brancher-cat-header">
+      <span style="font-size:2rem">📸</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Foto, Kreativt &amp; Events</h2></div>
+    </div>
     <div class="brancher-grid">
-      <a href="/advokat" class="brancher-card"><img src="/images/Advokat/advokat-arbejde-koebenhavn.jpg" alt="Advokat" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Advokat</span></a>
-      <a href="/revisor" class="brancher-card"><img src="/images/Revisor/alexander-grey-tn57JI3CewI-unsplash.jpg" alt="Revisor" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Revisor</span></a>
-      <a href="/ejendomsmaegler" class="brancher-card"><img src="/images/Ejendomsm%C3%A6gler/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg" alt="Ejendomsmægler" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Ejendomsmægler</span></a>
-      <a href="/arkitekt" class="brancher-card"><img src="/images/Arkitekt/adrian-cuj-o_9YmCY0bag-unsplash.jpg" alt="Arkitekt" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Arkitekt</span></a>
-      <a href="/fotograf" class="brancher-card"><img src="/images/Fotograf/fotograf-hero.jpg" alt="Fotograf" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Fotograf</span></a>
+      <a href="/fotograf" class="brancher-card"><img src="/images/Fotograf/fotograf-hero.jpg" class="brancher-card-img" alt="Fotograf" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📷 Fotograf</div></a>
+      <a href="/bryllupsfotograf" class="brancher-card"><img src="/images/Bryllupsfotograf/bryllupsfotograf-hero.jpg" class="brancher-card-img" alt="Bryllupsfotograf" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💒 Bryllupsfotograf</div></a>
+      <a href="/konfirmationsfotograf" class="brancher-card"><img src="/images/Konfirmationsfotograf/konfirmationsfotograf-hero.jpg" class="brancher-card-img" alt="Konfirmationsfotograf" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎓 Konfirmationsfotograf</div></a>
+      <a href="/babyfotograf" class="brancher-card"><img src="/images/Babyfotograf/babyfotograf-hero.jpg" class="brancher-card-img" alt="Babyfotograf" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">👶 Babyfotograf</div></a>
+      <a href="/videograf" class="brancher-card"><img src="/images/Videograf/videograf-hero.jpg" class="brancher-card-img" alt="Videograf" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎬 Videograf</div></a>
+      <a href="/dronefilmning" class="brancher-card"><img src="/images/Dronefilmning/dronefilmning-hero.jpg" class="brancher-card-img" alt="Dronefilmning" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚁 Dronefilmning</div></a>
+      <a href="/grafisk-designer" class="brancher-card"><img src="/images/Grafisk-designer/grafisk-designer-hero.jpg" class="brancher-card-img" alt="Grafisk Designer" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎨 Grafisk Designer</div></a>
+      <a href="/dj" class="brancher-card"><img src="/images/Dj/dj-hero.jpg" class="brancher-card-img" alt="DJ" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎧 DJ</div></a>
+      <a href="/eventplanlaegger" class="brancher-card"><img src="/images/Eventplanlaegger/eventplanlaegger-hero.jpg" class="brancher-card-img" alt="Eventplanlægger" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎉 Eventplanlægger</div></a>
+      <a href="/bryllupsplanlaegger" class="brancher-card"><img src="/images/Bryllupsplanlaegger/bryllupsplanlaegger-hero.jpg" class="brancher-card-img" alt="Bryllupsplanlægger" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💍 Bryllupsplanlægger</div></a>
+      <a href="/musikband" class="brancher-card"><img src="/images/Musikband/musikband-hero.jpg" class="brancher-card-img" alt="Musikband" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎸 Musikband</div></a>
+      <a href="/festsal" class="brancher-card"><img src="/images/Festsal/festsal-hero.jpg" class="brancher-card-img" alt="Festsal" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏛️ Festsal &amp; Selskabslokale</div></a>
     </div>
 
-    <!-- SERVICE & ØVRIGE -->
-    <p class="brancher-category">✂️ Service &amp; Øvrige</p>
+    <div id="liberale-erhverv" class="brancher-cat-header">
+      <span style="font-size:2rem">💼</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Liberale Erhverv &amp; Konsulenter</h2></div>
+    </div>
     <div class="brancher-grid">
-      <a href="/frisoer" class="brancher-card"><img src="/images/Frisoer/frisoer-hero.jpg" alt="Frisør" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Frisør</span></a>
-      <a href="/barbershop" class="brancher-card"><img src="/images/Barbershop/barbershop-hero.jpg" alt="Barbershop" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Barbershop</span></a>
-      <a href="/autovaerksted" class="brancher-card"><img src="/images/Autovaerksted/autovaerksted-hero.jpg" alt="Autoværksted" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Autoværksted</span></a>
-      <a href="/cykelvaerksted" class="brancher-card"><img src="/images/Cykelvaerksted/cykelvaerksted-hero.jpg" alt="Cykelværksted" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Cykelværksted</span></a>
-      <a href="/rengoering" class="brancher-card"><img src="/images/Rengoering/rengoering-hero.jpg" alt="Rengøring" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Rengøring</span></a>
+      <a href="/advokat" class="brancher-card"><img src="/images/Advokat/advokat-koebenhavn.jpg" class="brancher-card-img" alt="Advokat" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">⚖️ Advokat</div></a>
+      <a href="/revisor" class="brancher-card"><img src="/images/Revisor/revisor-koebenhavn.jpg" class="brancher-card-img" alt="Revisor" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📊 Revisor</div></a>
+      <a href="/ejendomsmaegler" class="brancher-card"><img src="/images/Ejendomsmaegler/ejendomsmaegler-arbejde-koebenhavn.jpg" class="brancher-card-img" alt="Ejendomsmægler" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏡 Ejendomsmægler</div></a>
+      <a href="/arkitekt" class="brancher-card"><img src="/images/Arkitekt/arkitekt.jpg" class="brancher-card-img" alt="Arkitekt" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📐 Arkitekt</div></a>
+      <a href="/bogholder" class="brancher-card"><img src="/images/Bogholder/bogholder-hero.jpg" class="brancher-card-img" alt="Bogholder" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📒 Bogholder</div></a>
+      <a href="/erhvervscoach" class="brancher-card"><img src="/images/Erhvervscoach/erhvervscoach-hero.jpg" class="brancher-card-img" alt="Erhvervscoach" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎯 Erhvervscoach</div></a>
+      <a href="/it-konsulent" class="brancher-card"><img src="/images/It-konsulent/it-konsulent-hero.jpg" class="brancher-card-img" alt="IT-Konsulent" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💻 IT-Konsulent</div></a>
+      <a href="/hr-konsulent" class="brancher-card"><img src="/images/Hr-konsulent/hr-konsulent-hero.jpg" class="brancher-card-img" alt="HR-Konsulent" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">👥 HR-Konsulent</div></a>
+      <a href="/oversoetter" class="brancher-card"><img src="/images/Oversoetter/oversoetter-hero.jpg" class="brancher-card-img" alt="Oversætter" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🌍 Oversætter &amp; Tolk</div></a>
+      <a href="/rekruttering" class="brancher-card"><img src="/images/Rekruttering/rekruttering-hero.jpg" class="brancher-card-img" alt="Rekruttering" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🔍 Rekrutteringsbureau</div></a>
+      <a href="/finansiel-raadgiver" class="brancher-card"><img src="/images/Finansiel-raadgiver/finansiel-raadgiver-hero.jpg" class="brancher-card-img" alt="Finansiel Rådgiver" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💰 Finansiel Rådgiver</div></a>
+      <a href="/forsikringsmaeglar" class="brancher-card"><img src="/images/Forsikringsmaeglar/forsikringsmaeglar-hero.jpg" class="brancher-card-img" alt="Forsikringsmægler" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🛡️ Forsikringsmægler</div></a>
+      <a href="/ingenioerfirma" class="brancher-card"><img src="/images/Ingenioerfirma/ingenioerfirma-hero.jpg" class="brancher-card-img" alt="Ingeniørfirma" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">⚙️ Ingeniørfirma</div></a>
+      <a href="/pr-bureau" class="brancher-card"><img src="/images/Pr-bureau/pr-bureau-hero.jpg" class="brancher-card-img" alt="PR-Bureau" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📢 PR-Bureau</div></a>
+      <a href="/markedsfoering" class="brancher-card"><img src="/images/Markedsfoering/markedsfoering-hero.jpg" class="brancher-card-img" alt="Markedsføring" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📈 Markedsføringskonsulent</div></a>
+      <a href="/familieadvokat" class="brancher-card"><img src="/images/Familieadvokat/familieadvokat-hero.jpg" class="brancher-card-img" alt="Familieadvokat" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">👨‍👩‍👧 Familieadvokat</div></a>
+      <a href="/erhvervsadvokat" class="brancher-card"><img src="/images/Erhvervsadvokat/erhvervsadvokat-hero.jpg" class="brancher-card-img" alt="Erhvervsadvokat" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🤝 Erhvervsadvokat</div></a>
+      <a href="/tegnestue" class="brancher-card"><img src="/images/Tegnestue/tegnestue-hero.jpg" class="brancher-card-img" alt="Tegnestue" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">✏️ Tegnestue</div></a>
+      <a href="/inteiroerdesigner" class="brancher-card"><img src="/images/Inteiroerdesigner/inteiroerdesigner-hero.jpg" class="brancher-card-img" alt="Interiørdesigner" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🛋️ Interiørdesigner</div></a>
+      <a href="/byggesagkyndig" class="brancher-card"><img src="/images/Byggesagkyndig/byggesagkyndig-hero.jpg" class="brancher-card-img" alt="Byggesagkyndig" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📋 Byggesagkyndig</div></a>
     </div>
 
-  </div>
-</section>
-
-<section style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 0">
-  <div class="container">
-    <div class="grid-2" style="gap:48px;align-items:center">
-      <div>
-        <span class="badge badge-orange" style="margin-bottom:16px">Hvorfor NordicWebFlow?</span>
-        <h2 style="margin-bottom:14px">Én specialist til <span style="color:var(--orange)">din branche</span></h2>
-        <p style="margin-bottom:16px">Vi bygger ikke generiske skabeloner. Hver hjemmeside er skræddersyet til din branche — med det rigtige sprog, de rigtige søgeord og det rigtige design til dine kunder.</p>
-        <ul style="margin:0;padding:0">
-          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Branchespecifikke søgeord og lokal SEO fra dag ét</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Sub-1-sekunds loadtid — 97+ PageSpeed score</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Fast pris fra 1.499 kr. — betalt én gang, ejet for altid</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Leveret på under 14 dage</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:.9rem;color:var(--text)"><span style="color:var(--green);flex-shrink:0">✓</span>Ingen abonnementer, ingen binding</li>
-        </ul>
-        <a href="/#beregn-din-pris" class="btn btn-primary" style="margin-top:24px">Beregn din pris →</a>
-      </div>
-      <div class="stats-row" style="align-self:center">
-        <div style="text-align:center"><div class="s-val o">28+</div><div class="s-lbl">Brancher</div></div>
-        <div style="text-align:center"><div class="s-val g">&lt;1s</div><div class="s-lbl">Loadtid</div></div>
-        <div style="text-align:center"><div class="s-val b">100%</div><div class="s-lbl">SEO Score</div></div>
-        <div style="text-align:center"><div class="s-val p">14d</div><div class="s-lbl">Lancering</div></div>
-      </div>
+    <div id="uddannelse-undervisning" class="brancher-cat-header">
+      <span style="font-size:2rem">🎓</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Uddannelse &amp; Undervisning</h2></div>
     </div>
-  </div>
-</section>
-
-<section style="padding:60px 0">
-  <div class="container">
-    <div class="testimonial-card">
-      <div class="t-stars">★★★★★</div>
-      <p class="t-text">Jeg kan klart anbefale Nordicwebflow. De har lavet min hjemmeside, og resultatet er virkelig imponerende. Designet er flot, stilrent og professionelt — og vigtigst af alt, så spiller det hele bare.<br><br>Siden er 100% SEO-optimeret, så jeg står stærkt på Google, og der er virkelig tænkt over detaljerne hele vejen igennem.</p>
-      <div class="t-author">
-        <img src="/images/WTSBYG/wts-byg-logo.png.png" alt="WTS Byg logo" class="t-avatar" style="border-radius:12px;background:#fff;padding:4px" width="52" height="52" loading="lazy">
-        <div>
-          <div class="t-name">Benjamin Wenneke</div>
-          <div class="t-role">Ejer, Wenneke Tømrer &amp; Snedker ApS</div>
-          <a href="https://wtsbyg.dk" class="t-link" target="_blank" rel="noopener noreferrer">wtsbyg.dk</a>
-        </div>
-      </div>
+    <div class="brancher-grid">
+      <a href="/privatlaerer" class="brancher-card"><img src="/images/Privatlaerer/privatlaerer-hero.jpg" class="brancher-card-img" alt="Privatlærer" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📚 Privatlærer</div></a>
+      <a href="/sprogskole" class="brancher-card"><img src="/images/Sprogskole/sprogskole-hero.jpg" class="brancher-card-img" alt="Sprogskole" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🗣️ Sprogskole</div></a>
+      <a href="/danseskole" class="brancher-card"><img src="/images/Danseskole/danseskole-hero.jpg" class="brancher-card-img" alt="Danseskole" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💃 Danseskole</div></a>
+      <a href="/musikundervisning" class="brancher-card"><img src="/images/Musikundervisning/musikundervisning-hero.jpg" class="brancher-card-img" alt="Musikundervisning" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎵 Musikundervisning</div></a>
+      <a href="/mindfulness" class="brancher-card"><img src="/images/Mindfulness/mindfulness-hero.jpg" class="brancher-card-img" alt="Mindfulness" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧘 Mindfulness</div></a>
+      <a href="/sangundervisning" class="brancher-card"><img src="/images/Sangundervisning/sangundervisning-hero.jpg" class="brancher-card-img" alt="Sangundervisning" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎤 Sangundervisning</div></a>
+      <a href="/korelaerer" class="brancher-card"><img src="/images/Korelaerer/korelaerer-hero.jpg" class="brancher-card-img" alt="Kørelærer" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚗 Kørelærer</div></a>
+      <a href="/rideskole" class="brancher-card"><img src="/images/Rideskole/rideskole-hero.jpg" class="brancher-card-img" alt="Rideskole" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🐴 Rideskole</div></a>
+      <a href="/sejlerskole" class="brancher-card"><img src="/images/Sejlerskole/sejlerskole-hero.jpg" class="brancher-card-img" alt="Sejlerskole" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">⛵ Sejlerskole</div></a>
+      <a href="/kunstskole" class="brancher-card"><img src="/images/Kunstskole/kunstskole-hero.jpg" class="brancher-card-img" alt="Kunstskole" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎭 Kunstskole</div></a>
+      <a href="/madlavningsskole" class="brancher-card"><img src="/images/Madlavningsskole/madlavningsskole-hero.jpg" class="brancher-card-img" alt="Madlavningsskole" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">👨‍🍳 Madlavningsskole</div></a>
     </div>
+
+    <div id="dyr-natur" class="brancher-cat-header">
+      <span style="font-size:2rem">🐾</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Dyr &amp; Natur</h2></div>
+    </div>
+    <div class="brancher-grid">
+      <a href="/hundefrisoer" class="brancher-card"><img src="/images/Hundefrisoer/hundefrisoer-hero.jpg" class="brancher-card-img" alt="Hundefrisør" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">✂️ Hundefrisør</div></a>
+      <a href="/hundepension" class="brancher-card"><img src="/images/Hundepension/hundepension-hero.jpg" class="brancher-card-img" alt="Hundepension" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🐕 Hundepension</div></a>
+      <a href="/skadedyr" class="brancher-card"><img src="/images/Skadedyr/skadedyr-hero.jpg" class="brancher-card-img" alt="Skadedyrsbekæmpelse" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🐀 Skadedyrsbekæmpelse</div></a>
+      <a href="/haveservice" class="brancher-card"><img src="/images/Haveservice/haveservice-hero.jpg" class="brancher-card-img" alt="Haveservice" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🌱 Haveservice</div></a>
+      <a href="/dyretraener" class="brancher-card"><img src="/images/Dyretraener/dyretraener-hero.jpg" class="brancher-card-img" alt="Dyretræner" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🐕‍🦺 Dyretræner</div></a>
+      <a href="/havearkitekt" class="brancher-card"><img src="/images/Havearkitekt/havearkitekt-hero.jpg" class="brancher-card-img" alt="Havearkitekt" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🌳 Havearkitekt</div></a>
+      <a href="/traefaeldning" class="brancher-card"><img src="/images/Traefaeldning/traefaeldning-hero.jpg" class="brancher-card-img" alt="Træfældning" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🌲 Skovservice &amp; Træfældning</div></a>
+      <a href="/pool-service" class="brancher-card"><img src="/images/Pool-service/pool-service-hero.jpg" class="brancher-card-img" alt="Pool Service" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏊 Pool &amp; Spa Service</div></a>
+    </div>
+
+    <div id="transport-koeretoejer" class="brancher-cat-header">
+      <span style="font-size:2rem">🚗</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Transport &amp; Køretøjer</h2></div>
+    </div>
+    <div class="brancher-grid">
+      <a href="/flyttefirma" class="brancher-card"><img src="/images/Flyttefirma/flyttefirma-hero.jpg" class="brancher-card-img" alt="Flyttefirma" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📦 Flyttefirma</div></a>
+      <a href="/autovaerksted" class="brancher-card"><img src="/images/Autovaerksted/autovaerksted-hero.jpg" class="brancher-card-img" alt="Autoværksted" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🔧 Autoværksted</div></a>
+      <a href="/cykelvaerksted" class="brancher-card"><img src="/images/Cykelvaerksted/cykelvaerksted-hero.jpg" class="brancher-card-img" alt="Cykelværksted" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚲 Cykelværksted</div></a>
+      <a href="/taxa" class="brancher-card"><img src="/images/Taxa/taxa-hero.jpg" class="brancher-card-img" alt="Taxa" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚕 Taxaselskab</div></a>
+      <a href="/bilrens" class="brancher-card"><img src="/images/Bilrens/bilrens-hero.jpg" class="brancher-card-img" alt="Bilrens" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚘 Bilrens &amp; Polering</div></a>
+      <a href="/daekskifte" class="brancher-card"><img src="/images/Daekskifte/daekskifte-hero.jpg" class="brancher-card-img" alt="Dækskifte" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">⚙️ Dækskifte</div></a>
+      <a href="/lastbiltransport" class="brancher-card"><img src="/images/Lastbiltransport/lastbiltransport-hero.jpg" class="brancher-card-img" alt="Lastbiltransport" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🚛 Lastbiltransport</div></a>
+      <a href="/autocamper" class="brancher-card"><img src="/images/Autocamper/autocamper-hero.jpg" class="brancher-card-img" alt="Autocamper" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏕️ Autocamper Udlejning</div></a>
+    </div>
+
+    <div id="skoenhed-pleje" class="brancher-cat-header">
+      <span style="font-size:2rem">💈</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Skønhed &amp; Personlig Pleje</h2></div>
+    </div>
+    <div class="brancher-grid">
+      <a href="/frisoer" class="brancher-card"><img src="/images/Frisoer/frisoer-hero.jpg" class="brancher-card-img" alt="Frisør" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">✂️ Frisør</div></a>
+      <a href="/barbershop" class="brancher-card"><img src="/images/Barbershop/barbershop-hero.jpg" class="brancher-card-img" alt="Barbershop" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💈 Barbershop</div></a>
+      <a href="/rengoering" class="brancher-card"><img src="/images/Rengoering/rengoering-hero.jpg" class="brancher-card-img" alt="Rengøring" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧹 Rengøring</div></a>
+      <a href="/neglstudie" class="brancher-card"><img src="/images/Neglstudie/neglstudie-hero.jpg" class="brancher-card-img" alt="Neglstudie" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💅 Neglstudie</div></a>
+      <a href="/vippeforlaengelse" class="brancher-card"><img src="/images/Vippeforlaengelse/vippeforlaengelse-hero.jpg" class="brancher-card-img" alt="Vippeforlængelse" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">👁️ Vippeforlængelse</div></a>
+      <a href="/makeup-artist" class="brancher-card"><img src="/images/Makeup-artist/makeup-artist-hero.jpg" class="brancher-card-img" alt="Makeup Artist" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💄 Makeup Artist</div></a>
+      <a href="/spa-wellness" class="brancher-card"><img src="/images/Spa-wellness/spa-wellness-hero.jpg" class="brancher-card-img" alt="SPA &amp; Wellness" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🧖 SPA &amp; Wellness</div></a>
+      <a href="/spray-tan" class="brancher-card"><img src="/images/Spray-tan/spray-tan-hero.jpg" class="brancher-card-img" alt="Spray Tan" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🌟 Spray Tan</div></a>
+      <a href="/tatovoer" class="brancher-card"><img src="/images/Tatovoer/tatovoer-hero.jpg" class="brancher-card-img" alt="Tatovør" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🖊️ Tatovør</div></a>
+      <a href="/vinduespolering" class="brancher-card"><img src="/images/Vinduespolering/vinduespolering-hero.jpg" class="brancher-card-img" alt="Vinduespolering" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🪟 Vinduespolering</div></a>
+      <a href="/erhvervsrengoering" class="brancher-card"><img src="/images/Erhvervsrengoering/erhvervsrengoering-hero.jpg" class="brancher-card-img" alt="Erhvervsrengøring" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏢 Erhvervsrengøring</div></a>
+      <a href="/kropsbehandling" class="brancher-card"><img src="/images/Kropsbehandling/kropsbehandling-hero.jpg" class="brancher-card-img" alt="Kropsbehandling" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💆 Kropsbehandling</div></a>
+    </div>
+
+    <div id="service-oevrige" class="brancher-cat-header">
+      <span style="font-size:2rem">🛎️</span>
+      <div><p class="brancher-cat-label">Kategori</p><h2>Service &amp; Øvrige</h2></div>
+    </div>
+    <div class="brancher-grid">
+      <a href="/begravelse" class="brancher-card"><img src="/images/Begravelse/begravelse-hero.jpg" class="brancher-card-img" alt="Begravelsesforretning" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🕊️ Begravelsesforretning</div></a>
+      <a href="/rejsebureau" class="brancher-card"><img src="/images/Rejsebureau/rejsebureau-hero.jpg" class="brancher-card-img" alt="Rejsebureau" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">✈️ Rejsebureau</div></a>
+      <a href="/personlig-stylist" class="brancher-card"><img src="/images/Personlig-stylist/personlig-stylist-hero.jpg" class="brancher-card-img" alt="Personlig Stylist" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">👗 Personlig Stylist</div></a>
+      <a href="/paintball" class="brancher-card"><img src="/images/Paintball/paintball-hero.jpg" class="brancher-card-img" alt="Paintball" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🎯 Paintball &amp; Laser Tag</div></a>
+      <a href="/blomsterhandler" class="brancher-card"><img src="/images/Blomsterhandler/blomsterhandler-hero.jpg" class="brancher-card-img" alt="Blomsterhandler" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">💐 Blomsterhandler</div></a>
+      <a href="/vinhandler" class="brancher-card"><img src="/images/Vinhandler/vinhandler-hero.jpg" class="brancher-card-img" alt="Vinhandler" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🍷 Vinhandler</div></a>
+      <a href="/boghandler" class="brancher-card"><img src="/images/Boghandler/boghandler-hero.jpg" class="brancher-card-img" alt="Boghandler" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">📖 Boghandler</div></a>
+      <a href="/kunstgalleri" class="brancher-card"><img src="/images/Kunstgalleri/kunstgalleri-hero.jpg" class="brancher-card-img" alt="Kunstgalleri" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🖼️ Kunstgalleri</div></a>
+      <a href="/bed-and-breakfast" class="brancher-card"><img src="/images/Bed-and-breakfast/bed-and-breakfast-hero.jpg" class="brancher-card-img" alt="Bed &amp; Breakfast" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🛏️ Bed &amp; Breakfast</div></a>
+      <a href="/escape-room" class="brancher-card"><img src="/images/Escape-room/escape-room-hero.jpg" class="brancher-card-img" alt="Escape Room" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🔐 Escape Room</div></a>
+      <a href="/ejendomsadministration" class="brancher-card"><img src="/images/Ejendomsadministration/ejendomsadministration-hero.jpg" class="brancher-card-img" alt="Ejendomsadministration" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🏢 Ejendomsadministration</div></a>
+      <a href="/homestaging" class="brancher-card"><img src="/images/Homestaging/homestaging-hero.jpg" class="brancher-card-img" alt="Home Staging" loading="lazy" onerror="this.style.display='none'"><div class="brancher-card-body">🛋️ Home Staging</div></a>
+    </div>
+
   </div>
 </section>
 
@@ -281,22 +617,12 @@
     </div>
   </div>
 </section>
-
-<div class="seo-block">
-  <h3>Webdesign til alle brancher i Danmark</h3>
-  <p>NordicWebFlow er et webbureau i København der leverer professionelle hjemmesider og lokal SEO til lokale virksomheder på tværs af 28+ brancher. Fra håndværkere og sundhedsprofessionelle til restauranter og liberale erhverv — vi bygger lynhurtige, skræddersyede hjemmesider fra 1.499 kr. med 100% ejerskab fra dag ét.</p>
-  <div class="internal-links"><a href="/#beregn-din-pris">Se vores priser</a> · <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO København</a> · <a href="https://seotjek.dk">Gratis SEO-tjek</a> · <a href="/cases">Cases &amp; resultater</a> · <a href="/toemrer">Webdesign til tømrere</a> · <a href="/tandlaege">Webdesign til tandlæger</a></div>
-</div>
 </main>
-
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo">
-          <div class="footer-logo-icon">N</div>
-          <span class="footer-logo-text">Nordic<span>WebFlow</span></span>
-        </div>
+        <div class="footer-logo"><div class="footer-logo-icon">N</div><span class="footer-logo-text">Nordic<span>WebFlow</span></span></div>
         <p>Vi bygger lynhurtige digitale salgsmaskiner for ambitiøse lokale virksomheder. Fra premium webdesign til lokal dominans på Google.</p>
         <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
           <a href="https://g.page/r/CVCeBui8XFZJEAE/review" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(66,133,244,.15);border:1px solid rgba(66,133,244,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#FBBC04">★</span> Google</a>
@@ -305,36 +631,21 @@
           <a href="https://www.facebook.com/profile.php?id=61576391762219" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#fff;background:rgba(24,119,242,.12);border:1px solid rgba(24,119,242,.3);padding:6px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:5px"><span style="color:#1877F2">f</span> Facebook</a>
         </div>
       </div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h5>Brancher</h5>
-        <a href="/toemrer">Tømrer</a>
-        <a href="/tandlaege">Tandlæge</a>
-        <a href="/advokat">Advokat</a>
-        <a href="/murer">Murer</a>
-        <a href="/elektriker">Elektriker</a>
-        <a href="/maler">Maler</a>
-        <a href="/vvs">VVS</a>
-        <a href="/fysioterapeut">Fysioterapeut</a>
-        <a href="/revisor">Revisor</a>
-        <a href="/ejendomsmaegler">Ejendomsmægler</a>
-        <a href="/arkitekt">Arkitekt</a>
-        <a href="/frisoer">Frisør</a>
-        <a href="/autovaerksted">Autoværksted</a>
-        <a href="/restaurant">Restaurant</a>
-        <a href="/luksusrestaurant">Luksusrestaurant</a>
-        <a href="/kebab-pizza">Kebab &amp; Pizza</a>
-        <a href="/cafe">Café</a>
-        <a href="/laege-klinik">Læge &amp; Klinik</a>
-        <a href="/dyrlaege">Dyrlæge</a>
-        <a href="/fotograf">Fotograf</a>
-        <a href="/personlig-traener">Personlig Træner</a>
-        <a href="/rengoering">Rengøring</a>
-        <a href="/tagdaekker">Tagdækker</a>
-        <a href="/laasesmed">Låsesmed</a>
-        <a href="/gulvlaegger">Gulvlægger</a>
-        <a href="/anlaegsgartner">Anlægsgartner</a>
-        <a href="/barbershop">Barbershop</a>
-        <a href="/cykelvaerksted">Cykelværksted</a>
+        <a href="/brancher#haandvaerk-byggeri">🔨 Håndværk &amp; Byggeri</a>
+        <a href="/brancher#sundhed-velvaere">🏥 Sundhed &amp; Velvære</a>
+        <a href="/brancher#mad-drikke">🍽️ Mad &amp; Drikke</a>
+        <a href="/brancher#foto-events">📸 Foto, Kreativt &amp; Events</a>
+        <a href="/brancher#liberale-erhverv">💼 Liberale Erhverv</a>
+        <a href="/brancher#uddannelse-undervisning">🎓 Uddannelse &amp; Undervisning</a>
+        <a href="/brancher#dyr-natur">🐾 Dyr &amp; Natur</a>
+        <a href="/brancher#transport-koeretoejer">🚗 Transport &amp; Køretøjer</a>
+        <a href="/brancher#overnatning-turisme">🏨 Overnatning &amp; Turisme</a>
+        <a href="/brancher#retail-butikker">🏪 Retail &amp; Specialbutikker</a>
+        <a href="/brancher#ejendom-bolig">🏗️ Ejendom &amp; Bolig</a>
+        <a href="/brancher#skoenhed-pleje">💈 Skønhed &amp; Personlig Pleje</a>
+        <a href="/brancher" style="font-weight:700;color:var(--orange);margin-top:6px">Se alle brancher →</a>
       </div>
       <div class="footer-col">
         <h5>Ydelser</h5>
@@ -342,18 +653,15 @@
         <a href="/ydelser/lokal-seo-koebenhavn">Lokal SEO Optimering</a>
         <a href="/ydelser/google-meta-ads-koebenhavn">Google &amp; Meta Ads</a>
         <a href="/ydelser/drift-og-sikkerhed">Drift &amp; Sikkerhed</a>
-        <a href="/app-udvikling">App Udvikling (Android + iOS)</a>
-        <h5 style="margin-top:20px">Sider</h5>
+        <a href="/app-udvikling">App Udvikling</a>
+        <h5 style="margin-top:20px;color:rgba(255,255,255,.6)">Sider</h5>
         <a href="/cases">Cases</a>
         <a href="/performancechecker">Gratis SEO Tjek</a>
         <a href="/kontakt">Kontakt</a>
         <a href="/#beregn-din-pris">Priser</a>
-        <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer">Gratis SEO Tjek</a>
-        <a href="/blog">Blog</a>
         <a href="/legal">Privatlivspolitik</a>
         <a href="/returpolitik">Returpolitik</a>
         <a href="/handelsbetingelser">Handelsbetingelser</a>
-        <a href="/kurv">Kurv</a>
       </div>
       <div class="footer-col">
         <h5>Kontakt os</h5>
@@ -376,44 +684,83 @@
     </div>
   </div>
 </footer>
-
-<script src="/dark-mode.js"></script>
-<script src="/sparkles.js"></script>
 <script>
+const hbtn=document.getElementById('hamburger-btn');const mob=document.getElementById('mobile-menu');
+if(hbtn&&mob){hbtn.addEventListener('click',()=>{const open=mob.classList.toggle('open');hbtn.setAttribute('aria-expanded',open);});}
+document.querySelectorAll('.dropdown').forEach(d=>{d.addEventListener('mouseenter',()=>d.classList.add('open'));d.addEventListener('mouseleave',()=>d.classList.remove('open'));});
+(function(){var nav=document.getElementById('main-nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});})();
+</script>
+<script src="/dark-mode.js" defer></script>
+<script src="/sparkles.js" defer></script>
+<script>
+/* ── CARD NAV GSAP ── */
 (function(){
-  var c=document.getElementById('cursor');
-  var r=document.getElementById('cursor-ring');
-  if(!c||!r||window.matchMedia('(max-width:860px)').matches)return;
-  var mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});
-  function animRing(){rx+=(mx-rx)*.08;ry+=(my-ry)*.08;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(animRing);}
-  animRing();
-})();
-(function(){
-  var nav=document.getElementById('main-nav');
-  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-})();
-const btn=document.getElementById('hamburger-btn');
-const mob=document.getElementById('mobile-menu');
-if(btn&&mob){
-  btn.addEventListener('click',function(){
-    const open=mob.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open);
-    btn.classList.toggle('active',open);
-  });
-}
-document.querySelectorAll('.dropdown').forEach(function(d){
-  d.addEventListener('mouseenter',function(){d.classList.add('open');});
-  d.addEventListener('mouseleave',function(){d.classList.remove('open');});
-});
-(function(){
-  var els=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
-  if(!els.length)return;
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:.12});
-  els.forEach(function(el){obs.observe(el);});
+  if(window.matchMedia('(min-width:861px)').matches) return;
+  var btn = document.getElementById('hamburger-btn');
+  var panel = document.getElementById('card-nav-panel');
+  if(!btn || !panel) return;
+
+  var cards = panel.querySelectorAll('.nav-card');
+  var open = false;
+
+  // Load GSAP from CDN if not already loaded
+  function initGSAP() {
+    if(window.gsap) { setupAnim(); return; }
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+    s.onload = setupAnim;
+    document.head.appendChild(s);
+  }
+
+  function setupAnim() {
+    gsap.set(panel, { height: 0, overflow: 'hidden', opacity: 0 });
+    gsap.set(cards, { y: 30, opacity: 0 });
+    panel.style.display = 'block';
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      open ? closeMenu() : openMenu();
+    });
+
+    document.addEventListener('click', function(e) {
+      if(open && !panel.contains(e.target) && !btn.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape' && open) closeMenu();
+    });
+  }
+
+  function openMenu() {
+    open = true;
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    panel.classList.add('card-nav-open');
+
+    // measure height
+    gsap.set(panel, { height: 'auto', opacity: 1 });
+    var h = panel.scrollHeight;
+    gsap.set(panel, { height: 0, opacity: 0 });
+
+    gsap.timeline()
+      .to(panel, { height: h, opacity: 1, duration: 0.35, ease: 'power3.out' })
+      .to(cards, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.07 }, '-=0.15');
+  }
+
+  function closeMenu() {
+    open = false;
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+    panel.classList.remove('card-nav-open');
+
+    gsap.timeline()
+      .to(cards, { y: 20, opacity: 0, duration: 0.2, ease: 'power2.in', stagger: 0.04 })
+      .to(panel, { height: 0, opacity: 0, duration: 0.25, ease: 'power2.in' }, '-=0.1');
+  }
+
+  initGSAP();
 })();
 </script>
-</body>
-</html>
+</body></html>
