@@ -359,8 +359,8 @@ nav.scrolled .nav-links a:not(.nav-cta):hover{background:var(--bg2)}
   animation:underline-in 1s .8s ease forwards;
 }
 @keyframes underline-in{to{transform:scaleX(1)}}
-.hero-sub{font-size:1.15rem;color:var(--muted);max-width:540px;margin-bottom:36px;line-height:1.75}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.hero-sub{font-size:1.15rem;color:var(--muted);max-width:540px;margin:0 auto 36px;line-height:1.75;text-align:center}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px;justify-content:center}
 .hero-proof{
   display:flex;gap:32px;flex-wrap:wrap;
   padding-top:40px;border-top:1px solid var(--border);

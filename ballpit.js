@@ -12,11 +12,9 @@
     document.head.appendChild(s);
   }
 
-  // Load Three r155 then RoomEnvironment addon
+  // Load Three r155
   load('https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js', function () {
-    load('https://cdn.jsdelivr.net/npm/three@0.155.0/examples/js/environments/RoomEnvironment.js', function () {
-      start();
-    });
+    start();
   });
 
   function start() {
@@ -64,9 +62,23 @@
     camera.position.set(0, 0, 20);
     camera.lookAt(0, 0, 0);
 
-    // ── ENV MAP via RoomEnvironment (exact same as source) ────────────────
-    var pmrem  = new THREE.PMREMGenerator(renderer);
-    var envTex = pmrem.fromScene(new THREE.RoomEnvironment(), 0.04).texture;
+    // ── ENV MAP — programmatic neutral studio environment ─────────────────
+    // Build a simple HDR-like environment using a CubeRenderTarget
+    var pmrem = new THREE.PMREMGenerator(renderer);
+    pmrem.compileEquirectangularShader();
+
+    // Create a neutral grey scene for environment baking
+    var envScene = new THREE.Scene();
+    // Top light (warm white)
+    var eL1 = new THREE.DirectionalLight(0xfff5e0, 3); eL1.position.set(2, 4, 3); envScene.add(eL1);
+    // Fill light (cool)
+    var eL2 = new THREE.DirectionalLight(0xe0f0ff, 1.5); eL2.position.set(-3, -1, 2); envScene.add(eL2);
+    // Back light
+    var eL3 = new THREE.DirectionalLight(0xffffff, 2); eL3.position.set(0, -4, -3); envScene.add(eL3);
+    // Ambient
+    envScene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+    var envTex = pmrem.fromScene(envScene, 0.04).texture;
     scene.environment = envTex;
     pmrem.dispose();
 
