@@ -19,250 +19,6 @@
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Lokal SEO Guide til København — 7 Trin til Top 3","description":"Komplet lokal SEO guide til virksomheder i København. 7 konkrete trin til at dominere Google Maps og lokale søgeresultater. Google Business Profile, citations, anmeldelser.","author":{"@type":"Person","name":"Diego Maldonado"},"publisher":{"@type":"Organization","name":"NordicWebFlow","url":"https://nordicwebflow.com"},"datePublished":"2026-03-25","dateModified":"2026-03-25","mainEntityOfPage":"https://nordicwebflow.com/blog/lokal-seo-guide-koebenhavn"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvor lang tid tager lokal SEO at virke?","acceptedAnswer":{"@type":"Answer","text":"Typisk 3-6 måneder for synlige resultater. GBP-optimeringer kan virke inden for uger. On-page SEO og backlinks tager længere tid at slå igennem."}},{"@type":"Question","name":"Hvad er det vigtigste for lokal SEO?","acceptedAnswer":{"@type":"Answer","text":"Google Business Profile er den vigtigste enkeltfaktor. En komplet, verificeret GBP med gode anmeldelser og korrekt NAP-information er fundamentet."}},{"@type":"Question","name":"Kan jeg lave lokal SEO selv?","acceptedAnswer":{"@type":"Answer","text":"Ja, de basale trin kan du selv. GBP-opsætning, citations og anmeldelser kræver ikke teknisk viden. On-page SEO og schema markup kræver mere erfaring."}}]}</script>
-<style>
-/* ── CARD NAV (mobile hamburger replacement) ── */
-.card-nav-hamburger {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  color: var(--heading);
-}
-@media (max-width: 860px) {
-  .card-nav-hamburger { display: flex; }
-}
-.hamburger-line {
-  width: 24px;
-  height: 2px;
-  background-color: currentColor;
-  transition: transform 0.25s ease, opacity 0.2s ease;
-  transform-origin: 50% 50%;
-  display: block;
-}
-.card-nav-hamburger.open .hamburger-line:first-child {
-  transform: translateY(4px) rotate(45deg);
-}
-.card-nav-hamburger.open .hamburger-line:last-child {
-  transform: translateY(-4px) rotate(-45deg);
-}
-.card-nav-panel {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 92%;
-  max-width: 480px;
-  z-index: 200;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0,0,0,.18);
-}
-@media (max-width: 860px) {
-  .card-nav-panel { display: block; }
-}
-.card-nav-panel.card-nav-open {
-  pointer-events: auto;
-}
-.card-nav-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 6px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-}
-.nav-card {
-  border-radius: calc(1rem - 4px);
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-}
-.nav-card-1 { background: #0f0f0f; color: #fff; }
-.nav-card-2 { background: #1a0a2e; color: #fff; }
-.nav-card-3 { background: #E84400; color: #fff; }
-[data-theme="light"] .nav-card-1 { background: #1a1a2e; }
-.nav-card-label {
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -.03em;
-  color: inherit;
-}
-.nav-card-links {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.nav-card-link {
-  font-size: .9rem;
-  color: rgba(255,255,255,.8);
-  text-decoration: none;
-  padding: 3px 0;
-  transition: color .2s, opacity .2s;
-  display: block;
-}
-.nav-card-link:hover { color: #fff; opacity: .9; }
-.nav-card-cta {
-  margin-top: 6px;
-  background: rgba(255,255,255,.15);
-  border-radius: 8px;
-  padding: 8px 14px !important;
-  font-weight: 700;
-  color: #fff !important;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,.25);
-}
-.nav-card-cta:hover { background: rgba(255,255,255,.25) !important; }
-/* hide old mobile-menu styles */
-.mobile-menu { display: none !important; }
-</style>
-<style>
-/* ── CARD NAV ── */
-.card-nav-hamburger {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  color: var(--heading);
-}
-@media (max-width: 860px) {
-  .card-nav-hamburger { display: flex; }
-}
-.hamburger-line {
-  width: 22px;
-  height: 2px;
-  background-color: currentColor;
-  transition: transform 0.25s ease, opacity 0.2s ease;
-  transform-origin: 50% 50%;
-  display: block;
-  border-radius: 2px;
-}
-.card-nav-hamburger.open .hamburger-line:first-child {
-  transform: translateY(3.5px) rotate(45deg);
-}
-.card-nav-hamburger.open .hamburger-line:last-child {
-  transform: translateY(-3.5px) rotate(-45deg);
-}
-/* Panel */
-.card-nav-panel {
-  display: none;
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 92%;
-  max-width: 460px;
-  z-index: 200;
-}
-@media (max-width: 860px) {
-  .card-nav-panel { display: block; }
-}
-.card-nav-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 5px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-}
-/* Card 1 — warm cream (site's own bg) */
-.nav-card {
-  border-radius: 16px;
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(24px);
-  will-change: transform, opacity;
-}
-.nav-card-1 {
-  background: var(--card);
-  border: 1px solid var(--border);
-  color: var(--heading);
-}
-/* Card 2 — deep dark */
-.nav-card-2 {
-  background: #0E0D0B;
-  border: 1px solid #2C2922;
-  color: #F2EDE7;
-}
-[data-theme="light"] .nav-card-2 {
-  background: #0E0D0B;
-  border-color: #2C2922;
-  color: #F2EDE7;
-}
-/* Card 3 — orange brand */
-.nav-card-3 {
-  background: #E84400;
-  border: 1px solid #C23A00;
-  color: #fff;
-}
-.nav-card-label {
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: -.04em;
-  font-family: var(--font-display);
-}
-.nav-card-1 .nav-card-label { color: var(--heading); }
-.nav-card-2 .nav-card-label { color: #F2EDE7; }
-.nav-card-3 .nav-card-label { color: #fff; }
-.nav-card-links {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.nav-card-link {
-  font-size: .875rem;
-  text-decoration: none;
-  padding: 4px 0;
-  transition: opacity .2s;
-  display: block;
-  font-weight: 500;
-}
-.nav-card-1 .nav-card-link { color: var(--text); }
-.nav-card-2 .nav-card-link { color: rgba(242,237,231,.75); }
-.nav-card-3 .nav-card-link { color: rgba(255,255,255,.85); }
-.nav-card-link:hover { opacity: .7; }
-.nav-card-highlight {
-  font-weight: 700 !important;
-  color: #E84400 !important;
-}
-.nav-card-3 .nav-card-highlight {
-  color: #fff !important;
-  opacity: 1;
-}
-.nav-card-cta {
-  margin-top: 8px;
-  background: rgba(255,255,255,.18);
-  border-radius: 10px;
-  padding: 9px 14px !important;
-  font-weight: 700 !important;
-  color: #fff !important;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,.3);
-  transition: background .2s !important;
-}
-.nav-card-cta:hover { background: rgba(255,255,255,.28) !important; opacity: 1 !important; }
-.mobile-menu { display: none !important; }
-</style>
 </head>
 <body class="page-inner">
 <!-- CUSTOM CURSOR (desktop only) -->
@@ -326,47 +82,24 @@
           <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
         </a>
       </div>
-            <button class="hamburger card-nav-hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="card-nav-panel">
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </div>
-  <!-- CARD NAV PANEL -->
-  <div class="card-nav-panel" id="card-nav-panel" aria-hidden="true">
-    <div class="card-nav-cards">
-      <div class="nav-card nav-card-1">
-        <div class="nav-card-label">Ydelser</div>
-        <div class="nav-card-links">
-          <a href="/ydelser/lynhurtige-hjemmesider-framer" class="nav-card-link">↗ Premium Hjemmesider</a>
-          <a href="/ydelser/lokal-seo-koebenhavn" class="nav-card-link">↗ Lokal SEO</a>
-          <a href="/ydelser/google-meta-ads-koebenhavn" class="nav-card-link">↗ Google &amp; Meta Ads</a>
-          <a href="/ydelser/drift-og-sikkerhed" class="nav-card-link">↗ Drift &amp; Sikkerhed</a>
-          <a href="/app-udvikling" class="nav-card-link">↗ App Udvikling</a>
-        </div>
-      </div>
-      <div class="nav-card nav-card-2">
-        <div class="nav-card-label">Brancher</div>
-        <div class="nav-card-links">
-          <a href="/brancher#haandvaerk-byggeri" class="nav-card-link">↗ Håndværk &amp; Byggeri</a>
-          <a href="/brancher#sundhed-velvaere" class="nav-card-link">↗ Sundhed &amp; Velvære</a>
-          <a href="/brancher#mad-drikke" class="nav-card-link">↗ Mad &amp; Drikke</a>
-          <a href="/brancher#liberale-erhverv" class="nav-card-link">↗ Liberale Erhverv</a>
-          <a href="/brancher#skoenhed-pleje" class="nav-card-link">↗ Skønhed &amp; Pleje</a>
-          <a href="/brancher" class="nav-card-link" style="font-weight:700;color:#E84400">↗ Se alle brancher</a>
-        </div>
-      </div>
-      <div class="nav-card nav-card-3">
-        <div class="nav-card-label">Mere</div>
-        <div class="nav-card-links">
-          <a href="/cases" class="nav-card-link">↗ Cases</a>
-          <a href="/performancechecker" class="nav-card-link">↗ Gratis SEO Tjek</a>
-          <a href="/kontakt" class="nav-card-link">↗ Kontakt</a>
-          <a href="/priser" class="nav-card-link">↗ Priser</a>
-          <a href="/#beregn-din-pris" class="nav-card-link nav-card-cta">Beregn din pris →</a>
-        </div>
-      </div>
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
+    <div class="mobile-menu-cat">Ydelser</div>
+    <div class="mobile-menu-ydelser">
+      <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
+      <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
+      <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
+      <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
     </div>
+    <a href="/brancher"><span class="mm-icon">🏢</span>Brancher</a>
+    <div class="mobile-menu-cat">Mere</div>
+    <a href="/#beregn-din-pris">Priser</a>
+    <a href="/kontakt">Kontakt</a>
+    <a href="/#beregn-din-pris" class="mobile-menu-cta">Beregn din pris →</a>
   </div>
 </nav>
 <main id="main-content">

@@ -16,6 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index,follow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="/images/hjemmeside-mockup-nordicwebflow.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#FAFAF8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,339 +28,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"author":{"@type":"Person","name":"Benjamin Wenneke"},"reviewBody":"Jeg kan klart anbefale Nordicwebflow. De har lavet min hjemmeside, og resultatet er virkelig imponerende. Designet er flot, stilrent og professionelt.","itemReviewed":{"@type":"LocalBusiness","name":"NordicWebFlow"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hvad koster en hjemmeside hos NordicWebFlow?","acceptedAnswer":{"@type":"Answer","text":"Vores hjemmesider starter fra 1.499 kr. for 1 side. Du tilpasser prisen selv i vores beregner — vælg antal sider og tilvalg. Ingen skjulte gebyrer, du ejer siden 100%."}},{"@type":"Question","name":"Hvor lang tid tager det at bygge en hjemmeside?","acceptedAnswer":{"@type":"Answer","text":"Vi leverer din færdige hjemmeside på under 14 dage fra bestilling til lancering."}},{"@type":"Question","name":"Hvilke brancher arbejder I med?","acceptedAnswer":{"@type":"Answer","text":"Vi specialiserer os i lokale virksomheder som tømrere, tandlæger, advokater, murere, elektrikere, malere, VVS-firmaer, fysioterapeuter, revisorer og ejendomsmæglere i København."}},{"@type":"Question","name":"Er hjemmesiden SEO-optimeret?","acceptedAnswer":{"@type":"Answer","text":"Ja, alle vores hjemmesider er 100% teknisk SEO-optimerede fra dag ét — inkl. meta-titler, schema markup, sitemap og Core Web Vitals."}},{"@type":"Question","name":"Ejer jeg min hjemmeside?","acceptedAnswer":{"@type":"Answer","text":"Ja, 100%. Du ejer siden, koden og domænet fra dag ét. Ingen bindende abonnementer eller lock-in."}},{"@type":"Question","name":"Hvad er inkluderet i Lokal SEO-pakken?","acceptedAnswer":{"@type":"Answer","text":"Lokal SEO-pakken til 1.999 kr./md. inkluderer optimering af Google Business Profile, månedlig keyword-tracking, on-page SEO-opdateringer og en simpel månedlig rapport."}},{"@type":"Question","name":"Bruger I Custom kode til alle hjemmesider?","acceptedAnswer":{"@type":"Answer","text":"Ja. Vi bygger udelukkende med custom kode fordi det producerer lynhurtige hjemmesider med sub-1-sekunds loadtid og 100 PageSpeed-score."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"NordicWebFlow","url":"https://nordicwebflow.com","potentialAction":{"@type":"SearchAction","target":"https://nordicwebflow.com/performancechecker?url={search_term_string}","query-input":"required name=search_term_string"}}</script>
-<style>
-/* ── BALLPIT HERO ── */
-#hero-section {
-  position: relative;
-  overflow: hidden;
-  min-height: 600px;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  padding-top: 68px;
-}
-.ballpit-wrap {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-#ballpit-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.hero-content-wrap {
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-  width: 100%;
-}
-.hero-content-wrap a,
-.hero-content-wrap button { pointer-events: auto; }
-.hero-text-center {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 60px 0;
-}
-.hero-text-center .hero-actions {
-  justify-content: center;
-}
-@media (max-width: 860px) {
-  #hero-section { min-height: 480px; }
-  .hero-text-center { padding: 40px 0; }
-}
-
-/* ── CARD NAV (mobile hamburger replacement) ── */
-.card-nav-hamburger {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  color: var(--heading);
-}
-@media (max-width: 860px) {
-  .card-nav-hamburger { display: flex; }
-}
-.hamburger-line {
-  width: 24px;
-  height: 2px;
-  background-color: currentColor;
-  transition: transform 0.25s ease, opacity 0.2s ease;
-  transform-origin: 50% 50%;
-  display: block;
-}
-.card-nav-hamburger.open .hamburger-line:first-child {
-  transform: translateY(4px) rotate(45deg);
-}
-.card-nav-hamburger.open .hamburger-line:last-child {
-  transform: translateY(-4px) rotate(-45deg);
-}
-.card-nav-panel {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 92%;
-  max-width: 480px;
-  z-index: 200;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0,0,0,.18);
-}
-@media (max-width: 860px) {
-  .card-nav-panel { display: block; }
-}
-.card-nav-panel.card-nav-open {
-  pointer-events: auto;
-}
-.card-nav-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 6px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-}
-.nav-card {
-  border-radius: calc(1rem - 4px);
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-}
-.nav-card-1 { background: #0f0f0f; color: #fff; }
-.nav-card-2 { background: #1a0a2e; color: #fff; }
-.nav-card-3 { background: #E84400; color: #fff; }
-[data-theme="light"] .nav-card-1 { background: #1a1a2e; }
-.nav-card-label {
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -.03em;
-  color: inherit;
-}
-.nav-card-links {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.nav-card-link {
-  font-size: .9rem;
-  color: rgba(255,255,255,.8);
-  text-decoration: none;
-  padding: 3px 0;
-  transition: color .2s, opacity .2s;
-  display: block;
-}
-.nav-card-link:hover { color: #fff; opacity: .9; }
-.nav-card-cta {
-  margin-top: 6px;
-  background: rgba(255,255,255,.15);
-  border-radius: 8px;
-  padding: 8px 14px !important;
-  font-weight: 700;
-  color: #fff !important;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,.25);
-}
-.nav-card-cta:hover { background: rgba(255,255,255,.25) !important; }
-/* hide old mobile-menu styles */
-.mobile-menu { display: none !important; }
-</style>
-<style>
-
-/* ── BALLPIT HERO ── */
-#hero-section {
-  position: relative;
-  overflow: hidden;
-  min-height: 600px;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  padding-top: 68px;
-}
-.ballpit-wrap {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-#ballpit-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.hero-content-wrap {
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-  width: 100%;
-}
-.hero-content-wrap a,
-.hero-content-wrap button { pointer-events: auto; }
-.hero-text-center {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 60px 0;
-}
-.hero-text-center .hero-actions {
-  justify-content: center;
-}
-@media (max-width: 860px) {
-  #hero-section { min-height: 480px; }
-  .hero-text-center { padding: 40px 0; }
-}
-
-/* ── CARD NAV ── */
-.card-nav-hamburger {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  color: var(--heading);
-}
-@media (max-width: 860px) {
-  .card-nav-hamburger { display: flex; }
-}
-.hamburger-line {
-  width: 22px;
-  height: 2px;
-  background-color: currentColor;
-  transition: transform 0.25s ease, opacity 0.2s ease;
-  transform-origin: 50% 50%;
-  display: block;
-  border-radius: 2px;
-}
-.card-nav-hamburger.open .hamburger-line:first-child {
-  transform: translateY(3.5px) rotate(45deg);
-}
-.card-nav-hamburger.open .hamburger-line:last-child {
-  transform: translateY(-3.5px) rotate(-45deg);
-}
-/* Panel */
-.card-nav-panel {
-  display: none;
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 92%;
-  max-width: 460px;
-  z-index: 200;
-}
-@media (max-width: 860px) {
-  .card-nav-panel { display: block; }
-}
-.card-nav-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 5px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-}
-/* Card 1 — warm cream (site's own bg) */
-.nav-card {
-  border-radius: 16px;
-  padding: 16px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(24px);
-  will-change: transform, opacity;
-}
-.nav-card-1 {
-  background: var(--card);
-  border: 1px solid var(--border);
-  color: var(--heading);
-}
-/* Card 2 — deep dark */
-.nav-card-2 {
-  background: #0E0D0B;
-  border: 1px solid #2C2922;
-  color: #F2EDE7;
-}
-[data-theme="light"] .nav-card-2 {
-  background: #0E0D0B;
-  border-color: #2C2922;
-  color: #F2EDE7;
-}
-/* Card 3 — orange brand */
-.nav-card-3 {
-  background: #E84400;
-  border: 1px solid #C23A00;
-  color: #fff;
-}
-.nav-card-label {
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: -.04em;
-  font-family: var(--font-display);
-}
-.nav-card-1 .nav-card-label { color: var(--heading); }
-.nav-card-2 .nav-card-label { color: #F2EDE7; }
-.nav-card-3 .nav-card-label { color: #fff; }
-.nav-card-links {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.nav-card-link {
-  font-size: .875rem;
-  text-decoration: none;
-  padding: 4px 0;
-  transition: opacity .2s;
-  display: block;
-  font-weight: 500;
-}
-.nav-card-1 .nav-card-link { color: var(--text); }
-.nav-card-2 .nav-card-link { color: rgba(242,237,231,.75); }
-.nav-card-3 .nav-card-link { color: rgba(255,255,255,.85); }
-.nav-card-link:hover { opacity: .7; }
-.nav-card-highlight {
-  font-weight: 700 !important;
-  color: #E84400 !important;
-}
-.nav-card-3 .nav-card-highlight {
-  color: #fff !important;
-  opacity: 1;
-}
-.nav-card-cta {
-  margin-top: 8px;
-  background: rgba(255,255,255,.18);
-  border-radius: 10px;
-  padding: 9px 14px !important;
-  font-weight: 700 !important;
-  color: #fff !important;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,.3);
-  transition: background .2s !important;
-}
-.nav-card-cta:hover { background: rgba(255,255,255,.28) !important; opacity: 1 !important; }
-.mobile-menu { display: none !important; }
-</style>
 </head>
 <body>
 
@@ -424,75 +92,105 @@
           <span class="nav-cart-badge hidden" id="nav-cart-badge">0</span>
         </a>
       </div>
-            <button class="hamburger card-nav-hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="card-nav-panel">
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </div>
-  <!-- CARD NAV PANEL -->
-  <div class="card-nav-panel" id="card-nav-panel" aria-hidden="true">
-    <div class="card-nav-cards">
-      <div class="nav-card nav-card-1">
-        <div class="nav-card-label">Ydelser</div>
-        <div class="nav-card-links">
-          <a href="/ydelser/lynhurtige-hjemmesider-framer" class="nav-card-link">↗ Premium Hjemmesider</a>
-          <a href="/ydelser/lokal-seo-koebenhavn" class="nav-card-link">↗ Lokal SEO</a>
-          <a href="/ydelser/google-meta-ads-koebenhavn" class="nav-card-link">↗ Google &amp; Meta Ads</a>
-          <a href="/ydelser/drift-og-sikkerhed" class="nav-card-link">↗ Drift &amp; Sikkerhed</a>
-          <a href="/app-udvikling" class="nav-card-link">↗ App Udvikling</a>
-        </div>
-      </div>
-      <div class="nav-card nav-card-2">
-        <div class="nav-card-label">Brancher</div>
-        <div class="nav-card-links">
-          <a href="/brancher#haandvaerk-byggeri" class="nav-card-link">↗ Håndværk &amp; Byggeri</a>
-          <a href="/brancher#sundhed-velvaere" class="nav-card-link">↗ Sundhed &amp; Velvære</a>
-          <a href="/brancher#mad-drikke" class="nav-card-link">↗ Mad &amp; Drikke</a>
-          <a href="/brancher#liberale-erhverv" class="nav-card-link">↗ Liberale Erhverv</a>
-          <a href="/brancher#skoenhed-pleje" class="nav-card-link">↗ Skønhed &amp; Pleje</a>
-          <a href="/brancher" class="nav-card-link" style="font-weight:700;color:#E84400">↗ Se alle brancher</a>
-        </div>
-      </div>
-      <div class="nav-card nav-card-3">
-        <div class="nav-card-label">Mere</div>
-        <div class="nav-card-links">
-          <a href="/cases" class="nav-card-link">↗ Cases</a>
-          <a href="/performancechecker" class="nav-card-link">↗ Gratis SEO Tjek</a>
-          <a href="/kontakt" class="nav-card-link">↗ Kontakt</a>
-          <a href="/priser" class="nav-card-link">↗ Priser</a>
-          <a href="/#beregn-din-pris" class="nav-card-link nav-card-cta">Beregn din pris →</a>
-        </div>
-      </div>
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobilmenu">
+    <div class="mobile-menu-cat">Ydelser</div>
+    <div class="mobile-menu-ydelser">
+      <a href="/ydelser/lynhurtige-hjemmesider-framer"><span class="mm-icon">🖥️</span>Premium Hjemmesider</a>
+      <a href="/ydelser/lokal-seo-koebenhavn"><span class="mm-icon">📍</span>Lokal SEO</a>
+      <a href="/ydelser/google-meta-ads-koebenhavn"><span class="mm-icon">📢</span>Google &amp; Meta Ads</a>
+      <a href="/app-udvikling"><span class="mm-icon">📱</span>App Udvikling</a>
     </div>
+    <a href="/brancher"><span class="mm-icon">🏢</span>Brancher</a>
+    <div class="mobile-menu-cat">Mere</div>
+    <a href="/#beregn-din-pris">Priser</a>
+    <a href="/kontakt">Kontakt</a>
+    <a href="/#beregn-din-pris" class="mobile-menu-cta">Beregn din pris →</a>
   </div>
 </nav>
 
 <main id="main-content">
 
 <!-- HERO -->
-<section class="hero" id="hero-section">
-  <div class="ballpit-wrap" id="ballpit-wrap">
-    <canvas id="ballpit-canvas" aria-hidden="true"></canvas>
-  </div>
-  <div class="container hero-content-wrap">
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container">
     <div class="hero-inner">
-      <div class="hero-text-center">
-        <h1 class="reveal d1 visible">
-          Hjemmesider der<br>
-          <em>skaffer kunder</em><br>
-          i København
-        </h1>
-        <p class="hero-sub reveal d2 visible">Glem langsomme skabeloner. Professionelt webdesign med benhård lokal SEO i København — lynhurtige hjemmesider fra 1.499 kr. Du ejer alt 100% fra dag ét.</p>
-        <div class="hero-actions reveal d3 visible">
-          <a href="/#beregn-din-pris" class="btn btn-primary btn-lg">Beregn din pris →</a>
-          <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Gratis hjemmeside test</a>
+      <div class="grid-2" style="gap:64px;align-items:center">
+        <div>
+          <h1 class="reveal d1 visible">
+            Hjemmesider der<br>
+            <em>skaffer kunder</em><br>
+            i København
+          </h1>
+          <p class="hero-sub reveal d2 visible">Glem langsomme skabeloner. Professionelt webdesign med benhård lokal SEO i København — lynhurtige hjemmesider fra 1.499 kr. Du ejer alt 100% fra dag ét.</p>
+          <div class="hero-actions reveal d3 visible">
+            <a href="/#beregn-din-pris" class="btn btn-primary btn-lg">Beregn din pris →</a>
+            <a href="https://seotjek.dk/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">Gratis hjemmeside test</a>
+          </div>
+          <div class="hero-proof reveal d4">
+            <div class="proof-item">
+              <span class="proof-num o">100%</span>
+              <span class="proof-lbl">Optimeret</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-num g">&lt;1s</span>
+              <span class="proof-lbl">Loadtid</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-num b">100%</span>
+              <span class="proof-lbl">SEO Score</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-num p">14d</span>
+              <span class="proof-lbl">Lancering</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual-col reveal-right d2">
+          <!-- Morphing blob background -->
+          <svg class="hero-blob" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;inset:-15%;width:130%;height:130%;z-index:0;opacity:.12;pointer-events:none">
+            <defs>
+              <linearGradient id="blob-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#E84400"/>
+                <stop offset="50%" style="stop-color:#2563EB"/>
+                <stop offset="100%" style="stop-color:#7C3AED"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#blob-grad)">
+              <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450Q159,406,99.5,356Q40,306,40.5,235Q41,164,89,107Q137,50,210.5,34Q284,18,345,62.5Q406,107,435,178.5Q464,250,440.5,320.5Z;M453.78,319.01Q414,388,348.5,434Q283,480,216,437.5Q149,395,98.5,347.5Q48,300,40,225Q32,150,92.5,99.5Q153,49,222.5,42Q292,35,348,82Q404,129,445.78,189.5Q487.56,250,453.78,319.01Z;M411,314Q400,378,342.5,427Q285,476,219.5,445.5Q154,415,104,363.5Q54,312,46.5,237.5Q39,163,96.5,109Q154,55,224,47.5Q294,40,348.5,84.5Q403,129,412,189.5Q421,250,411,314Z;M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450Q159,406,99.5,356Q40,306,40.5,235Q41,164,89,107Q137,50,210.5,34Q284,18,345,62.5Q406,107,435,178.5Q464,250,440.5,320.5Z"/>
+            </path>
+          </svg>
+          <div class="hero-mockup" id="hero-mockup" style="position:relative">
+            <div class="mockup-bar">
+              <div class="mockup-dots"><span></span><span></span><span></span></div>
+              <div class="mockup-url">nordicwebflow.com</div>
+            </div>
+            
+              
+              <img src="/images/hjemmeside-mockup-nordicwebflow.png"
+                alt="Professionelt webdesign til danske virksomheder"
+                class="mockup-img" width="655" height="409" loading="eager" fetchpriority="high" decoding="async">
+            
+          </div>
+          <div class="hero-float hero-float-1">
+            <div class="float-score">100%</div>
+            <div class="float-lbl">Optimeret</div>
+          </div>
+          <div class="hero-float hero-float-2">
+            <div class="float-stars" style="color:#00b67a">★★★★★</div>
+            <div class="float-txt">"Resultatet er virkelig imponerende" — Benjamin W.</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- Cart toast notification -->
 <div class="cart-toast" id="cart-toast">
@@ -1275,19 +973,29 @@
   </div>
 </section>
 
-<!-- PARTNER — LANYARD CARD -->
+<!-- PARTNER -->
 <section class="partner-section-bg">
   <div class="container">
-    <div class="grid-2" style="gap:56px;align-items:center">
+    <div class="grid-2" style="gap:56px">
       <div class="reveal-left">
         <span class="badge badge-dark" style="margin-bottom:20px">Din Partner</span>
         <h2 style="margin-bottom:16px">Din faste digitale partner i <span>København</span></h2>
         <p class="lead" style="margin-bottom:28px">Ingen bureau-sprog eller lange ventetider. Direkte kontakt til specialisten der bygger din hjemmeside og skalerer din forretning.</p>
+        <div class="partner-card" style="margin-bottom:24px">
+          <img src="/images/Homepage/diego-maldonado.png" alt="Diego Maldonado — Stifter af NordicWebFlow" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);flex-shrink:0" width="64" height="64" loading="lazy">
+          <div>
+            <div style="font-family:var(--font-display);font-weight:700;color:#fff;font-size:1rem">Diego Maldonado</div>
+            <div style="font-size:.82rem;color:rgba(255,255,255,.7);margin-top:2px">Stifter &amp; Digital Strateg</div>
+            <a href="mailto:hej@nordicwebflow.com" style="font-size:.8rem;color:var(--orange)">hej@nordicwebflow.com</a>
+          </div>
+        </div>
         <a href="/#beregn-din-pris" class="btn btn-primary">Beregn din pris →</a>
-        <p style="font-size:.8rem;color:rgba(255,255,255,.45);margin-top:12px">Træk kortet rundt 👆</p>
       </div>
-      <div class="reveal-right" style="position:relative;height:480px;width:100%">
-        <canvas id="lanyard-canvas" aria-label="Diego Maldonado — NordicWebFlow visitkort" style="position:absolute;inset:0;width:100%;height:100%;border-radius:12px;cursor:grab"></canvas>
+      <div class="stats-row reveal-right" style="align-self:center">
+        <div style="text-align:center"><div class="s-val o">100%</div><div class="s-lbl">Optimeret</div></div>
+        <div style="text-align:center"><div class="s-val g">&lt;1s</div><div class="s-lbl">Loadtid</div></div>
+        <div style="text-align:center"><div class="s-val b">100%</div><div class="s-lbl">SEO Score</div></div>
+        <div style="text-align:center"><div class="s-val p">14d</div><div class="s-lbl">Lancering</div></div>
       </div>
     </div>
   </div>
@@ -1950,8 +1658,7 @@ function addToCart(){
   });
 })();
 </script>
-<script src="/ballpit.js" defer></script>
-<script src="/lanyard.js" defer></script>
 <script src="/dark-mode.js" defer></script>
+<script src="/sparkles.js" defer></script>
 </body>
 </html>
