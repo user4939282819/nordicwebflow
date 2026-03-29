@@ -33,12 +33,11 @@
 }
 .brancher-card {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 18px 20px;
+  overflow: hidden;
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
@@ -51,17 +50,15 @@
   transform: translateY(-2px);
   color: var(--heading);
 }
-.brancher-card-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg2);
-  border-radius: 10px;
-  border: 1px solid var(--border);
+.brancher-card-img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.brancher-card-name {
+  padding: 14px 18px 16px;
 }
 .brancher-category {
   font-size: .7rem;
@@ -176,54 +173,54 @@
     <!-- HÅNDVÆRK & BYGGERI -->
     <p class="brancher-category">🔨 Håndværk &amp; Byggeri</p>
     <div class="brancher-grid">
-      <a href="/toemrer" class="brancher-card"><span class="brancher-card-icon">🪚</span>Tømrer</a>
-      <a href="/murer" class="brancher-card"><span class="brancher-card-icon">🧱</span>Murer</a>
-      <a href="/elektriker" class="brancher-card"><span class="brancher-card-icon">⚡</span>Elektriker</a>
-      <a href="/maler" class="brancher-card"><span class="brancher-card-icon">🖌️</span>Maler</a>
-      <a href="/vvs" class="brancher-card"><span class="brancher-card-icon">🔧</span>VVS</a>
-      <a href="/tagdaekker" class="brancher-card"><span class="brancher-card-icon">🏠</span>Tagdækker</a>
-      <a href="/gulvlaegger" class="brancher-card"><span class="brancher-card-icon">🪵</span>Gulvlægger</a>
-      <a href="/anlaegsgartner" class="brancher-card"><span class="brancher-card-icon">🌿</span>Anlægsgartner</a>
-      <a href="/laasesmed" class="brancher-card"><span class="brancher-card-icon">🔑</span>Låsesmed</a>
+      <a href="/toemrer" class="brancher-card"><img src="/images/T%C3%B8mrer/austin-ramsey-rbi4q0-b-8g-unsplash.jpg" alt="Tømrer" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Tømrer</span></a>
+      <a href="/murer" class="brancher-card"><img src="/images/Murer/angel-arcalle-Gz0gfUcCYsU-unsplash.jpg" alt="Murer" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Murer</span></a>
+      <a href="/elektriker" class="brancher-card"><img src="/images/Elektriker/brancher-maler.jpg" alt="Elektriker" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Elektriker</span></a>
+      <a href="/maler" class="brancher-card"><img src="/images/Maler/callum-hill-DJEkxDFAci8-unsplash.webp" alt="Maler" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Maler</span></a>
+      <a href="/vvs" class="brancher-card"><img src="/images/VVS/alexander-schimmeck-1N5jjLyBafc-unsplash.jpg" alt="VVS" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">VVS</span></a>
+      <a href="/tagdaekker" class="brancher-card"><img src="/images/Tagdaekker/tagdaekker-hero.jpg" alt="Tagdækker" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Tagdækker</span></a>
+      <a href="/gulvlaegger" class="brancher-card"><img src="/images/Gulvlaegger/gulvlaegger-hero.jpg" alt="Gulvlægger" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Gulvlægger</span></a>
+      <a href="/anlaegsgartner" class="brancher-card"><img src="/images/Anlaegsgartner/anlaegsgartner-hero.jpg" alt="Anlægsgartner" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Anlægsgartner</span></a>
+      <a href="/laasesmed" class="brancher-card"><img src="/images/Laasesmed/laasesmed-hero.jpg" alt="Låsesmed" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Låsesmed</span></a>
     </div>
 
     <!-- SUNDHED & VELVÆRE -->
     <p class="brancher-category">🏥 Sundhed &amp; Velvære</p>
     <div class="brancher-grid">
-      <a href="/tandlaege" class="brancher-card"><span class="brancher-card-icon">🦷</span>Tandlæge</a>
-      <a href="/fysioterapeut" class="brancher-card"><span class="brancher-card-icon">💪</span>Fysioterapeut</a>
-      <a href="/laege-klinik" class="brancher-card"><span class="brancher-card-icon">🩺</span>Læge &amp; Klinik</a>
-      <a href="/dyrlaege" class="brancher-card"><span class="brancher-card-icon">🐾</span>Dyrlæge</a>
-      <a href="/personlig-traener" class="brancher-card"><span class="brancher-card-icon">🏋️</span>Personlig Træner</a>
+      <a href="/tandlaege" class="brancher-card"><img src="/images/Tandlaege/alex-padurariu-7ByfI6Fpi90-unsplash.webp" alt="Tandlæge" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Tandlæge</span></a>
+      <a href="/fysioterapeut" class="brancher-card"><img src="/images/Fysioterapeut/fysio%202.jpg" alt="Fysioterapeut" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Fysioterapeut</span></a>
+      <a href="/laege-klinik" class="brancher-card"><img src="/images/Laege-Klinik/laege-klinik-hero.jpg" alt="Læge &amp; Klinik" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Læge &amp; Klinik</span></a>
+      <a href="/dyrlaege" class="brancher-card"><img src="/images/Dyrlaege/dyrlaege-hero.jpg" alt="Dyrlæge" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Dyrlæge</span></a>
+      <a href="/personlig-traener" class="brancher-card"><img src="/images/Personlig-Traener/personlig-traener-hero.jpg" alt="Personlig Træner" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Personlig Træner</span></a>
     </div>
 
     <!-- MAD & DRIKKE -->
     <p class="brancher-category">🍽️ Mad &amp; Drikke</p>
     <div class="brancher-grid">
-      <a href="/restaurant" class="brancher-card"><span class="brancher-card-icon">🍴</span>Restaurant</a>
-      <a href="/luksusrestaurant" class="brancher-card"><span class="brancher-card-icon">🥂</span>Luksusrestaurant</a>
-      <a href="/kebab-pizza" class="brancher-card"><span class="brancher-card-icon">🍕</span>Kebab &amp; Pizza</a>
-      <a href="/cafe" class="brancher-card"><span class="brancher-card-icon">☕</span>Café</a>
+      <a href="/restaurant" class="brancher-card"><img src="/images/Restaurant/restaurant-hero.jpg" alt="Restaurant" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Restaurant</span></a>
+      <a href="/luksusrestaurant" class="brancher-card"><img src="/images/Luksusrestaurant/luksusrestaurant-hero.jpg" alt="Luksusrestaurant" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Luksusrestaurant</span></a>
+      <a href="/kebab-pizza" class="brancher-card"><img src="/images/Kebab-Pizza/kebab-pizza-hero.jpg" alt="Kebab &amp; Pizza" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Kebab &amp; Pizza</span></a>
+      <a href="/cafe" class="brancher-card"><img src="/images/Cafe/cafe-hero.jpg" alt="Café" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Café</span></a>
     </div>
 
     <!-- LIBERALE ERHVERV -->
     <p class="brancher-category">💼 Liberale Erhverv</p>
     <div class="brancher-grid">
-      <a href="/advokat" class="brancher-card"><span class="brancher-card-icon">⚖️</span>Advokat</a>
-      <a href="/revisor" class="brancher-card"><span class="brancher-card-icon">📊</span>Revisor</a>
-      <a href="/ejendomsmaegler" class="brancher-card"><span class="brancher-card-icon">🏡</span>Ejendomsmægler</a>
-      <a href="/arkitekt" class="brancher-card"><span class="brancher-card-icon">📐</span>Arkitekt</a>
-      <a href="/fotograf" class="brancher-card"><span class="brancher-card-icon">📸</span>Fotograf</a>
+      <a href="/advokat" class="brancher-card"><img src="/images/Advokat/advokat-arbejde-koebenhavn.jpg" alt="Advokat" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Advokat</span></a>
+      <a href="/revisor" class="brancher-card"><img src="/images/Revisor/alexander-grey-tn57JI3CewI-unsplash.jpg" alt="Revisor" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Revisor</span></a>
+      <a href="/ejendomsmaegler" class="brancher-card"><img src="/images/Ejendomsm%C3%A6gler/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg" alt="Ejendomsmægler" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Ejendomsmægler</span></a>
+      <a href="/arkitekt" class="brancher-card"><img src="/images/Arkitekt/adrian-cuj-o_9YmCY0bag-unsplash.jpg" alt="Arkitekt" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Arkitekt</span></a>
+      <a href="/fotograf" class="brancher-card"><img src="/images/Fotograf/fotograf-hero.jpg" alt="Fotograf" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Fotograf</span></a>
     </div>
 
     <!-- SERVICE & ØVRIGE -->
     <p class="brancher-category">✂️ Service &amp; Øvrige</p>
     <div class="brancher-grid">
-      <a href="/frisoer" class="brancher-card"><span class="brancher-card-icon">✂️</span>Frisør</a>
-      <a href="/barbershop" class="brancher-card"><span class="brancher-card-icon">💈</span>Barbershop</a>
-      <a href="/autovaerksted" class="brancher-card"><span class="brancher-card-icon">🚗</span>Autoværksted</a>
-      <a href="/cykelvaerksted" class="brancher-card"><span class="brancher-card-icon">🚲</span>Cykelværksted</a>
-      <a href="/rengoering" class="brancher-card"><span class="brancher-card-icon">🧹</span>Rengøring</a>
+      <a href="/frisoer" class="brancher-card"><img src="/images/Frisoer/frisoer-hero.jpg" alt="Frisør" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Frisør</span></a>
+      <a href="/barbershop" class="brancher-card"><img src="/images/Barbershop/barbershop-hero.jpg" alt="Barbershop" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Barbershop</span></a>
+      <a href="/autovaerksted" class="brancher-card"><img src="/images/Autovaerksted/autovaerksted-hero.jpg" alt="Autoværksted" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Autoværksted</span></a>
+      <a href="/cykelvaerksted" class="brancher-card"><img src="/images/Cykelvaerksted/cykelvaerksted-hero.jpg" alt="Cykelværksted" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Cykelværksted</span></a>
+      <a href="/rengoering" class="brancher-card"><img src="/images/Rengoering/rengoering-hero.jpg" alt="Rengøring" class="brancher-card-img" loading="lazy"><span class="brancher-card-name">Rengøring</span></a>
     </div>
 
   </div>
